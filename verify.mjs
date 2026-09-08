@@ -1,0 +1,35 @@
+import { chromium } from '@playwright/test';
+import { mkdir } from 'node:fs/promises';
+await mkdir('artifacts', { recursive: true });
+const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true });
+const page = await browser.newPage({ viewport: { width: 1672, height: 950 }, reducedMotion: 'reduce' });
+const errors = [];
+page.on('pageerror', error => errors.push(error.message));
+await page.goto('http://localhost:5173', { waitUntil: 'networkidle' });
+await page.screenshot({ path: 'artifacts/desktop.png', fullPage: true });
+if (await page.locator('h1').count() !== 1) throw new Error('Expected one H1');
+await page.getByRole('button', { name: 'Search XPATZHUB' }).click();
+await page.getByRole('searchbox').fill('events');
+await page.locator('.search-results').getByRole('button', { name: 'Events', exact: true }).click();
+await page.getByRole('heading', { name: 'Events', exact: true }).waitFor();
+await page.keyboard.press('Escape');
+await page.getByRole('button', { name: 'Watch Our Story' }).click();
+await page.getByText('Our story film is coming soon.').waitFor();
+await page.keyboard.press('Escape');
+await page.getByRole('button', { name: 'Let’s Grow Your Brand' }).click();
+await page.getByRole('checkbox', { name: 'Digital Marketing', exact: true }).check();
+await page.keyboard.press('Escape');
+for (const width of [1440, 834, 390, 360]) {
+  await page.setViewportSize({ width, height: width < 768 ? 844 : 1050 });
+  await page.locator('button:focus').evaluateAll(elements => elements.forEach(element => element.blur()));
+  await page.screenshot({ path: `artifacts/viewport-${width}.png`, fullPage: true });
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+  if (overflow) throw new Error(`Horizontal overflow at ${width}px`);
+}
+await page.getByRole('button', { name: 'Open navigation' }).click();
+await page.getByRole('navigation', { name: 'Mobile navigation' }).getByRole('link', { name: 'Contact' }).click();
+await page.getByRole('heading', { name: 'Let’s grow your brand.' }).waitFor();
+await page.keyboard.press('Escape');
+if (errors.length) throw new Error(errors.join('\n'));
+console.log('PASS: desktop/tablet/mobile, single H1, no overflow or runtime errors, search, service dialogs, story state, enquiry selection, mobile navigation.');
+await browser.close();

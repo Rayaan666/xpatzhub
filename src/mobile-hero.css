@@ -1,0 +1,49 @@
+/* Dedicated portrait hero. All layout rules are restricted to below 768px. */
+.mobile-hero{display:none}
+@media(max-width:767px){
+  .hero:has(.mobile-hero){padding-bottom:0;background:#010305;overflow-x:clip}
+  .hero>.hero-copy,.hero>.artwork,.hero>.grain,.hero>.bottom-fade{display:none}
+  .mobile-hero{display:block;position:relative;isolation:isolate;overflow-x:clip;padding:99px 0 48px;background:radial-gradient(ellipse at 100% 44%,#001329 0%,transparent 44%),linear-gradient(115deg,#010305 15%,#020914 65%,#010305 100%)}
+  .mobile-hero-copy{position:relative;z-index:10;margin:0 22px}
+  .mobile-eyebrow{margin:0 0 19px;white-space:nowrap;font-size:clamp(7px,2.12vw,15px);letter-spacing:.25em;font-weight:400;color:#e0e3e7}
+  .mobile-headline{font-size:17.5vw;font-weight:900;letter-spacing:-.055em;line-height:.94;margin:0;text-transform:uppercase}
+  .mobile-headline>span{display:block}
+  .mobile-headline .mobile-growth{background:linear-gradient(105deg,#20c7ff 0%,#008eff 55%,#376cff 100%);background-clip:text;-webkit-text-fill-color:transparent}
+  .mobile-location{font-size:5vw;letter-spacing:.5em;line-height:1.4;margin-top:13px;white-space:nowrap}
+  .mobile-location>span{display:block;width:38px;height:2px;background:#12c4ff;margin:13px 0 19px}
+  .mobile-description{font-size:3.65vw;line-height:1.5;font-weight:400;letter-spacing:-.02em;color:#d9dce2;width:100%;margin:0 0 23px}
+  .mobile-grow{width:90%;height:60px;border-radius:999px;border:1px solid #249eff;background:linear-gradient(105deg,#00bbf2,#008eff 48%,#284bff);display:flex;align-items:center;justify-content:space-between;padding:0 22px;color:white;font-weight:700;font-size:clamp(14px,4vw,24px);box-shadow:0 5px 24px #008eff20;transition:box-shadow .25s}
+  .mobile-grow svg{flex-shrink:0;transition:transform .25s}
+  .mobile-grow:hover,.mobile-grow:active{box-shadow:0 0 26px #008eff66}
+  .mobile-grow:hover svg,.mobile-grow:active svg{transform:translateX(4px)}
+  .mobile-story{display:flex;align-items:center;gap:12px;margin:16px 0 0;padding:0;background:none;border:0;color:#fff;font-size:clamp(14px,3.8vw,23px);min-height:44px}
+  .mobile-story>span{display:grid;place-items:center;width:44px;height:44px;border:1px solid #eff5ff;border-radius:50%}
+  .mobile-story svg{margin-left:2px}
+  .mobile-phone-collage{position:relative;height:clamp(700px,195vw,1100px);margin-top:20px;isolation:isolate;overflow:hidden}
+  .mobile-phone-collage:after{content:'';position:absolute;z-index:9;inset:auto 0 -1px;height:115px;background:linear-gradient(transparent,#010305 85%);pointer-events:none}
+  .mobile-trails{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:visible}
+  .mobile-phone{position:absolute;filter:drop-shadow(-8px 16px 13px #000c);transform-origin:50% 50%}
+  .mobile-phone img{display:block;width:100%;height:auto;border-radius:12% / 6%;box-shadow:0 0 0 1px #91b6d599,2px 0 3px #158eff90;background:#020914}
+  .mobile-phone-digital{width:47%;right:-3%;top:2%;transform:rotate(-21deg);z-index:2}
+  .mobile-phone-events{width:43%;left:3%;top:27%;transform:rotate(-17deg);z-index:1}
+  .mobile-phone-main{width:52%;left:29%;top:29%;transform:rotate(-9deg);z-index:5;filter:drop-shadow(-9px 12px 14px #000c) drop-shadow(-2px 0 3px #168eff)}
+  .mobile-phone-pr{width:46%;left:5%;top:61%;transform:rotate(-14deg);z-index:3}
+  .mobile-phone-community{width:45%;right:-13%;top:60%;transform:rotate(-19deg);z-index:6}
+  .mobile-hero-stats{position:relative;z-index:10;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:-3px 20px 0;background:#010305}
+  .mobile-hero-stats>div{display:flex;flex-direction:column-reverse;gap:8px;padding:0 7px;border-right:1px solid #647489}
+  .mobile-hero-stats>div:first-child{padding-left:0}
+  .mobile-hero-stats>div:last-child{border:0;padding-right:0}
+  .mobile-hero-stats dd{margin:0;font-size:clamp(23px,6.9vw,48px);font-weight:700;line-height:1;letter-spacing:-.03em}
+  .mobile-hero-stats dt{font-size:clamp(6px,1.8vw,12px);font-weight:400;white-space:nowrap;color:#dce0e6;line-height:1.4}
+}
+@media(min-width:520px) and (max-width:767px){
+  .mobile-hero-copy{margin:0 28px}
+  .mobile-grow{height:64px}
+  .mobile-hero-stats{margin-left:28px;margin-right:28px}
+}
+@media(max-width:350px){
+  .mobile-hero-copy{margin:0 20px}
+  .mobile-eyebrow{letter-spacing:.19em}
+  .mobile-grow{padding:0 17px;width:94%;font-size:13px}
+  .mobile-hero-stats{margin-left:16px;margin-right:16px}
+}
