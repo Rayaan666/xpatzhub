@@ -27,7 +27,7 @@ export default function Footer({ onEnquire, onOpen }) {
         <div className="footer-col footer-col-brand">
           <a href="#home" className="footer-brand-logo" aria-label="XPATZHUB home" onClick={e => e.preventDefault()}>
             <img
-              src="https://res.cloudinary.com/utug407p/image/upload/logo.png"
+              src="/logo.png"
               alt="XPATZHUB"
               className="footer-logo-img"
             />

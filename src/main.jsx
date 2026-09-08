@@ -22,9 +22,9 @@ const services = {
 
 const navLinks = [
   { name: 'Home', id: 'home', href: '#home' },
-  { name: 'SEO & Digital Marketing', id: 'digital', href: '#digital' },
-  { name: 'Community Marketing', id: 'community', href: '#community' },
-  { name: 'Influencer Marketing', id: 'influencer', href: '#influencer' },
+  { name: 'SEO & Digital', id: 'digital', href: '#digital' },
+  { name: 'Community', id: 'community', href: '#community' },
+  { name: 'Influencers', id: 'influencer', href: '#influencer' },
   { name: 'Contact', id: 'contact', href: '#contact' },
 ];
 
@@ -77,41 +77,21 @@ function App() {
   }, [panel]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Keep active nav as 'home' while scrolling through the home page & solutions section
-      setActiveNav('home');
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    setActiveNav('home');
   }, []);
 
-  const open = name => { setMenu(false); setCopied(false); setPanel(name); };
+  const open = name => { setMenu(false); };
   const reveal = (delay = 0) => ({ initial: reduced ? false : { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 }, transition: { duration: .9, delay, ease: [.22, 1, .36, 1] } });
 
   const handleNavClick = (e, link) => {
     e.preventDefault();
-    setMenu(false);
-    setActiveNav(link.id);
-    if (link.id === 'contact') {
-      open('Contact');
-    } else if (link.id === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const target = document.getElementById(link.id);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        open(link.name);
-      }
-    }
   };
 
   return <>
-    {isMobile && <header className="header flex items-center justify-between">
+    <header className="header flex items-center justify-between">
       <a href="#home" className="brand-logo" aria-label="XPATZHUB home" onClick={e => e.preventDefault()}>
         <img
-          src={isMobile ? '/logo.png' : 'https://res.cloudinary.com/utug407p/image/upload/logo.png'}
+          src="/logo.png"
           alt="XPATZHUB"
           className="brand-logo-img"
         />
@@ -119,7 +99,7 @@ function App() {
       <nav className="desktop-nav" aria-label="Main navigation">
         <div className="nav-pill-container">
           {navLinks.map(link => {
-            const isActive = activeNav === link.id;
+            const isActive = link.id === 'home';
             return (
               <a
                 key={link.id}
@@ -144,7 +124,7 @@ function App() {
             <a
               key={link.id}
               href={link.href}
-              className={`mobile-nav-link ${activeNav === link.id ? 'active' : ''}`}
+              className={`mobile-nav-link ${link.id === 'home' ? 'active' : ''}`}
               onClick={e => e.preventDefault()}
             >
               <span>{link.name}</span>
@@ -152,7 +132,7 @@ function App() {
           ))}
         </nav>
       )}
-    </header>}
+    </header>
 
     <main>
       {isMobile ? <section id="home" className="hero relative isolate overflow-hidden bg-[#020305] text-white" aria-label="XPATZHUB — Marketing, Events, PR, Community"><MobileHero onOpen={() => {}} /></section> : <DesktopHero />}

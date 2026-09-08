@@ -1,4 +1,4 @@
-﻿import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Play, Menu, X, Wifi, BatteryFull, Signal } from 'lucide-react';
 import './desktop-hero.css';
@@ -59,24 +59,18 @@ export default function DesktopHero(){
   return <section id="home" className="dh-hero relative isolate overflow-hidden text-white" aria-label="XPATZHUB — Your brand’s growth partner in the UAE">
     <div className="dh-stage">
       <div className="dh-background" aria-hidden="true"/><div className="dh-terrace" aria-hidden="true"/><div className="dh-darken" aria-hidden="true"/>
-      <header className="dh-header flex items-center justify-between">
-        <a className="dh-logo" href="#home" aria-label="XPATZHUB home">XPATZHUB</a>
-        <nav className="dh-nav flex items-center" aria-label="Main navigation">{['Marketing','Events','PR','Community'].map(name=><button key={name} onClick={()=>open(name)}>{name}</button>)}</nav>
-        <div className="dh-header-actions flex items-center"><button className="dh-talk flex items-center" onClick={()=>open('Contact')}>Let’s Talk <ArrowRight/></button><button className="dh-menu-button" aria-label={menu?'Close navigation':'Open navigation'} aria-expanded={menu} aria-controls="dh-menu" onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button></div>
-        {menu&&<nav id="dh-menu" className="dh-menu" aria-label="Expanded navigation">{['Marketing','Events','PR','Community','Contact'].map(name=><button key={name} onClick={()=>open(name)}>{name}<ArrowRight size={16}/></button>)}</nav>}
-      </header>
+      {/* Stage background layers */}
       <motion.div className="dh-copy" initial={reduced?false:{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.8,ease}}>
         <p className="dh-eyebrow">REAL PEOPLE. REAL BRANDS. A STRONGER UAE.</p>
         <h1 className="dh-headline"><span>YOUR</span><span>BRAND’S</span><span className="dh-growth">GROWTH</span><span>PARTNER</span></h1>
         <p className="dh-location">IN THE UAE</p><span className="dh-rule"/>
         <p className="dh-description">We connect brands with real people through<br/>strategic marketing, events, and the power<br/>of the UAE’s largest expat community.</p>
-        <div className="dh-actions flex items-center"><button className="dh-primary flex items-center justify-between" onClick={()=>open('Contact')}>Let’s Grow Your Brand <ArrowRight/></button><button className="dh-story flex items-center" onClick={()=>open('Our Story')}><span className="dh-play"><Play fill="currentColor"/></span>Watch Our Story</button></div>
+        <div className="dh-actions flex items-center"><button className="dh-primary flex items-center justify-between" onClick={()=>open('Contact')}>Let’s Grow Your Brand <ArrowRight/></button></div>
       </motion.div>
       <div className="dh-collage" aria-label="Marketing, events, PR and community">{phones.map((data,index)=><Phone key={data.id} {...{data,index,reduced}} onOpen={open}/>)}</div>
       <p className="dh-handwriting" aria-hidden="true"><span>Same</span><span>Community</span><span>Bigger</span><span>Possibilities</span><i/></p>
       <dl className="dh-stats flex" aria-label="Community statistics">{[['500K+','COMMUNITY REACH'],['250+','BRANDS WORKED WITH'],['1000+','EVENTS & CAMPAIGNS']].map(([number,label])=><div key={label}><dt>{label}</dt><dd>{number}</dd></div>)}</dl>
       <div className="dh-bottom-shade" aria-hidden="true"/>
-      <div className="dh-editorial flex items-center" aria-hidden="true"><span>XPATZHUB</span><i/><span>PEOPLE · BRANDS · OPPORTUNITIES</span></div>
     </div>
     <dialog ref={dialog} className="dh-dialog" aria-labelledby="dh-dialog-title" onClose={()=>previousFocus.current?.focus()} onClick={e=>{if(e.target===dialog.current)dialog.current.close();}}>
       <button className="dh-dialog-close" aria-label="Close dialog" onClick={()=>dialog.current.close()}><X/></button><p className="dh-dialog-brand">XPATZHUB</p><h2 id="dh-dialog-title">{panel==='Contact'?'Let’s grow your brand.':panel}</h2>
