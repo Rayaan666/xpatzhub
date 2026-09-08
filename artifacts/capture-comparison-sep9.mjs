@@ -1,0 +1,2 @@
+﻿import {chromium} from '@playwright/test';
+const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});const p=await b.newPage({viewport:{width:1920,height:580},reducedMotion:'reduce'});await p.goto('http://localhost:5175/artifacts/sep9-comparison.html',{waitUntil:'networkidle'});await p.screenshot({path:'artifacts/sep9-side-by-side.png'});await b.close();

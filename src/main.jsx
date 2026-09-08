@@ -6,6 +6,7 @@ import './styles.css';
 import Solutions from './Solutions';
 import Footer from './Footer';
 import MobileHero from './MobileHero';
+import DesktopHero from './DesktopHero';
 
 const artwork = 'https://res.cloudinary.com/utug407p/image/upload/reference';
 const services = {
@@ -107,7 +108,7 @@ function App() {
   };
 
   return <>
-    <header className="header flex items-center justify-between">
+    {isMobile && <header className="header flex items-center justify-between">
       <a href="#home" className="brand-logo" aria-label="XPATZHUB home" onClick={e => e.preventDefault()}>
         <img
           src={isMobile ? '/logo.png' : 'https://res.cloudinary.com/utug407p/image/upload/logo.png'}
@@ -151,42 +152,10 @@ function App() {
           ))}
         </nav>
       )}
-    </header>
+    </header>}
 
     <main>
-      <section id="home" className="hero relative isolate overflow-hidden bg-[#020305] text-white" aria-label="XPATZHUB — Marketing, Events, PR, Community" onPointerMove={e => {
-        if (reduced || e.pointerType !== 'mouse' || window.innerWidth < 1024) return;
-        const r = e.currentTarget.getBoundingClientRect(); mx.set(((e.clientX - r.left) / r.width - .5) * 12); my.set(((e.clientY - r.top) / r.height - .5) * 10);
-      }} onPointerLeave={() => { mx.set(0); my.set(0); }}>
-
-      {isMobile ? <MobileHero onOpen={() => {}} /> : <>
-      <div className="hero-copy">
-        <motion.p {...reveal(.05)} className="eyebrow">Marketing · Events · PR · Community</motion.p>
-        <motion.h1 {...reveal(.12)}><span className="your">Your</span><span>Brand’s</span><span className="growth">Growth</span><span>Partner</span><span className="location">in the UAE</span></motion.h1>
-        <motion.div {...reveal(.32)} className="supporting">
-          <div className="blue-rule" />
-          <p>We help brands, products and services reach,<br className="desktop-break" /> engage and grow across the UAE through<br className="desktop-break" /> Digital Marketing, Events, PR and the power<br className="desktop-break" /> of our expat community.</p>
-          <div className="hero-actions flex items-center">
-            <button className="gradient-button primary-cta" onClick={e => e.preventDefault()}>Let’s Grow Your Brand <ArrowRight size={23} /></button>
-          </div>
-        </motion.div>
-        <motion.div {...reveal(.5)} className="stats-area">
-          <dl className="stats flex"><div><dt>Community reach</dt><dd>500K+</dd></div><div><dt>Brands worked with</dt><dd>250+</dd></div><div><dt>Events & campaigns</dt><dd>1000+</dd></div></dl>
-        </motion.div>
-      </div>
-
-      <div className="artwork">
-        <motion.svg className="orbits" viewBox="0 0 1672 941" fill="none" style={{ x, y }} aria-hidden="true">
-          <defs><filter id="glow"><feGaussianBlur stdDeviation="5" /></filter><linearGradient id="trail"><stop stopColor="#58c6ff" stopOpacity=".15"/><stop offset=".48" stopColor="#55bcff"/><stop offset="1" stopColor="#96d7ff"/></linearGradient></defs>
-          <g stroke="url(#trail)"><path d="M970 -40 C967 245 618 328 558 499 S682 683 876 649 S1238 742 1126 1010 M1710 322 C1500 374 1320 609 1126 1010" strokeWidth="10" filter="url(#glow)" opacity=".6"/><path d="M970 -40 C967 245 618 328 558 499 S682 683 876 649 S1238 742 1126 1010 M1710 322 C1500 374 1320 609 1126 1010" strokeWidth="1.7"/></g>
-        </motion.svg>
-        {phoneData.map((data, index) => <Phone key={data.id} {...{ data, index, x, y, reduced }} />)}
-        <svg className="community-stamp" viewBox="1480 760 163 150" aria-hidden="true"><image href={artwork} width="1672" height="941" /></svg>
-      </div>
-      <div className="grain" aria-hidden="true" />
-      <div className="bottom-fade" aria-hidden="true" />
-      </>}
-    </section>
+      {isMobile ? <section id="home" className="hero relative isolate overflow-hidden bg-[#020305] text-white" aria-label="XPATZHUB — Marketing, Events, PR, Community"><MobileHero onOpen={() => {}} /></section> : <DesktopHero />}
     <Solutions onEnquire={() => {}} />
     <Footer onEnquire={() => {}} onOpen={() => {}} />
 
