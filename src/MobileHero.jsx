@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import './mobile-hero.css';
 
 const phones = [
@@ -29,7 +29,6 @@ export default function MobileHero({ onOpen }) {
       <motion.div {...reveal(.32)}>
         <button className="mobile-grow" onClick={e => e.preventDefault()}>Let’s Grow Your Brand <ArrowRight size={25} /></button>
       </motion.div>
-      <motion.button {...reveal(.4)} className="mobile-story" onClick={e => e.preventDefault()}><span><Play size={18} fill="currentColor" /></span>Watch Our Story</motion.button>
     </div>
     <div className="mobile-phone-collage">
       <svg className="mobile-trails" viewBox="0 0 390 800" fill="none" preserveAspectRatio="none" aria-hidden="true">
