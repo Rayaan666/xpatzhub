@@ -27,9 +27,9 @@ export default function MobileHero({ onOpen }) {
       <motion.div {...reveal(.18)} className="mobile-location">IN THE UAE<span /></motion.div>
       <motion.p {...reveal(.25)} className="mobile-description">We help brands, products and services<br />reach, engage and grow across the UAE<br />through Digital Marketing, Events, PR and<br />the power of our expat community.</motion.p>
       <motion.div {...reveal(.32)}>
-        <button className="mobile-grow" onClick={() => onOpen('Contact')}>Let’s Grow Your Brand <ArrowRight size={25} /></button>
+        <button className="mobile-grow" onClick={e => e.preventDefault()}>Let’s Grow Your Brand <ArrowRight size={25} /></button>
       </motion.div>
-      <motion.button {...reveal(.4)} className="mobile-story" onClick={() => onOpen('Our Story')}><span><Play size={18} fill="currentColor" /></span>Watch Our Story</motion.button>
+      <motion.button {...reveal(.4)} className="mobile-story" onClick={e => e.preventDefault()}><span><Play size={18} fill="currentColor" /></span>Watch Our Story</motion.button>
     </div>
     <div className="mobile-phone-collage">
       <svg className="mobile-trails" viewBox="0 0 390 800" fill="none" preserveAspectRatio="none" aria-hidden="true">

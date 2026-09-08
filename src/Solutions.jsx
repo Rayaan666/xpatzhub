@@ -53,7 +53,7 @@ export default function Solutions({ onEnquire }) {
               {solution.services.map((service, i) => { const Icon = solution.icons[i]; return <li key={service}><span className="solution-service-icon" aria-hidden="true"><Icon size={13} strokeWidth={1.4}/></span><span>{service}</span></li>; })}
             </ul>
           </div>
-          <button className="solution-cta" onClick={() => onEnquire(solution.id)}>
+          <button className="solution-cta" onClick={e => e.preventDefault()}>
             <div className="solution-cta-bg" style={{ backgroundImage: `url(${solution.cloudinaryImg})` }} />
             <div className="solution-cta-overlay" />
             <div className="solution-cta-left">

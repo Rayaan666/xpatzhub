@@ -108,7 +108,7 @@ function App() {
 
   return <>
     <header className="header flex items-center justify-between">
-      <a href="#home" className="brand-logo" aria-label="XPATZHUB home">
+      <a href="#home" className="brand-logo" aria-label="XPATZHUB home" onClick={e => e.preventDefault()}>
         <img
           src={isMobile ? '/logo.png' : 'https://res.cloudinary.com/utug407p/image/upload/logo.png'}
           alt="XPATZHUB"
@@ -125,7 +125,7 @@ function App() {
                 href={link.href}
                 aria-current={isActive ? 'page' : undefined}
                 className={`nav-link ${isActive ? 'active' : ''}`}
-                onClick={e => handleNavClick(e, link)}
+                onClick={e => e.preventDefault()}
               >
                 <span>{link.name}</span>
               </a>
@@ -134,8 +134,8 @@ function App() {
         </div>
       </nav>
       <div className="header-actions flex items-center gap-4">
-        <button className="gradient-button nav-cta" onClick={() => open('Contact')}>Let’s Grow <ArrowRight size={18} /></button>
-        <button className="menu-button" aria-label={menu ? 'Close navigation' : 'Open navigation'} aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? <X size={22} /> : <Menu size={22} />}</button>
+        <button className="gradient-button nav-cta" onClick={e => e.preventDefault()}>Let’s Grow <ArrowRight size={18} /></button>
+        <button className="menu-button" aria-label={menu ? 'Close navigation' : 'Open navigation'} aria-expanded={menu} onClick={e => e.preventDefault()}>{menu ? <X size={22} /> : <Menu size={22} />}</button>
       </div>
       {menu && (
         <nav className="mobile-nav" aria-label="Mobile navigation">
@@ -144,7 +144,7 @@ function App() {
               key={link.id}
               href={link.href}
               className={`mobile-nav-link ${activeNav === link.id ? 'active' : ''}`}
-              onClick={e => handleNavClick(e, link)}
+              onClick={e => e.preventDefault()}
             >
               <span>{link.name}</span>
             </a>
@@ -159,7 +159,7 @@ function App() {
         const r = e.currentTarget.getBoundingClientRect(); mx.set(((e.clientX - r.left) / r.width - .5) * 12); my.set(((e.clientY - r.top) / r.height - .5) * 10);
       }} onPointerLeave={() => { mx.set(0); my.set(0); }}>
 
-      {isMobile ? <MobileHero onOpen={open} /> : <>
+      {isMobile ? <MobileHero onOpen={() => {}} /> : <>
       <div className="hero-copy">
         <motion.p {...reveal(.05)} className="eyebrow">Marketing · Events · PR · Community</motion.p>
         <motion.h1 {...reveal(.12)}><span className="your">Your</span><span>Brand’s</span><span className="growth">Growth</span><span>Partner</span><span className="location">in the UAE</span></motion.h1>
@@ -167,7 +167,7 @@ function App() {
           <div className="blue-rule" />
           <p>We help brands, products and services reach,<br className="desktop-break" /> engage and grow across the UAE through<br className="desktop-break" /> Digital Marketing, Events, PR and the power<br className="desktop-break" /> of our expat community.</p>
           <div className="hero-actions flex items-center">
-            <button className="gradient-button primary-cta" onClick={() => open('Contact')}>Let’s Grow Your Brand <ArrowRight size={23} /></button>
+            <button className="gradient-button primary-cta" onClick={e => e.preventDefault()}>Let’s Grow Your Brand <ArrowRight size={23} /></button>
           </div>
         </motion.div>
         <motion.div {...reveal(.5)} className="stats-area">
@@ -187,14 +187,14 @@ function App() {
       <div className="bottom-fade" aria-hidden="true" />
       </>}
     </section>
-    <Solutions onEnquire={() => open('Contact')} />
-    <Footer onEnquire={name => open(name || 'Contact')} onOpen={name => open(name)} />
+    <Solutions onEnquire={() => {}} />
+    <Footer onEnquire={() => {}} onOpen={() => {}} />
 
     <dialog ref={dialog} className="info-dialog" onCancel={() => setPanel(null)} onClick={e => { if (e.target === dialog.current) setPanel(null); }} aria-labelledby="dialog-title">
-      <div className="dialog-content"><button className="dialog-close" aria-label="Close dialog" onClick={() => setPanel(null)}><X /></button><p className="dialog-eyebrow">XPATZHUB</p><h2 id="dialog-title">{panel === 'Contact' ? 'Let’s grow your brand.' : panel}</h2>
-      {panel === 'Search' ? <><label htmlFor="search">Explore our services</label><input autoFocus id="search" type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search marketing, events, PR…" /><div className="search-results">{Object.entries(services).filter(([name, text]) => `${name} ${text}`.toLowerCase().includes(query.toLowerCase())).map(([name]) => <button onClick={() => open(name)} key={name}>{name}<ArrowRight size={18}/></button>)}{!Object.entries(services).some(([name,text]) => `${name} ${text}`.toLowerCase().includes(query.toLowerCase())) && <p>No matches. Try “events” or “community”.</p>}</div></>
+      <div className="dialog-content"><button className="dialog-close" aria-label="Close dialog" onClick={e => e.preventDefault()}><X /></button><p className="dialog-eyebrow">XPATZHUB</p><h2 id="dialog-title">{panel === 'Contact' ? 'Let’s grow your brand.' : panel}</h2>
+      {panel === 'Search' ? <><label htmlFor="search">Explore our services</label><input autoFocus id="search" type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search marketing, events, PR…" /><div className="search-results">{Object.entries(services).filter(([name, text]) => `${name} ${text}`.toLowerCase().includes(query.toLowerCase())).map(([name]) => <button onClick={e => e.preventDefault()} key={name}>{name}<ArrowRight size={18}/></button>)}{!Object.entries(services).some(([name,text]) => `${name} ${text}`.toLowerCase().includes(query.toLowerCase())) && <p>No matches. Try “events” or “community”.</p>}</div></>
       : panel === 'Our Story' ? <><p>Marketing. Events. PR. Powered by Community.</p><p>We help brands, products and services reach, engage and grow across the UAE through Digital Marketing, Events, PR and the power of our expat community.</p><p className="availability">Our story film is coming soon.</p></>
-      : <><p>{services[panel]}</p>{panel === 'Contact' ? <><fieldset><legend>I’m interested in</legend>{['Digital Marketing', 'Events', 'PR & Media', 'Community'].map(name => <label key={name} className="service-choice"><input type="checkbox" checked={selected.includes(name)} onChange={() => setSelected(old => old.includes(name) ? old.filter(v => v !== name) : [...old, name])}/>{name}</label>)}</fieldset><button className="gradient-button" onClick={async () => { try { await navigator.clipboard.writeText(`Hello XPATZHUB, I’d like to discuss growing my brand in the UAE. I’m interested in: ${selected.join(', ') || 'your services'}. Contact me at +971 56 480 0026 or anulmundra@indianexpatsindubai.com.`); setCopied(true); } catch { setCopied('failed'); } }}>{copied === true ? 'Enquiry copied' : 'Copy enquiry'}<ArrowRight size={18}/></button><p className="availability" role="status">{copied === 'failed' ? 'Clipboard unavailable. Please contact us at +971 56 480 0026 or anulmundra@indianexpatsindubai.com.' : 'Call +971 56 480 0026 or email anulmundra@indianexpatsindubai.com.'}</p></> : <button className="gradient-button" onClick={() => open('Contact')}>Let’s talk <ArrowRight size={18}/></button>}</>}
+      : <><p>{services[panel]}</p>{panel === 'Contact' ? <><fieldset><legend>I’m interested in</legend>{['Digital Marketing', 'Events', 'PR & Media', 'Community'].map(name => <label key={name} className="service-choice"><input type="checkbox" checked={selected.includes(name)} onChange={() => setSelected(old => old.includes(name) ? old.filter(v => v !== name) : [...old, name])}/>{name}</label>)}</fieldset><button className="gradient-button" onClick={e => e.preventDefault()}>{copied === true ? 'Enquiry copied' : 'Copy enquiry'}<ArrowRight size={18}/></button><p className="availability" role="status">{copied === 'failed' ? 'Clipboard unavailable. Please contact us at +971 56 480 0026 or anulmundra@indianexpatsindubai.com.' : 'Call +971 56 480 0026 or email anulmundra@indianexpatsindubai.com.'}</p></> : <button className="gradient-button" onClick={e => e.preventDefault()}>Let’s talk <ArrowRight size={18}/></button>}</>}
       </div>
     </dialog>
   </main></>;
