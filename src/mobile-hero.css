@@ -1,17 +1,16 @@
-﻿/* Portrait campaign only. All layout rules are confined to the mobile range. */
+/* Portrait campaign only. All layout rules are confined to the mobile range. */
 @media(max-width:767px){
-body:has(.pm-hero) .header{display:none}
-.pm-hero{width:100%;overflow-x:clip;background:#020304;container-type:inline-size;font-family:Arial,Helvetica,sans-serif}
+.pm-hero{width:100%;padding-top:72px;overflow-x:clip;background:#020304;container-type:inline-size;font-family:Arial,Helvetica,sans-serif}
 .pm-poster{position:relative;width:100%;aspect-ratio:941/1672;background:radial-gradient(ellipse at 75% 27%,#070b0e 0%,#020304 58%);isolation:isolate}
 .pm-hero button{color:inherit;font:inherit;background:none;border:0;padding:0;cursor:pointer}
-.pm-wordmark{position:absolute;z-index:2;left:4.46%;top:2.1%;margin:0;font-size:4.25cqw;line-height:1;font-weight:500;letter-spacing:-.045em}
+.pm-wordmark{display:none}
 .pm-artwork{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .pm-copy{position:absolute;z-index:2;top:38.65%;left:4.46%;width:52%}
 .pm-eyebrow{font-size:1.94cqw;line-height:1.65;letter-spacing:.28em;margin:0 0 1.85cqw;color:#eee;white-space:nowrap}
 .pm-hero .pm-headline{font-family:Arial,Helvetica,sans-serif;font-size:11.5cqw;line-height:.825;letter-spacing:-.057em;font-weight:900;margin:0;text-transform:uppercase}
 .pm-headline>span{display:block;white-space:nowrap}.pm-headline>span:last-child{transform:scaleX(.96);transform-origin:left}
 .pm-growth{background:linear-gradient(105deg,#18bdf4,#0789f6 52%,#2868f5);background-clip:text;-webkit-text-fill-color:transparent}
-.pm-description{font-size:2.67cqw;line-height:1.47;letter-spacing:-.015em;color:#eee;margin:2.15cqw 0 0;white-space:nowrap}
+.pm-description{font-size:3.15cqw;line-height:1.47;letter-spacing:-.015em;color:#eee;margin:2.15cqw 0 0;white-space:nowrap}
 .pm-hero .pm-primary{width:47cqw;height:9.45cqw;border-radius:99px;background:linear-gradient(105deg,#04c1ec,#087ff8 55%,#0746fa);margin-top:3.25cqw;padding:0 4.8cqw;font-size:2.38cqw;font-weight:700;box-shadow:0 5px 22px #008bdf15;white-space:nowrap}
 .pm-primary svg{width:3.4cqw;height:3.4cqw;stroke-width:1.4;flex-shrink:0}
 .pm-hero .pm-story{gap:2.15cqw;font-size:2.44cqw;font-weight:500;margin-top:2.15cqw;min-height:44px;white-space:nowrap}
@@ -28,4 +27,10 @@ body:has(.pm-hero) .header{display:none}
 .pm-hero .pm-primary{margin-top:2.55cqw;position:relative}
 .pm-hero .pm-story{position:relative;min-height:0;height:7.45cqw}
 .pm-primary:after,.pm-story:after{content:'';position:absolute;left:0;right:0;top:50%;height:max(100%,44px);transform:translateY(-50%)}
+}
+
+/* Animate HTML layers: SVG groups are not reliable intersection targets in iOS webviews. */
+@media(max-width:767px){
+.pm-phone,.pm-script-artwork{position:absolute;inset:0;width:100%;height:100%}
+.pm-phone>svg{display:block;width:100%;height:100%;overflow:visible}
 }

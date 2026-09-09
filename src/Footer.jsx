@@ -58,7 +58,6 @@ export default function Footer({ onEnquire, onOpen }) {
           <h4>Company</h4>
           <ul>
             <li><a href="#about" onClick={e => e.preventDefault()}>About XPATZHUB</a></li>
-            <li><a href="#story" onClick={e => e.preventDefault()}>Watch Our Story</a></li>
             <li><a href="#community" onClick={e => e.preventDefault()}>Expat Community Network</a></li>
             <li><a href="#contact" onClick={e => e.preventDefault()}>Contact Us</a></li>
           </ul>

@@ -18,28 +18,31 @@ export default function MobileHero(){
   const [panel,setPanel]=useState('Contact');
   const dialog=useRef(null),previousFocus=useRef(null);
   const open=name=>{previousFocus.current=document.activeElement;setPanel(name);dialog.current.showModal();};
-  const reveal=(delay,y)=>({initial:reduced?false:{opacity:0,y},whileInView:{opacity:1,y:0},viewport:{once:true,amount:.15},transition:{duration:.75,delay,ease}});
+  const reveal=(delay,y)=>({initial:reduced?false:{opacity:.85,y},animate:{opacity:1,y:0},transition:{duration:.75,delay,ease}});
   return <section id="home" className="pm-hero relative isolate text-white" aria-label="XPATZHUB — Your brand’s growth partner">
     <div className="pm-poster">
       <p className="pm-wordmark">XPATZHUB</p>
-      <svg className="pm-artwork" viewBox="0 0 941 1672" aria-label="Five phones showcasing events, PR, brands, digital marketing and community">
-        <defs>
-          {phones.map(p=><clipPath id={`portrait-${p.id}`} key={p.id}><path d={p.path}/></clipPath>)}
-          <mask id="portrait-copy-clear"><rect width="941" height="1672" fill="white"/><rect x="0" y="840" width="512" height="272" fill="black"/></mask>
-          <clipPath id="portrait-annotation"><path d="M532 1235 H696 L716 1440 L686 1465 H532 Z"/></clipPath>
-        </defs>
-        {phones.map((p,index)=><motion.g key={p.id} className={`pm-phone pm-phone-${p.id}`} role="img" aria-label={p.label} initial={reduced?false:{opacity:0,x:p.x,y:p.y}} whileInView={{opacity:1,x:0,y:0}} viewport={{once:true}} transition={{duration:.9,delay:index*.07,ease}}>
-          <g mask={p.id==='central'?'url(#portrait-copy-clear)':undefined}><image href="/assets/mobile-approved.png" width="941" height="1672" clipPath={`url(#portrait-${p.id})`}/></g>
-        </motion.g>)}
-        <image href="/assets/mobile-approved.png" width="941" height="1672" clipPath="url(#portrait-annotation)" aria-hidden="true"/>
-      </svg>
+      <div className="pm-artwork" aria-label="Five phones showcasing events, PR, brands, digital marketing and community">
+        {phones.map((p,index)=><motion.div key={p.id} className={`pm-phone pm-phone-${p.id}`} initial={reduced?false:{opacity:.85,x:p.x,y:p.y}} animate={{opacity:1,x:0,y:0}} transition={{duration:.9,delay:index*.07,ease}}>
+          <svg viewBox="0 0 941 1672" role="img" aria-label={p.label}>
+            <defs>
+              <clipPath id={`portrait-${p.id}`} clipPathUnits="userSpaceOnUse"><path d={p.path}/></clipPath>
+              {p.id==='central'&&<mask id="portrait-copy-clear" maskUnits="userSpaceOnUse" x="0" y="0" width="941" height="1672"><rect width="941" height="1672" fill="white"/><rect x="0" y="840" width="512" height="272" fill="black"/></mask>}
+            </defs>
+            <g mask={p.id==='central'?'url(#portrait-copy-clear)':undefined}><image href="/assets/mobile-approved.png" width="941" height="1672" clipPath={`url(#portrait-${p.id})`}/></g>
+          </svg>
+        </motion.div>)}
+        <svg className="pm-script-artwork" viewBox="0 0 941 1672" aria-hidden="true">
+          <defs><clipPath id="portrait-annotation" clipPathUnits="userSpaceOnUse"><path d="M532 1235 H696 L716 1440 L686 1465 H532 Z"/></clipPath></defs>
+          <image href="/assets/mobile-approved.png" width="941" height="1672" clipPath="url(#portrait-annotation)"/>
+        </svg>
+      </div>
       <p className="pm-annotation sr-only">Same Community Bigger Possibilities</p>
       <div className="pm-copy">
         <p className="pm-eyebrow">REAL PEOPLE.<br/>REAL BRANDS.<br/>A STRONGER UAE.</p>
         <motion.h1 className="pm-headline" {...reveal(0,20)}><span>YOUR</span><span>BRAND’S</span><span className="pm-growth">GROWTH</span><span>PARTNER</span></motion.h1>
         <motion.p className="pm-description" {...reveal(.06,12)}>We connect brands with real people<br/>through strategic marketing, events,<br/>PR and the power of the UAE’s largest<br/>expat community.</motion.p>
-        <motion.button className="pm-primary flex items-center justify-between" onClick={()=>open('Contact')} {...reveal(.1,10)}>Let's Grow Your Brand<ArrowRight aria-hidden="true"/></motion.button>
-        <motion.button className="pm-story flex items-center" onClick={()=>open('Our Story')} {...reveal(.12,10)}><span className="pm-play"><Play fill="currentColor" aria-hidden="true"/></span>Watch Our Story</motion.button>
+        <motion.button className="pm-primary flex items-center justify-between" onClick={e=>e.preventDefault()} {...reveal(.1,10)}>Let's Grow Your Brand<ArrowRight aria-hidden="true"/></motion.button>
       </div>
       <dl className="pm-stats flex" aria-label="Community statistics">{[['500K+','COMMUNITY REACH'],['250+','BRANDS WORKED WITH'],['1000+','EVENTS & CAMPAIGNS']].map(([value,label])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
       <p className="pm-editorial">DUBAI<br/>BUILDS<br/>BRANDS<br/>TOGETHER<i/></p>

@@ -1,4 +1,4 @@
-﻿import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Play, X } from 'lucide-react';
 import './desktop-hero.css';
@@ -26,8 +26,7 @@ export default function DesktopHero(){
         <motion.h1 className="dh-headline" {...reveal(.08,25)}><span>YOUR</span><span>BRAND’S</span><span className="dh-growth">GROWTH</span><span>PARTNER</span></motion.h1>
         <motion.p className="dh-description" {...reveal(.2)}>We connect brands with real people through<br className="dh-desktop-break"/> strategic marketing, events, PR and the power<br className="dh-desktop-break"/> of the UAE’s largest expat community.</motion.p>
         <motion.div className="dh-actions flex items-center" {...reveal(.3)}>
-          <button className="dh-primary flex items-center justify-between" onClick={()=>open('Contact')}>Let's Grow Your Brand <ArrowRight/></button>
-          <button className="dh-story flex items-center" onClick={()=>open('Our Story')}><span className="dh-play"><Play fill="currentColor"/></span>Watch Our Story</button>
+          <button className="dh-primary flex items-center justify-between" onClick={e=>e.preventDefault()}>Let's Grow Your Brand <ArrowRight/></button>
         </motion.div>
         <motion.dl className="dh-stats flex" aria-label="Community statistics" {...reveal(.4)}>{[['500K+','COMMUNITY REACH'],['250+','BRANDS WORKED WITH'],['1000+','EVENTS & CAMPAIGNS']].map(([number,label])=><div key={label}><dt>{label}</dt><dd>{number}</dd></div>)}</motion.dl>
       </div>

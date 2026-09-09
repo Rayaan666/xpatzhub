@@ -54,8 +54,6 @@ export default function Solutions({ onEnquire }) {
             </ul>
           </div>
           <button className="solution-cta" onClick={e => e.preventDefault()}>
-            <div className="solution-cta-bg" style={{ backgroundImage: `url(${solution.cloudinaryImg})` }} />
-            <div className="solution-cta-overlay" />
             <div className="solution-cta-left">
               <span className="solution-cta-dot" />
               <span className="solution-cta-text">{solution.cta}</span>
