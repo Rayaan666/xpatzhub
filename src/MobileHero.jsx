@@ -1,66 +1,53 @@
-﻿import { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Play, Menu, X, Wifi, Signal, BatteryFull } from 'lucide-react';
+import { ArrowRight, Play, X } from 'lucide-react';
 import './mobile-hero.css';
 
-const phoneData = [
-  {id:'events',title:['EVENTS &','EXPERIENCES'],copy:['Real connections.','Lasting impact.'],image:'event.jpg',alt:'An outdoor event venue prepared with a stage, elegant chairs, palms and hanging lights.',x:-15,y:35,service:'Events'},
-  {id:'digital',title:['DIGITAL','MARKETING'],copy:['Strategy.','Visibility.','Real results.'],image:'analytics.jpg',alt:'A real laptop displaying website analytics in a professional workspace.',x:15,y:35,service:'Marketing'},
-  {id:'central',image:'sunset.jpg',alt:'Burj Khalifa and the Dubai skyline photographed across the waterfront at sunset.',x:0,y:45,service:'XPATZHUB'},
-  {id:'pr',title:['PR &','MEDIA VISIBILITY'],copy:['Get seen.','Get heard.','Build credibility.'],image:'camera.jpg',alt:'A professional production camera with a monitor, lens and tripod.',x:-15,y:50,service:'PR'},
-  {id:'community',title:['COMMUNITY','POWER'],copy:['A stronger UAE','through stronger','connections.'],image:'waterfront.jpg',alt:'A Dubai waterfront promenade with palms and outdoor hospitality spaces.',x:15,y:50,service:'Community'},
+// The approved portrait supplies the photography and physical device frames.
+// Each phone is a separate masked layer; page copy and actions are live HTML.
+const phones = [
+  {id:'events',label:'Events & Experiences. Real connections. Lasting impact. Dubai outdoor evening event.',path:'M135 176 Q119 135 160 113 L345 48 Q385 33 404 75 L559 452 L335 554 Q289 574 267 530 Z',x:-12,y:14},
+  {id:'pr',label:'PR & Media Visibility. Get seen. Get heard. Build credibility. Professional production camera and tripod.',path:'M370 0 H687 L844 334 Q863 377 819 397 L644 459 Q602 476 582 431 Z',x:12,y:-14},
+  {id:'digital',label:'Digital Marketing. Strategy. Visibility. Real results. Laptop analytics, desk, plant and coffee.',path:'M649 510 Q632 469 676 449 L853 394 Q898 377 917 424 L941 487 V890 L830 926 Q788 940 770 895 Z',x:12,y:12},
+  {id:'central',label:'XPATZHUB. Brands. Events. People. Possibilities. A stronger UAE together. Burj Khalifa and Dubai waterfront at sunset.',path:'M291 491 Q272 449 316 426 L497 357 Q541 340 561 384 L759 863 Q776 907 733 928 L554 998 Q509 1014 488 969 Z',x:0,y:20},
+  {id:'community',label:'Community Power. A stronger UAE through stronger connections. Dubai community gathering with palms and warm lighting.',path:'M595 1022 Q579 983 622 963 L853 897 Q897 880 916 922 L941 984 V1418 L819 1469 Q779 1484 757 1442 Z',x:15,y:0},
 ];
-const serviceCopy={Marketing:'Strategy. Visibility. Real results.',Events:'Real connections. Lasting impact.',PR:'Get seen. Get heard. Build credibility.',Community:'A stronger UAE through stronger connections.',XPATZHUB:'Brands. Events. People. A stronger UAE together.'};
 const ease=[.22,1,.36,1];
-
-function MobilePhone({phone,index,reduced,open}){
-  const central=phone.id==='central';
-  return <div className={`mp-phone mp-phone-${phone.id}`}>
-    <motion.div className="mp-phone-entry" initial={reduced?false:{opacity:0,x:phone.x,y:phone.y}} whileInView={{opacity:1,x:0,y:0}} viewport={{once:true,amount:.1}} transition={{duration:1,delay:index*.08,ease}}>
-      <button className="mp-device" onClick={()=>open(phone.service)} aria-label={`Explore ${phone.service}`}>
-        <span className="mp-side-key" aria-hidden="true"/>
-        <span className="mp-screen">
-          <img src={`/assets/hero-2026/${phone.image}`} alt={phone.alt} decoding="async"/>
-          <span className="mp-screen-shade"/>
-          <span className="mp-status" aria-hidden="true"><span>9:41</span><span><Signal/><Wifi/><BatteryFull/></span></span>
-          <span className="mp-notch" aria-hidden="true"><i/><b/></span>
-          {central?<><span className="mp-screen-logo">XPATZHUB</span><span className="mp-serif">Brands<br/>Events<br/>People</span><span className="mp-script">Possibilities.</span><span className="mp-together">A STRONGER<br/>UAE TOGETHER<i/></span></>:<span className="mp-screen-copy"><span className="mp-phone-title">{phone.title.map(t=><span key={t}>{t}</span>)}</span><span className="mp-phone-description">{phone.copy.map(t=><span key={t}>{t}</span>)}</span><span className="mp-screen-arrow" aria-hidden="true"><ArrowRight/></span></span>}
-          {phone.id==='community'&&<span className="mp-event-flag" aria-hidden="true">Community<br/>Together<br/>Stronger</span>}
-        </span>
-      </button>
-    </motion.div>
-  </div>;
-}
-
 export default function MobileHero(){
-  const reduced=useReducedMotion();const [menu,setMenu]=useState(false),[panel,setPanel]=useState('Contact');
-  const dialog=useRef(null),lastFocus=useRef(null);
-  const open=name=>{lastFocus.current=document.activeElement;setPanel(name);setMenu(false);dialog.current.showModal();};
-  const reveal=(delay=0,y=15)=>({initial:reduced?false:{opacity:0,y},animate:{opacity:1,y:0},transition:{duration:.85,delay,ease}});
-  return <div className="mobile-hero mp-hero">
-    <div className="mp-backdrop" aria-hidden="true"/>
-    <header className="mp-header">
-      <a href="#home" className="mp-wordmark" aria-label="XPATZHUB home">XPATZHUB</a>
-      <nav className="mp-header-services" aria-label="Mobile services">{['Marketing','Events','PR','Community'].map(name=><button key={name} onClick={()=>open(name)}>{name}</button>)}</nav>
-      <div className="mp-header-actions"><button className="mp-talk" onClick={()=>open('Contact')}>Let’s Talk <ArrowRight/></button><button className="mp-menu-toggle" aria-label={menu?'Close navigation':'Open navigation'} aria-controls="mp-menu" aria-expanded={menu} onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button></div>
-      {menu&&<nav id="mp-menu" className="mp-menu" aria-label="Mobile navigation">{['Marketing','Events','PR','Community','Contact'].map(name=><button key={name} onClick={()=>open(name)}>{name}<ArrowRight/></button>)}</nav>}
-    </header>
-    <div className="mp-copy">
-      <motion.p {...reveal(0,0)} className="mp-eyebrow">REAL PEOPLE. REAL BRANDS. A STRONGER UAE.</motion.p>
-      <motion.h1 {...reveal(.08,20)} className="mp-headline"><span>YOUR BRAND’S</span><span><em>GROWTH</em> PARTNER</span></motion.h1>
-      <motion.div {...reveal(.15)} className="mp-location">IN THE UAE<i/></motion.div>
-      <motion.p {...reveal(.2,15)} className="mp-description">We connect brands with real people through strategic marketing,<br className="mp-copy-break"/> events, and the power of the UAE’s largest expat community.</motion.p>
-      <motion.dl {...reveal(.27,0)} className="mp-stats">{[['500K+','COMMUNITY REACH'],['250+','BRANDS WORKED WITH'],['1000+','EVENTS & CAMPAIGNS']].map(([number,label])=><div key={label}><dt>{label}</dt><dd>{number}</dd></div>)}</motion.dl>
-      <motion.div {...reveal(.34,10)} className="mp-actions"><button className="mp-primary" onClick={()=>open('Contact')}>Let’s Grow Your Brand <ArrowRight/></button><button className="mp-story" onClick={()=>open('Our Story')}><span><Play fill="currentColor"/></span>Watch Our Story</button></motion.div>
+  const reduced=useReducedMotion();
+  const [panel,setPanel]=useState('Contact');
+  const dialog=useRef(null),previousFocus=useRef(null);
+  const open=name=>{previousFocus.current=document.activeElement;setPanel(name);dialog.current.showModal();};
+  const reveal=(delay,y)=>({initial:reduced?false:{opacity:0,y},whileInView:{opacity:1,y:0},viewport:{once:true,amount:.15},transition:{duration:.75,delay,ease}});
+  return <section id="home" className="pm-hero relative isolate text-white" aria-label="XPATZHUB — Your brand’s growth partner">
+    <div className="pm-poster">
+      <p className="pm-wordmark">XPATZHUB</p>
+      <svg className="pm-artwork" viewBox="0 0 941 1672" aria-label="Five phones showcasing events, PR, brands, digital marketing and community">
+        <defs>
+          {phones.map(p=><clipPath id={`portrait-${p.id}`} key={p.id}><path d={p.path}/></clipPath>)}
+          <mask id="portrait-copy-clear"><rect width="941" height="1672" fill="white"/><rect x="0" y="840" width="512" height="272" fill="black"/></mask>
+          <clipPath id="portrait-annotation"><path d="M532 1235 H696 L716 1440 L686 1465 H532 Z"/></clipPath>
+        </defs>
+        {phones.map((p,index)=><motion.g key={p.id} className={`pm-phone pm-phone-${p.id}`} role="img" aria-label={p.label} initial={reduced?false:{opacity:0,x:p.x,y:p.y}} whileInView={{opacity:1,x:0,y:0}} viewport={{once:true}} transition={{duration:.9,delay:index*.07,ease}}>
+          <g mask={p.id==='central'?'url(#portrait-copy-clear)':undefined}><image href="/assets/mobile-approved.png" width="941" height="1672" clipPath={`url(#portrait-${p.id})`}/></g>
+        </motion.g>)}
+        <image href="/assets/mobile-approved.png" width="941" height="1672" clipPath="url(#portrait-annotation)" aria-hidden="true"/>
+      </svg>
+      <p className="pm-annotation sr-only">Same Community Bigger Possibilities</p>
+      <div className="pm-copy">
+        <p className="pm-eyebrow">REAL PEOPLE.<br/>REAL BRANDS.<br/>A STRONGER UAE.</p>
+        <motion.h1 className="pm-headline" {...reveal(0,20)}><span>YOUR</span><span>BRAND’S</span><span className="pm-growth">GROWTH</span><span>PARTNER</span></motion.h1>
+        <motion.p className="pm-description" {...reveal(.06,12)}>We connect brands with real people<br/>through strategic marketing, events,<br/>PR and the power of the UAE’s largest<br/>expat community.</motion.p>
+        <motion.button className="pm-primary flex items-center justify-between" onClick={()=>open('Contact')} {...reveal(.1,10)}>Let's Grow Your Brand<ArrowRight aria-hidden="true"/></motion.button>
+        <motion.button className="pm-story flex items-center" onClick={()=>open('Our Story')} {...reveal(.12,10)}><span className="pm-play"><Play fill="currentColor" aria-hidden="true"/></span>Watch Our Story</motion.button>
+      </div>
+      <dl className="pm-stats flex" aria-label="Community statistics">{[['500K+','COMMUNITY REACH'],['250+','BRANDS WORKED WITH'],['1000+','EVENTS & CAMPAIGNS']].map(([value,label])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+      <p className="pm-editorial">DUBAI<br/>BUILDS<br/>BRANDS<br/>TOGETHER<i/></p>
     </div>
-    <div className="mp-visual">
-      <p className="mp-annotation" aria-hidden="true"><span>Same</span><span>Community</span><span>Bigger</span><span>Possibilities</span><i/></p>
-      <div className="mp-collage" aria-label="Five phones featuring events, marketing, Dubai, PR and community">{phoneData.map((phone,index)=><MobilePhone key={phone.id} {...{phone,index,reduced,open}}/>)}</div>
-    </div>
-    <div className="mp-editorial" aria-hidden="true"><span>XPATZHUB</span><i/><span>PEOPLE · BRANDS · OPPORTUNITIES</span></div>
-    <dialog ref={dialog} className="mp-dialog" aria-labelledby="mp-dialog-title" onClose={()=>lastFocus.current?.focus()} onClick={e=>{if(e.target===dialog.current)dialog.current.close();}}>
-      <button className="mp-close" aria-label="Close dialog" onClick={()=>dialog.current.close()}><X/></button><p className="mp-dialog-brand">XPATZHUB</p><h2 id="mp-dialog-title">{panel==='Contact'?'Let’s grow your brand.':panel}</h2>
-      {panel==='Contact'?<><p>Tell us what you have in mind for your brand.</p><a href="mailto:anulmundra@indianexpatsindubai.com">anulmundra@indianexpatsindubai.com</a><a href="tel:+971564800026">+971 56 480 0026</a></>:panel==='Our Story'?<><p>Marketing. Events. PR. Powered by community.</p><p>Our story film is coming soon.</p></>:<><p>{serviceCopy[panel]}</p><button className="mp-dialog-contact" onClick={()=>setPanel('Contact')}>Let’s Talk <ArrowRight size={16}/></button></>}
+    <dialog ref={dialog} className="pm-dialog" aria-labelledby="pm-dialog-title" onClose={()=>previousFocus.current?.focus()} onClick={e=>{if(e.target===dialog.current)dialog.current.close();}}>
+      <button className="pm-close" aria-label="Close dialog" onClick={()=>dialog.current.close()}><X/></button>
+      <p>XPATZHUB</p><h2 id="pm-dialog-title">{panel==='Contact'?'Let’s grow your brand.':'Our Story'}</h2>
+      {panel==='Contact'?<><p>Tell us what you have in mind for your brand.</p><a href="mailto:anulmundra@indianexpatsindubai.com">anulmundra@indianexpatsindubai.com</a><a href="tel:+971564800026">+971 56 480 0026</a></>:<><p>Marketing. Events. PR. Powered by community.</p><p>Our story film is coming soon.</p></>}
     </dialog>
-  </div>;
+  </section>;
 }

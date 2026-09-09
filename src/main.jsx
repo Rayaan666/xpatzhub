@@ -135,7 +135,7 @@ function App() {
     </header>
 
     <main>
-      {isMobile ? <section id="home" className="hero relative isolate overflow-hidden bg-[#020305] text-white" aria-label="XPATZHUB — Marketing, Events, PR, Community"><MobileHero onOpen={() => {}} /></section> : <DesktopHero />}
+      {isMobile ? <MobileHero /> : <DesktopHero />}
     <Solutions onEnquire={() => {}} />
     <Footer onEnquire={() => {}} onOpen={() => {}} />
 
