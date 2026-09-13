@@ -85,7 +85,7 @@ function App() {
           <nav className="desktop-nav" aria-label="Main navigation">
             <div className="nav-links-wrap">
               {navLinks.map(link => {
-                const isFunctional = link.id === 'home' || link.name.toLowerCase().includes('about');
+                const isFunctional = link.id === 'home' || link.id === 'digital';
                 return (
                   <a
                     key={link.id}
@@ -163,7 +163,7 @@ function App() {
                       className={`mobile-nav-link ${link.id === activePage ? 'active' : ''}`}
                       onClick={e => {
                         setMenu(false);
-                        if (!(link.id === 'home' || link.name.toLowerCase().includes('about'))) {
+                        if (!(link.id === 'home' || link.id === 'digital')) {
                           e.preventDefault();
                         }
                       }}

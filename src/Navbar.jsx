@@ -47,7 +47,7 @@ export default function Navbar({ activeId = 'digital' }) {
   };
 
   const isFunctionalLink = (link) => {
-    return link.id === 'home' || link.name.toLowerCase().includes('about');
+    return link.id === 'home' || link.id === 'digital';
   };
 
   return (
