@@ -247,44 +247,62 @@
 
 @media (max-width: 640px) {
   .seo-cta-section {
-    padding: 60px 0;
+    padding: 40px 0;
   }
   .seo-cta-container {
-    padding: 0 14px;
-    width: calc(100% - 28px);
+    padding: 0 16px;
   }
   .seo-cta-card {
-    padding: 32px 20px;
+    padding: 28px 18px;
     border-radius: 20px;
+    gap: 20px;
+  }
+  .seo-cta-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    margin-bottom: 12px;
   }
   .seo-cta-heading {
-    font-size: clamp(28px, 7.5vw, 36px);
-    line-height: 1.08;
-    margin-bottom: 20px;
+    font-size: clamp(22px, 6vw, 28px);
+    line-height: 1.12;
+    margin-bottom: 12px;
   }
   .seo-cta-description {
-    font-size: 14.5px;
-    line-height: 1.55;
-    margin-bottom: 24px;
+    font-size: 13.5px;
+    line-height: 1.45;
+    margin-bottom: 18px;
   }
   .seo-cta-actions {
     width: 100%;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
   .seo-cta-button-primary,
   .seo-cta-button-secondary {
     width: 100%;
     justify-content: center;
-    padding: 16px 20px;
-    font-size: 13.5px;
+    padding: 12px 18px;
+    font-size: 13px;
     border-radius: 9999px;
   }
   .seo-cta-proof {
-    flex-direction: column;
-    gap: 16px;
-    padding-top: 24px;
-    margin-top: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 12px;
+    padding-left: 0;
+    padding-top: 16px;
+    margin-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .seo-cta-stat-value {
+    font-size: 22px;
+    margin-bottom: 2px;
+  }
+  .seo-cta-stat-label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
   }
 }
+
 
