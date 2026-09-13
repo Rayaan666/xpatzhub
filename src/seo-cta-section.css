@@ -250,31 +250,41 @@
     padding: 60px 0;
   }
   .seo-cta-container {
-    padding: 0 20px;
+    padding: 0 14px;
+    width: calc(100% - 28px);
   }
   .seo-cta-card {
-    padding: 40px 24px;
-    border-radius: 18px;
+    padding: 32px 20px;
+    border-radius: 20px;
   }
   .seo-cta-heading {
-    font-size: 36px;
+    font-size: clamp(28px, 7.5vw, 36px);
+    line-height: 1.08;
+    margin-bottom: 20px;
   }
   .seo-cta-description {
-    font-size: 15px;
-    margin-bottom: 30px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    margin-bottom: 24px;
   }
   .seo-cta-actions {
     width: 100%;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
   }
   .seo-cta-button-primary,
   .seo-cta-button-secondary {
     width: 100%;
     justify-content: center;
+    padding: 16px 20px;
+    font-size: 13.5px;
+    border-radius: 9999px;
   }
   .seo-cta-proof {
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
+    padding-top: 24px;
+    margin-top: 10px;
   }
 }
+
