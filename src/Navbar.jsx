@@ -122,52 +122,52 @@ export default function Navbar({ activeId = 'digital' }) {
                 <button
                   className="mobile-nav-close"
                   onClick={() => setMenu(false)}
-                  aria-label="Close navigation menu"
+                  aria-label="Close navigation"
                 >
-                  <span className="sr-only">Close</span>
-                  ✕
+                  <span aria-hidden="true">✕</span>
                 </button>
               </div>
 
-              {/* Drawer links */}
+              {/* Links */}
               <div className="mobile-nav-links">
-                {navLinks.map((link, idx) => (
+                {navLinks.map((link, i) => (
                   <motion.a
                     key={link.id}
                     href={link.href}
-                    className={`mobile-nav-item ${link.id === activeId ? 'active' : ''}`}
+                    className={`mobile-nav-link ${link.id === activeId ? 'active' : ''}`}
                     onClick={(e) => {
                       setMenu(false);
                       if (!isFunctionalLink(link)) {
                         e.preventDefault();
                       }
                     }}
-                    initial={{ opacity: 0, x: -16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 + idx * 0.04, duration: 0.25 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.04 + i * 0.04, ease: [0.16, 1, 0.3, 1], duration: 0.3 }}
                   >
-                    <div className="mobile-nav-item-content">
-                      <span className="mobile-nav-item-title">{link.name}</span>
-                      <span className="mobile-nav-item-sub">{link.subtitle}</span>
+                    <div className="mobile-nav-link-content">
+                      <span className="mobile-nav-link-title">{link.name}</span>
+                      {link.subtitle && <span className="mobile-nav-link-sub">{link.subtitle}</span>}
                     </div>
-                    <ArrowRight size={16} className="mobile-nav-arrow" />
+                    <span className="mobile-nav-link-num">0{i + 1}</span>
                   </motion.a>
                 ))}
               </div>
 
-              {/* Drawer footer CTA */}
+              {/* Footer */}
               <div className="mobile-nav-footer">
                 <button
-                  className="mobile-nav-cta-btn"
+                  className="mobile-nav-cta"
                   onClick={(e) => {
                     e.preventDefault();
                     setMenu(false);
                   }}
                 >
-                  <span>Let's Grow Your Brand</span>
+                  <span>Start Growing Today</span>
                   <ArrowRight size={16} />
                 </button>
               </div>
+
             </motion.nav>
           </motion.div>
         )}
