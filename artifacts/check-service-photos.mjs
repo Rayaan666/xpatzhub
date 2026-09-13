@@ -1,0 +1,11 @@
+import { chromium } from '@playwright/test';
+import { readdirSync } from 'node:fs';
+const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true });
+const page = await browser.newPage({viewport:{width:1200,height:1000}});
+await page.goto('http://localhost:5101');
+const names = readdirSync('public/assets/digital-services').filter(n=>n.endsWith('.jpg'));
+await page.setContent(`<body style="margin:0;background:#111;color:white;display:grid;grid-template-columns:repeat(3,1fr);font:16px Arial">${names.map(n=>`<div>${n}<img src="http://localhost:5101/assets/digital-services/${n}" style="width:100%;height:285px;object-fit:contain"></div>`).join('')}</body>`);
+await page.locator('img').evaluateAll(images=>Promise.all(images.map(i=>i.decode())));
+console.log(await page.locator('img').evaluateAll(images=>images.map(i=>[i.src,i.naturalWidth,i.naturalHeight])));
+await page.screenshot({path:'artifacts/service-photo-contact-sheet.jpg',fullPage:true});
+await browser.close();

@@ -22,20 +22,18 @@ export default function DesktopHero(){
   return <section id="home" className="dh-hero relative isolate overflow-hidden text-white" aria-label="XPATZHUB — Your brand’s growth partner in the UAE">
     <div className="dh-stage">
       <div className="dh-copy">
-        <motion.p className="dh-eyebrow" {...reveal(0)}>REAL PEOPLE. REAL BRANDS. A STRONGER UAE.</motion.p>
         <motion.h1 className="dh-headline" {...reveal(.08,25)}><span>YOUR</span><span>BRAND’S</span><span className="dh-growth">GROWTH</span><span>PARTNER</span></motion.h1>
         <motion.p className="dh-description" {...reveal(.2)}>We connect brands with real people through<br className="dh-desktop-break"/> strategic marketing, events, PR and the power<br className="dh-desktop-break"/> of the UAE’s largest expat community.</motion.p>
         <motion.div className="dh-actions flex items-center" {...reveal(.3)}>
           <button className="dh-primary flex items-center justify-between" onClick={e=>e.preventDefault()}>Let's Grow Your Brand <ArrowRight/></button>
         </motion.div>
-        <motion.dl className="dh-stats flex" aria-label="Community statistics" {...reveal(.4)}>{[['500K+','COMMUNITY REACH'],['250+','BRANDS WORKED WITH'],['1000+','EVENTS & CAMPAIGNS']].map(([number,label])=><div key={label}><dt>{label}</dt><dd>{number}</dd></div>)}</motion.dl>
+        <motion.dl className="dh-stats flex" aria-label="Community statistics" {...reveal(.4)}>{[['500K+','COMMUNITY REACH'],['700+','BRANDS WORKED WITH'],['1000+','EVENTS & CAMPAIGNS']].map(([number,label])=><div key={label}><dt>{label}</dt><dd>{number}</dd></div>)}</motion.dl>
       </div>
       <div className="dh-visual">
         <svg className="dh-collage" viewBox="0 0 1672 941" aria-label="Five smartphones showcasing XPATZHUB’s brands, events, PR, digital marketing and community">
           <defs>{phones.map(p=><clipPath key={p.id} id={`approved-${p.id}`}><path d={p.path}/></clipPath>)}</defs>
           {phones.map((p,index)=><motion.g key={p.id} className={`dh-phone dh-phone-${p.id}`} role="img" aria-label={p.name} initial={reduced?false:{opacity:0,x:p.x,y:p.y}} animate={{opacity:1,x:0,y:0}} transition={{duration:1,delay:.15+index*.09,ease}}><motion.g style={{transformOrigin:'center',transformBox:'fill-box'}} whileHover={reduced?{}:{y:-3,scale:1.01}} transition={{duration:.3}}><image href="/assets/hero-approved.png" width="1672" height="941" clipPath={`url(#approved-${p.id})`}/></motion.g></motion.g>)}
         </svg>
-        <p className="dh-handwriting"><span>Same</span><span>Community</span><span>Bigger</span><span>Possibilities</span><i/></p>
         <p className="dh-detail">DUBAI<br/>BUILDS<br/>BRANDS<br/>TOGETHER<i/></p>
       </div>
     </div>

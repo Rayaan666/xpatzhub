@@ -2,15 +2,16 @@ import React from 'react';
 import { ArrowRight, MapPin, Instagram, Linkedin, Twitter, Youtube, Phone, Mail } from 'lucide-react';
 import './footer.css';
 
-export default function Footer({ onEnquire, onOpen }) {
+export default function Footer({ onEnquire, onOpen, hideCtaBanner = false }) {
   return (
     <footer className="site-footer" id="contact">
       {/* Top CTA Banner */}
-      <div className="footer-cta-banner">
+      {!hideCtaBanner && (
+        <div className="footer-cta-banner">
         <div className="footer-cta-content">
           <h2>Ready to Grow Your Brand Across the UAE?</h2>
           <p>
-            Join 250+ leading brands leveraging Digital Marketing, Community Power, and Influencer Marketing to reach over 500,000 expats across Dubai, Abu Dhabi, and the UAE.
+            Join 700+ leading brands leveraging Digital Marketing, Community Power, and Influencer Marketing to reach over 500,000 expats across Dubai, Abu Dhabi, and the UAE.
           </p>
           <div className="footer-cta-actions">
             <button className="gradient-button primary-cta" onClick={e => e.preventDefault()}>
@@ -20,6 +21,7 @@ export default function Footer({ onEnquire, onOpen }) {
         </div>
         <div className="footer-cta-bg-glow" aria-hidden="true" />
       </div>
+      )}
 
       {/* Main Grid Section */}
       <div className="footer-main-grid">
