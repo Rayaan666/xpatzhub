@@ -9,9 +9,26 @@ import FaqSection from './FaqSection';
 import SeoCtaSection from './SeoCtaSection';
 import Footer from './Footer';
 import './seo-base.css';
-document.title = 'SEO & Digital Marketing Agency Dubai & UAE | XPATZHUB';
-document.querySelector('meta[name="description"]').content = 'Leading SEO & digital marketing agency in Dubai & UAE. Data-driven SEO, Google & Meta Ads, content strategies and performance marketing to rank higher and get real growth.';
-createRoot(document.getElementById('root')).render(<React.StrictMode><main><Navbar activeId="digital" /><SeoHero /><GrowthJourney /><DigitalServices /><PerformanceResults /><FaqSection /><SeoCtaSection /><Footer hideCtaBanner /></main></React.StrictMode>);
+export default function SeoPage() {
+  React.useEffect(() => {
+    document.title = 'SEO & Digital Marketing Agency Dubai & UAE | XPATZHUB';
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.content = 'Leading SEO & digital marketing agency in Dubai & UAE. Data-driven SEO, Google & Meta Ads, content strategies and performance marketing to rank higher and get real growth.';
+  }, []);
+
+  return (
+    <main>
+      <Navbar activeId="digital" />
+      <SeoHero />
+      <GrowthJourney />
+      <DigitalServices />
+      <PerformanceResults />
+      <FaqSection />
+      <SeoCtaSection />
+      <Footer hideCtaBanner />
+    </main>
+  );
+}
 
 
 

@@ -219,9 +219,7 @@ function App() {
   );
 }
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export default function HomePage() {
+  return <App />;
+}
 
