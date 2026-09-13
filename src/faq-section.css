@@ -469,16 +469,17 @@
   }
   .faq-layout {
     flex-direction: column;
-    gap: 60px;
+    gap: 50px;
   }
   .faq-left-col {
     width: 100%;
+    position: static;
   }
   .faq-right-col {
     width: 100%;
   }
   .faq-heading {
-    font-size: 56px;
+    font-size: 52px;
   }
   .faq-supporting {
     max-width: 100%;
@@ -487,35 +488,86 @@
 
 @media (max-width: 640px) {
   .faq-section {
-    padding: 60px 0;
+    padding: 50px 0;
   }
   .faq-container {
-    padding: 0 20px;
+    padding: 0 16px;
+  }
+  .faq-eyebrow-wrapper {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .faq-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    white-space: normal;
+    line-height: 1.4;
+  }
+  .faq-eyebrow-line {
+    display: none;
   }
   .faq-heading {
-    font-size: 44px;
-    line-height: 0.98;
+    font-size: clamp(34px, 8vw, 44px);
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .faq-supporting {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 28px;
   }
   .faq-trigger {
-    min-height: 80px;
-    padding: 20px 8px 20px 12px;
+    min-height: auto;
+    padding: 18px 6px 18px 10px;
+    gap: 12px;
+    align-items: flex-start;
   }
   .faq-trigger-content {
-    gap: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+  }
+  .faq-number {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    margin-top: 3px;
+    min-width: 24px;
+  }
+  .faq-question-text {
+    font-size: clamp(16px, 4.2vw, 19px);
+    line-height: 1.4;
+    word-break: break-word;
+    margin: 0;
+  }
+  .faq-toggle-btn {
+    width: 36px;
+    height: 36px;
+    margin-top: 2px;
   }
   .faq-answer-content {
-    padding: 0 8px 24px 50px;
+    padding: 0 10px 20px 42px;
+    max-width: 100%;
   }
   .faq-answer-text {
-    font-size: 15px;
+    font-size: 14.5px;
     line-height: 1.6;
   }
+  .faq-support-card {
+    padding: 20px 16px;
+    margin-top: 24px;
+  }
   .faq-bottom-divider {
-    margin-top: 60px;
+    margin-top: 40px;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
   }
   .faq-bottom-rule {
     display: none;
   }
 }
+
