@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import './community-hero.css';
 
@@ -23,8 +23,7 @@ export default function CommunityHero() {
         <h1 id="community-title"><span>Turn community</span><span>Into your brand’s</span><span>Advantage.</span></h1>
         <p className="community-hero__description">Connect your brand with one of the UAE’s largest and fastest-growing expat communities through authentic campaigns, partnerships, activations and experiences.</p>
         <div className="community-hero__actions">
-          <a className="community-hero__primary" href="mailto:anulmundra@indianexpatsindubai.com?subject=Community%20partnership%20enquiry">Connect With Our Community <ArrowUpRight size={20} aria-hidden="true" /></a>
-          <a className="community-hero__secondary" href="#solutions">Explore What We Do <ArrowUpRight size={19} aria-hidden="true" /></a>
+          <a className="community-hero__primary" href="#" onClick={(e) => e.preventDefault()}>Connect With Our Community <ArrowUpRight size={20} aria-hidden="true" /></a>
         </div>
       </div>
       <div className="community-hero__photos">
@@ -33,7 +32,6 @@ export default function CommunityHero() {
         <Photo name="gathering" wide alt="Members of a UAE community gathering outdoors beneath warm festoon lights." />
       </div>
       <svg className="community-hero__palm" viewBox="0 0 300 340" aria-hidden="true"><g fill="currentColor">{Array.from({length: 12}, (_, i) => <path key={i} transform={`rotate(${i * 13 - 72} 20 330)`} d="M20 330Q-35 130 68 8Q24 183 20 330M20 330Q65 143 161 99Q64 230 20 330" />)}</g></svg>
-      <p className="community-hero__note">A more<br/>connected<br/>UAE <span>♡</span></p>
       <ul className="community-hero__services" aria-label="Community services">{['Community campaigns', 'Partnerships', 'Activations', 'Events', 'UAE-wide reach'].map(service => <li key={service}>{service}</li>)}</ul>
     </div>
   </section>;

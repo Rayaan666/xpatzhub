@@ -1,0 +1,42 @@
+@font-face{font-family:ImpactArchivo;src:url('/assets/influencers/impact/Archivo-Variable.ttf') format('truetype');font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:ImpactHand;src:url('/assets/hero-2026/fonts/GreatVibes-Regular.ttf') format('truetype');font-display:swap}
+.influence-impact{--impact-lime:#d8ed65;--impact-white:#f4f2ea;--impact-muted:#c4c5bf;--impact-rule:#363831;background:#10110f;color:var(--impact-white);font-family:ImpactArchivo,Arial,Helvetica,sans-serif;padding:26px 24px 34px}
+.influence-impact *{box-sizing:border-box}
+.influence-impact__inner{max-width:1872px}
+.influence-impact__intro{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 150px;align-items:center;gap:36px;margin:0 36px 24px}
+.influence-impact__eyebrow{margin:0 0 10px;color:var(--impact-lime);font-size:13px;letter-spacing:.3em}
+.influence-impact h2{font-size:clamp(48px,4.55vw,80px);font-weight:750;line-height:.98;letter-spacing:-.05em;margin:0}
+.influence-impact h2 span{display:block;white-space:nowrap}
+.influence-impact h2 span+span{color:var(--impact-lime)}
+.influence-impact__lead{font-size:clamp(17px,1.2vw,21px);line-height:1.5;font-weight:400;letter-spacing:.01em;margin:26px 0 0;color:var(--impact-muted)}
+.influence-impact__handnote{position:relative;align-self:stretch;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--impact-rule);padding:10px 0 6px 38px;margin:20px 0 0;font-family:ImpactHand,cursive;font-size:25px;line-height:.95;color:#9ca27c;transform:rotate(-4deg)}
+.influence-impact__handnote:after{content:'';display:block;width:55px;border-bottom:1px solid #9ca27c;margin:9px 0 0 30px;transform:rotate(-12deg)}
+.influence-impact__campaign{padding-bottom:66px}
+.influence-impact__strip{grid-template-columns:23fr 52fr 25fr;gap:15px}
+.influence-impact__photo{position:relative;height:clamp(320px,25.7vw,410px);min-width:0;margin:0;overflow:hidden;border:1px solid var(--impact-rule)}
+.influence-impact__photo img{display:block;width:100%;height:100%;object-fit:cover}
+.influence-impact__photo figcaption{position:absolute;top:18px;left:18px;color:var(--impact-lime);font-size:13px;letter-spacing:.3em;font-weight:600;text-shadow:0 1px 8px #000}
+.influence-impact__display{position:absolute;z-index:2;left:1.7%;bottom:35px;margin:0;color:var(--impact-lime);font-family:ImpactArchivo,'Arial Black',sans-serif;font-variation-settings:'wdth' 125,'wght' 900;font-size:clamp(110px,14.3vw,272px);font-weight:900;font-stretch:125%;line-height:.72;letter-spacing:-.065em;pointer-events:none}
+.influence-impact__curve{position:absolute;z-index:1;left:-24px;bottom:20px;width:calc(100% + 48px);height:150px;pointer-events:none}
+.influence-impact__curve path{stroke:var(--impact-lime);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.influence-impact__editorial{position:absolute;z-index:2;right:.8%;bottom:31px;font-size:7px;line-height:2.3;letter-spacing:.24em;margin:0;color:#c6cba5}
+.influence-impact__editorial span{display:block}
+.influence-impact__outcomes{grid-template-columns:repeat(3,minmax(0,1fr));margin:0 22px;padding:0;list-style:none;border-top:1px solid var(--impact-rule);border-bottom:1px solid var(--impact-rule)}
+.influence-impact__outcomes li{position:relative;padding:16px 20px 17px;min-width:0}
+.influence-impact__outcomes li:nth-child(n+4){border-top:1px solid var(--impact-rule)}
+.influence-impact__outcomes li:not(:nth-child(3n)):after{content:'';position:absolute;right:0;top:13px;bottom:13px;border-right:1px solid var(--impact-rule)}
+.influence-impact__outcomes h3{font-size:15px;font-weight:400;letter-spacing:.17em;line-height:1.4;margin:0 0 6px}
+.influence-impact__outcomes h3 span{color:var(--impact-lime);font-weight:600;margin-right:10px;white-space:nowrap}
+.influence-impact__outcomes p{color:var(--impact-muted);font-size:17px;line-height:1.4;max-width:370px;margin:0;letter-spacing:.01em}
+.influence-impact__closing{align-items:center;justify-content:space-between;gap:30px;margin:22px 36px 0}
+.influence-impact__statement{font-size:clamp(20px,1.97vw,36px);font-weight:400;line-height:1.4;letter-spacing:.2em;margin:0;white-space:nowrap}
+.influence-impact__statement span:last-child{color:var(--impact-lime)}
+.influence-impact__closing-note{flex-shrink:0;font-family:ImpactHand,cursive;font-size:21px;line-height:1.1;color:#bfc1b4;margin:0;transform:rotate(-6deg)}
+.influence-impact__closing-note span{display:block}
+.influence-impact__closing-note:after{content:'';display:block;border-bottom:1px solid var(--impact-lime);width:105px;margin:9px 0 0 65px;transform:rotate(-7deg)}
+@media(min-width:1001px) and (max-width:1400px){.influence-impact__intro{grid-template-columns:1.4fr 1fr 100px;gap:22px;margin-inline:24px}.influence-impact__handnote{font-size:21px;padding-left:20px}.influence-impact h2{font-size:4.5vw}.influence-impact__outcomes h3{font-size:12px;letter-spacing:.14em}.influence-impact__outcomes p{font-size:16px}.influence-impact__closing{margin-inline:24px;gap:20px}.influence-impact__statement{font-size:1.9vw;letter-spacing:.13em}.influence-impact__closing-note{font-size:18px}}
+@media(max-width:1000px){.influence-impact{padding-inline:20px}.influence-impact__intro{margin-inline:8px;grid-template-columns:1.3fr 1fr;gap:26px}.influence-impact h2{font-size:4.9vw}.influence-impact__lead{font-size:16px;margin:20px 0 0}.influence-impact__handnote{display:none}.influence-impact__photo{height:310px}.influence-impact__photo figcaption{left:10px;top:12px;font-size:10px;letter-spacing:.2em}.influence-impact__strip{gap:10px}.influence-impact__display{font-size:14.3vw;bottom:37px}.influence-impact__outcomes{margin:0 8px}.influence-impact__outcomes li{padding:15px 13px}.influence-impact__outcomes h3{font-size:11px;letter-spacing:.1em}.influence-impact__outcomes h3 span{margin-right:4px}.influence-impact__outcomes p{font-size:15px}.influence-impact__closing{flex-direction:column;align-items:flex-start;margin-inline:8px;gap:22px}.influence-impact__statement{font-size:2.6vw;letter-spacing:.13em}.influence-impact__closing-note{align-self:flex-end}.influence-impact__editorial{font-size:6px}}
+@media(max-width:640px){.influence-impact{padding:34px 16px 30px}.influence-impact__intro{grid-template-columns:1fr;margin:0 7px 28px;gap:20px}.influence-impact__eyebrow{font-size:10px;letter-spacing:.25em;margin-bottom:13px}.influence-impact h2{font-size:clamp(32px,8.1vw,50px);line-height:1.03}.influence-impact__lead{font-size:17px;line-height:1.5;margin:0}.influence-impact__handnote{display:flex;justify-self:end;font-size:23px;margin:0;padding-left:20px}.influence-impact__strip{grid-template-columns:1fr 1fr;gap:10px}.influence-impact__photo--remembered{grid-column:1/-1;grid-row:1;height:auto;aspect-ratio:1.5}.influence-impact__photo--seen,.influence-impact__photo--acted{height:auto;aspect-ratio:.85}.influence-impact__photo figcaption{font-size:10px}.influence-impact__campaign{padding-bottom:103px}.influence-impact__display{font-size:19vw;left:1%;bottom:66px;letter-spacing:-.07em}.influence-impact__curve{bottom:62px;height:70px}.influence-impact__editorial{bottom:14px;right:3px;font-size:6px;line-height:1.5;display:grid;grid-template-columns:auto auto;gap:2px 12px}.influence-impact__outcomes{grid-template-columns:1fr;margin:0 7px}.influence-impact__outcomes li{padding:20px 0}.influence-impact__outcomes li+li{border-top:1px solid var(--impact-rule)}.influence-impact__outcomes li:after{display:none}.influence-impact__outcomes h3{font-size:13px;letter-spacing:.13em;margin-bottom:8px}.influence-impact__outcomes h3 span{margin-right:10px}.influence-impact__outcomes p{font-size:17px;max-width:100%}.influence-impact__closing{margin:24px 7px 0;gap:28px}.influence-impact__statement{white-space:normal;font-size:clamp(20px,5.6vw,31px);letter-spacing:.13em;line-height:1.65}.influence-impact__statement span{display:block}.influence-impact__closing-note{font-size:23px;align-self:flex-start;margin-left:6px}}
+@media(prefers-reduced-motion:reduce){.influence-impact *{animation:none!important;transition:none!important}}
+@media(min-width:641px) and (max-width:1000px){.influence-impact__handnote{display:flex;grid-column:2;justify-self:end;align-self:start;margin:0;font-size:23px;padding:0 0 0 24px}}
+@media(max-width:640px){.influence-impact__display{font-size:18vw}}

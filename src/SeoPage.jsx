@@ -25,7 +25,6 @@ export default function SeoPage() {
       <PerformanceResults />
       <FaqSection />
       <SeoCtaSection />
-      <Footer hideCtaBanner />
     </main>
   );
 }

@@ -36,7 +36,7 @@ export default function MobileHero(){
       <div className="pm-copy">
         <motion.h1 className="pm-headline" {...reveal(0,20)}><span>YOUR</span><span>BRAND’S</span><span className="pm-growth">GROWTH</span><span>PARTNER</span></motion.h1>
         <motion.p className="pm-description" {...reveal(.06,12)}>We connect brands with real people<br/>through strategic marketing, events,<br/>PR and the power of the UAE’s largest<br/>expat community.</motion.p>
-        <motion.button className="pm-primary flex items-center justify-between" onClick={e=>e.preventDefault()} {...reveal(.1,10)}>Let's Grow Your Brand<ArrowRight aria-hidden="true"/></motion.button>
+        <motion.button className="pm-primary flex items-center justify-between" onClick={(e) => e.preventDefault()} {...reveal(.1,10)}>Let’s Grow Your Brand<ArrowRight aria-hidden="true"/></motion.button>
       </div>
       <dl className="pm-stats flex" aria-label="Community statistics">{[['500K+','COMMUNITY REACH'],['700+','BRANDS WORKED WITH'],['1000+','EVENTS & CAMPAIGNS']].map(([value,label])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
       <p className="pm-editorial">DUBAI<br/>BUILDS<br/>BRANDS<br/>TOGETHER<i/></p>

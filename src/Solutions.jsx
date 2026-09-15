@@ -10,12 +10,7 @@ const solutions = [
 ];
 
 
-solutions.push(
-  { id: 'pr', number: '04', title: ['PR &', 'BRAND VISIBILITY'], tagline: 'Be Seen. Be Heard. Be Remembered.', description: 'Build stronger brand recognition and credibility through strategic PR, media exposure and high-impact visibility opportunities across the UAE.', micro: ['VISIBILITY', 'CREDIBILITY', 'RECOGNITION'], services: ['Media Relations', 'Press & News Coverage', 'Radio & TV Features', 'Interviews & Brand Features', 'Podcast Opportunities', 'Outdoor & Billboard Advertising', 'Mall & Community Branding', 'Strategic Brand Campaigns'], cta: 'Build Your Brand Visibility', image: '/assets/campaigns/pr.webp', srcSet: '/assets/campaigns/pr-960.webp 960w, /assets/campaigns/pr.webp 1680w' },
-  { id: 'events', number: '05', title: ['EVENTS &', 'EXPERIENCES'], tagline: 'Moments That Bring Brands to Life.', description: 'From corporate events and brand launches to activations and private celebrations, we create memorable experiences that bring people, ideas and brands together.', micro: ['EXPERIENCES', 'CONNECTIONS', 'IMPACT'], services: ['Corporate Events', 'Conferences & Seminars', 'Product & Brand Launches', 'Networking Events', 'Exhibitions & Activations', 'Retail & Mall Activations', 'Private Celebrations', 'Brand Experiences'], cta: 'Create Your Next Experience', image: '/assets/campaigns/events.webp', srcSet: '/assets/campaigns/events-960.webp 960w, /assets/campaigns/events.webp 1680w' },
-);
-
-const categories = ['DIGITAL GROWTH', 'COMMUNITY', 'CREATOR MARKETING', 'PR & VISIBILITY', 'EXPERIENCES'];
+const categories = ['DIGITAL GROWTH', 'COMMUNITY', 'CREATOR MARKETING'];
 const photoDescriptions = [
   'Cobalt-blue Dubai marketing workspace with a laptop, camera and warm skyline views.',
   'Guests networking beneath orange canopies and palms at a golden-hour Dubai gathering.',
@@ -43,8 +38,8 @@ function CampaignPanel({ solution, index, onEnquire }) {
       <p className="solution-tagline">{solution.tagline}</p>
       <p className="solution-description">{solution.description}</p>
       <ul className="solution-services">{solution.services.map(service => <li key={service}>{service}</li>)}</ul>
-      <button className="solution-cta" onClick={onEnquire}><span>{solution.cta}</span><ArrowRight size={19} aria-hidden="true" /></button>
     </div>
+    <button className="solution-cta" onClick={(e) => e.preventDefault()}><span>{solution.cta}</span><ArrowRight size={19} aria-hidden="true" /></button>
   </article>;
 }
 

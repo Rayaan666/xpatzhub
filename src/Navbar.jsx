@@ -7,8 +7,8 @@ const navLinks = [
   { name: 'Home', id: 'home', href: '/', subtitle: 'Growth Partner in UAE' },
   { name: 'SEO & Digital', id: 'digital', href: '/seo-digital-marketing', subtitle: 'Turn Visibility Into Results' },
   { name: 'Community', id: 'community', href: '/community', subtitle: '500K+ Expat Network' },
-  { name: 'Influencers', id: 'influencer', href: '/#influencer', subtitle: 'Authentic Creator Reach' },
-  { name: 'Get in Touch', id: 'contact', href: '#contact', subtitle: "Let's Grow Your Brand" },
+  { name: 'Influencers', id: 'influencer', href: '#', subtitle: 'Authentic Creator Reach' },
+  { name: 'Get in Touch', id: 'contact', href: '#', subtitle: "Let's Grow Your Brand" },
 ];
 
 function BurgerIcon({ isOpen }) {
@@ -42,12 +42,8 @@ export default function Navbar({ activeId = 'digital' }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleCta = (e) => {
-    e.preventDefault();
-  };
-
-  const isFunctionalLink = (link) => {
-    return link.id === 'home' || link.id === 'digital';
+  const handleNonFunctional = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
   };
 
   return (
@@ -61,23 +57,30 @@ export default function Navbar({ activeId = 'digital' }) {
         {/* Desktop nav */}
         <nav className="desktop-nav" aria-label="Main navigation">
           <div className="nav-links-wrap">
-            {navLinks.map(link => (
-              <a
-                key={link.id}
-                href={link.href}
-                aria-current={link.id === activeId ? 'page' : undefined}
-                className={`nav-link ${link.id === activeId ? 'active' : ''}`}
-                onClick={isFunctionalLink(link) ? undefined : (e) => e.preventDefault()}
-              >
-                <span>{link.name}</span>
-              </a>
-            ))}
+            {navLinks.map(link => {
+              const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community';
+              return (
+                <a
+                  key={link.id}
+                  href={isFunctional ? link.href : '#'}
+                  aria-current={link.id === activeId ? 'page' : undefined}
+                  className={`nav-link ${link.id === activeId ? 'active' : ''}`}
+                  onClick={(e) => {
+                    if (!isFunctional) {
+                      handleNonFunctional(e);
+                    }
+                  }}
+                >
+                  <span>{link.name}</span>
+                </a>
+              );
+            })}
           </div>
         </nav>
 
         {/* Right side actions */}
         <div className="header-actions">
-          <button className="header-cta-btn" onClick={handleCta}>
+          <button className="header-cta-btn" onClick={handleNonFunctional}>
             <span>Let's Grow</span>
             <ArrowRight size={15} className="cta-icon" />
           </button>
@@ -130,44 +133,44 @@ export default function Navbar({ activeId = 'digital' }) {
 
               {/* Links */}
               <div className="mobile-nav-links">
-                {navLinks.map((link, i) => (
-                  <motion.a
-                    key={link.id}
-                    href={link.href}
-                    className={`mobile-nav-link ${link.id === activeId ? 'active' : ''}`}
-                    onClick={(e) => {
-                      setMenu(false);
-                      if (!isFunctionalLink(link)) {
-                        e.preventDefault();
-                      }
-                    }}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.04 + i * 0.04, ease: [0.16, 1, 0.3, 1], duration: 0.3 }}
-                  >
-                    <div className="mobile-nav-link-content">
-                      <span className="mobile-nav-link-title">{link.name}</span>
-                      {link.subtitle && <span className="mobile-nav-link-sub">{link.subtitle}</span>}
-                    </div>
-                    <span className="mobile-nav-link-num">0{i + 1}</span>
-                  </motion.a>
-                ))}
+                {navLinks.map((link, i) => {
+                  const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community';
+                  return (
+                    <motion.a
+                      key={link.id}
+                      href={isFunctional ? link.href : '#'}
+                      className={`mobile-nav-link ${link.id === activeId ? 'active' : ''}`}
+                      onClick={(e) => {
+                        if (!isFunctional) {
+                          handleNonFunctional(e);
+                        } else {
+                          setMenu(false);
+                        }
+                      }}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.04 + i * 0.04, ease: [0.16, 1, 0.3, 1], duration: 0.3 }}
+                    >
+                      <div className="mobile-nav-link-content">
+                        <span className="mobile-nav-link-title">{link.name}</span>
+                        {link.subtitle && <span className="mobile-nav-link-sub">{link.subtitle}</span>}
+                      </div>
+                      <span className="mobile-nav-link-num">0{i + 1}</span>
+                    </motion.a>
+                  );
+                })}
               </div>
 
               {/* Footer */}
               <div className="mobile-nav-footer">
                 <button
                   className="mobile-nav-cta"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setMenu(false);
-                  }}
+                  onClick={handleNonFunctional}
                 >
                   <span>Start Growing Today</span>
                   <ArrowRight size={16} />
                 </button>
               </div>
-
             </motion.nav>
           </motion.div>
         )}
@@ -175,4 +178,3 @@ export default function Navbar({ activeId = 'digital' }) {
     </header>
   );
 }
-

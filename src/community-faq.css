@@ -1,70 +1,52 @@
-/* XPATZHUB Community FAQ — "The Community Noticeboard" */
+/* XPATZHUB Community FAQ — Clean Modern Dark Accordion */
 
 :root {
-  --comm-orange: #ff7a2b;
-  --comm-coral: #ff6838;
-  --comm-bg-dark: #080908;
-  --comm-bg-darker: #050605;
-  --comm-paper-cream: #f5efe6;
-  --comm-paper-beige: #ede3d3;
-  --comm-paper-charcoal: #151615;
-  --comm-border-charcoal: #282928;
-  --comm-text-dark: #161615;
+  --comm-blue: #008ef6;
+  --comm-cyan: #00baf0;
+  --comm-bg-dark: #070809;
+  --comm-card-bg: #0d0e11;
+  --comm-card-hover: #12151a;
+  --comm-border: #1e2227;
   --comm-text-light: #f5f4f0;
-  --comm-text-muted: #8f8e8a;
-  --comm-hand-font: 'Nothing You Could Do', 'Caveat', cursive;
+  --comm-text-muted: #9aa0a6;
 }
 
 .community-faq-section {
   position: relative;
   background-color: var(--comm-bg-dark);
   background-image: 
-    radial-gradient(circle at 18% 25%, rgba(255, 122, 43, 0.035) 0%, transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(255, 104, 56, 0.028) 0%, transparent 40%),
-    linear-gradient(180deg, #060706 0%, #090a09 50%, #060706 100%);
+    radial-gradient(circle at 18% 25%, rgba(0, 186, 240, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(0, 142, 246, 0.035) 0%, transparent 40%),
+    linear-gradient(180deg, #060706 0%, #08090b 50%, #060706 100%);
   color: var(--comm-text-light);
   overflow: hidden;
-  padding: 120px 0 140px;
+  padding: 100px 0 120px;
   isolation: isolate;
   font-family: Inter, Arial, Helvetica, sans-serif;
-}
-
-/* Subtle dark textured paper / charcoal wall grain */
-.community-faq-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.7'/%3E%3C/svg%3E");
 }
 
 .community-faq-container {
   position: relative;
   z-index: 2;
-  max-width: 1560px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 48px;
 }
 
-/* Two-column layout with organic desktop overlap */
+/* Two-column layout */
 .community-faq-layout {
   display: grid;
   grid-template-columns: 36% 64%;
-  gap: 0;
+  gap: 40px;
   align-items: start;
   position: relative;
 }
 
-/* ============================================================
-   LEFT INTRO COLUMN (Sticky Desktop)
-   ============================================================ */
+/* LEFT INTRO COLUMN (Sticky Desktop) */
 .community-faq-intro-col {
   position: sticky;
   top: 120px;
-  padding-right: 50px;
-  padding-bottom: 60px;
+  padding-right: 20px;
   z-index: 3;
 }
 
@@ -72,7 +54,7 @@
   display: inline-flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .community-faq-eyebrow {
@@ -80,24 +62,24 @@
   font-weight: 700;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--comm-orange);
+  color: var(--comm-blue);
   margin: 0;
 }
 
 .community-faq-eyebrow-line {
   width: 44px;
   height: 2px;
-  background-color: var(--comm-orange);
+  background: linear-gradient(90deg, #00baf0, #008ef6);
   border-radius: 1px;
 }
 
 .community-faq-heading {
-  font-size: clamp(48px, 4.8vw, 84px);
+  font-size: clamp(40px, 4.2vw, 72px);
   font-weight: 900;
-  line-height: 0.95;
+  line-height: 0.98;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  margin: 0 0 26px;
+  margin: 0 0 24px;
 }
 
 .community-faq-heading-line {
@@ -108,300 +90,53 @@
   color: #ffffff;
 }
 
-.community-faq-heading-orange {
-  color: var(--comm-orange);
+.community-faq-heading-blue {
+  background: linear-gradient(105deg, #00baf0, #008ef6 45%, #0654f8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .community-faq-lead {
-  font-size: clamp(17px, 1.15vw, 20px);
-  line-height: 1.52;
-  color: #cfcecb;
-  max-width: 440px;
-  margin: 0 0 34px;
-  letter-spacing: -0.01em;
+  font-size: clamp(16px, 1.1vw, 19px);
+  line-height: 1.55;
+  color: #c7cbd0;
+  max-width: 420px;
+  margin: 0;
 }
 
-/* Handwritten annotation: "Ask us anything." */
-.community-faq-handwritten {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 40px;
-  transform: rotate(-3deg);
-  transform-origin: left center;
-}
-
-.community-faq-handwritten-text {
-  font-family: var(--comm-hand-font);
-  font-size: clamp(24px, 1.85vw, 30px);
-  line-height: 1.15;
-  color: #fff9f0;
-  display: block;
-}
-
-.community-faq-handwritten-arrow {
-  position: absolute;
-  top: 10px;
-  right: -60px;
-  width: 54px;
-  height: 38px;
-  pointer-events: none;
-}
-
-.community-faq-underline-svg {
-  display: block;
-  width: 110px;
-  height: 12px;
-  margin-top: 4px;
-}
-
-/* Small editorial labels rewarding closer inspection */
-.community-faq-meta-labels {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  max-width: 360px;
-}
-
-.community-faq-label-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--comm-orange);
-}
-
-.community-faq-label-pill span::before {
-  content: '● ';
-  font-size: 8px;
-  color: var(--comm-orange);
-}
-
-.community-faq-manifesto {
-  font-size: 10px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #7a7975;
-  line-height: 1.6;
-}
-
-.community-faq-coordinates {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  color: #555552;
-}
-
-/* ============================================================
-   CREATIVE CENTER DETAIL: VERTICAL THREAD
-   ============================================================ */
-.community-faq-vertical-thread {
-  position: absolute;
-  left: 36%;
-  top: 40px;
-  bottom: 80px;
-  width: 24px;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.community-faq-thread-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(255, 122, 43, 0.45) 15%,
-    rgba(255, 122, 43, 0.35) 50%,
-    rgba(255, 122, 43, 0.45) 85%,
-    transparent 100%
-  );
-}
-
-.community-faq-thread-step {
-  position: relative;
-  z-index: 2;
-  background: #090a09;
-  padding: 4px 6px;
-  border: 1px solid rgba(255, 122, 43, 0.25);
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-}
-
-.community-faq-thread-text {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  color: var(--comm-orange);
-}
-
-.community-faq-thread-arrow {
-  font-size: 9px;
-  line-height: 1;
-  color: rgba(255, 122, 43, 0.8);
-}
-
-/* ============================================================
-   RIGHT COLUMN: THE COMMUNITY NOTICEBOARD
-   ============================================================ */
+/* RIGHT COLUMN ACCORDION */
 .community-faq-board-col {
   position: relative;
-  padding-left: 36px;
   z-index: 4;
 }
 
 .community-faq-slips-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  position: relative;
-  z-index: 3;
+  gap: 12px;
 }
 
-/* Individual Physical Question Slip */
+/* Single FAQ Accordion Card */
 .community-faq-slip {
   position: relative;
-  width: 100%;
-  border-radius: 4px;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.25);
+  background-color: var(--comm-card-bg);
+  border: 1px solid var(--comm-border);
+  border-radius: 12px;
   overflow: hidden;
-  will-change: transform, box-shadow;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .community-faq-slip:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 3px 8px rgba(0, 0, 0, 0.3);
+  background-color: var(--comm-card-hover);
+  border-color: rgba(0, 142, 246, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* --- Paper Variations --- */
-
-/* 1. Warm Cream Paper */
-.community-faq-slip--cream {
-  background-color: var(--comm-paper-cream);
-  background-image: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(240, 230, 218, 0.6) 100%),
-    radial-gradient(ellipse at top left, rgba(255, 122, 43, 0.05) 0%, transparent 60%);
-  color: var(--comm-text-dark);
-  border: 1px solid #dfd6c8;
-}
-
-.community-faq-slip--cream .community-faq-trigger-num {
-  color: #c95d18;
-}
-
-.community-faq-slip--cream .community-faq-trigger-text {
-  color: #171716;
-}
-
-.community-faq-slip--cream .community-faq-answer-p {
-  color: #31302d;
-}
-
-.community-faq-slip--cream .community-faq-arrow-circle {
-  border-color: rgba(20, 20, 20, 0.18);
-  color: #1a1a19;
-  background: rgba(0, 0, 0, 0.03);
-}
-
-/* 2. Soft Beige / Muted Kraft Paper */
-.community-faq-slip--beige {
-  background-color: var(--comm-paper-beige);
-  background-image: 
-    linear-gradient(120deg, rgba(248, 240, 230, 0.65) 0%, rgba(228, 216, 200, 0.7) 100%),
-    radial-gradient(ellipse at bottom right, rgba(210, 160, 110, 0.08) 0%, transparent 65%);
-  color: var(--comm-text-dark);
-  border: 1px solid #d4c8b6;
-}
-
-.community-faq-slip--beige .community-faq-trigger-num {
-  color: #bf5514;
-}
-
-.community-faq-slip--beige .community-faq-trigger-text {
-  color: #191816;
-}
-
-.community-faq-slip--beige .community-faq-answer-p {
-  color: #35332f;
-}
-
-.community-faq-slip--beige .community-faq-arrow-circle {
-  border-color: rgba(20, 20, 20, 0.18);
-  color: #1a1a19;
-  background: rgba(0, 0, 0, 0.03);
-}
-
-/* 3. Textured Charcoal Paper */
-.community-faq-slip--charcoal {
-  background-color: var(--comm-paper-charcoal);
-  background-image: 
-    linear-gradient(145deg, #191a19 0%, #121312 100%),
-    radial-gradient(circle at 10% 20%, rgba(255, 122, 43, 0.04) 0%, transparent 50%);
-  color: var(--comm-text-light);
-  border: 1px solid var(--comm-border-charcoal);
-}
-
-.community-faq-slip--charcoal .community-faq-trigger-num {
-  color: var(--comm-orange);
-}
-
-.community-faq-slip--charcoal .community-faq-trigger-text {
-  color: #f7f6f2;
-}
-
-.community-faq-slip--charcoal .community-faq-answer-p {
-  color: #d1cfc9;
-}
-
-.community-faq-slip--charcoal .community-faq-arrow-circle {
-  border-color: rgba(255, 255, 255, 0.22);
-  color: #f5f4f0;
-  background: rgba(255, 255, 255, 0.04);
-}
-
-/* Small physical tape pieces on slips */
-.community-faq-tape {
-  position: absolute;
-  top: -9px;
-  width: 48px;
-  height: 22px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.28) 0%,
-    rgba(235, 220, 195, 0.35) 45%,
-    rgba(215, 195, 165, 0.25) 100%
-  );
-  backdrop-filter: blur(1px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  z-index: 5;
-  pointer-events: none;
-}
-
-.community-faq-tape--left {
-  left: 32px;
-  transform: rotate(-12deg);
-}
-
-.community-faq-tape--right {
-  right: 42px;
-  transform: rotate(9deg);
+.community-faq-slip.is-open {
+  background-color: var(--comm-card-hover);
+  border-color: var(--comm-blue);
+  box-shadow: 0 10px 30px rgba(0, 142, 246, 0.15);
 }
 
 /* Button Trigger */
@@ -421,226 +156,110 @@
 }
 
 .community-faq-trigger:focus-visible {
-  outline: 2px solid var(--comm-orange);
+  outline: 2px solid var(--comm-blue);
   outline-offset: -2px;
 }
 
 .community-faq-trigger-left {
   display: flex;
-  align-items: baseline;
-  gap: 24px;
+  align-items: center;
+  gap: 20px;
   flex: 1;
 }
 
-/* Number: stamped monospace look */
+/* Monospace Number Badge */
 .community-faq-trigger-num {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
+  color: var(--comm-blue);
   flex-shrink: 0;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.community-faq-slip:hover .community-faq-trigger-num {
-  transform: scale(1.06);
+  padding: 4px 8px;
+  background: rgba(0, 142, 246, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 142, 246, 0.2);
 }
 
 .community-faq-trigger-text {
-  font-size: clamp(17px, 1.22vw, 21px);
+  font-size: clamp(16px, 1.15vw, 19px);
   font-weight: 700;
-  line-height: 1.34;
-  letter-spacing: -0.025em;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
   margin: 0;
-  position: relative;
-  display: inline-block;
-  transition: transform 0.2s ease;
+  color: #f7f8fa;
+  transition: color 0.2s ease;
 }
 
-/* Tiny orange arrow circle */
+.community-faq-slip:hover .community-faq-trigger-text,
+.community-faq-slip.is-open .community-faq-trigger-text {
+  color: #ffffff;
+}
+
+/* Arrow / Chevron Circle */
 .community-faq-arrow-circle {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease;
+  color: #c7cbd0;
+  transition: transform 0.3s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
-.community-faq-slip:hover .community-faq-arrow-circle {
-  transform: translateX(4px) scale(1.05);
-  border-color: var(--comm-orange);
-  color: var(--comm-orange);
-}
-
-.community-faq-slip.is-open .community-faq-arrow-circle {
-  transform: rotate(45deg);
-  background-color: var(--comm-orange);
-  border-color: var(--comm-orange);
-  color: #080808;
-}
-
-/* Open Answer Panel (Unfolded on the SAME surface) */
-.community-faq-answer-panel {
-  padding: 0 28px 24px 70px;
-  overflow: hidden;
-}
-
-/* Hand-drawn orange divider inside unfolded slip */
-.community-faq-divider-svg {
-  display: block;
-  width: 100%;
-  max-width: 480px;
-  height: 10px;
-  margin-bottom: 16px;
-}
-
-.community-faq-answer-p {
-  font-size: clamp(15px, 1.05vw, 17px);
-  line-height: 1.68;
-  letter-spacing: -0.01em;
-  margin: 0 0 16px;
-  max-width: 780px;
-}
-
-/* Optional handwritten signoff on bottom right */
-.community-faq-signoff {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 4px;
-}
-
-.community-faq-signoff-text {
-  font-family: var(--comm-hand-font);
-  font-size: 20px;
-  color: var(--comm-orange);
-  transform: rotate(-2deg);
-  display: inline-block;
-}
-
-/* ============================================================
-   FEATURED PHOTOGRAPH (Single print near lower right)
-   ============================================================ */
-.community-faq-photo-card {
-  position: relative;
-  margin: 36px 0 28px auto;
-  max-width: 440px;
-  width: 90%;
-  transform: rotate(1.8deg);
-  z-index: 2;
+.community-faq-chevron {
   transition: transform 0.3s ease;
 }
 
-.community-faq-photo-card:hover {
-  transform: rotate(0.8deg) scale(1.02);
+.community-faq-slip:hover .community-faq-arrow-circle {
+  border-color: var(--comm-blue);
+  color: #ffffff;
+  background: rgba(0, 142, 246, 0.15);
 }
 
-.community-faq-photo-frame {
-  position: relative;
-  padding: 12px 12px 14px;
-  background: #131413;
-  border: 1px solid #2e2f2c;
-  border-radius: 3px;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 0 3px 8px rgba(0, 0, 0, 0.4);
+.community-faq-slip.is-open .community-faq-arrow-circle {
+  background-color: var(--comm-blue);
+  border-color: var(--comm-blue);
+  color: #ffffff;
 }
 
-.community-faq-photo-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 2px;
-  filter: brightness(0.92) contrast(1.04) saturate(0.95);
+.community-faq-slip.is-open .community-faq-chevron {
+  transform: rotate(180deg);
 }
 
-.community-faq-photo-tape {
-  position: absolute;
-  top: -12px;
-  left: 45%;
-  width: 60px;
-  height: 26px;
-  transform: translateX(-50%) rotate(-4deg);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(225, 205, 175, 0.4) 50%,
-    rgba(200, 180, 150, 0.28) 100%
-  );
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  pointer-events: none;
-  z-index: 4;
+/* Answer Panel */
+.community-faq-answer-panel {
+  padding: 0 28px 24px 68px;
+  overflow: hidden;
 }
 
-.community-faq-photo-film {
-  position: absolute;
-  bottom: 16px;
-  right: 18px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 8px;
-  letter-spacing: 0.18em;
-  color: rgba(255, 122, 43, 0.7);
-  text-transform: uppercase;
+.community-faq-answer-p {
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.65;
+  color: #cbd1d8;
+  margin: 0;
 }
 
-.community-faq-photo-caption {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.community-faq-photo-handwritten {
-  font-family: var(--comm-hand-font);
-  font-size: 21px;
-  line-height: 1.2;
-  color: #fffaf2;
-  transform: rotate(-3deg);
-  display: inline-block;
-}
-
-.community-faq-photo-underline {
-  width: 90px;
-  height: 8px;
-}
-
-/* ============================================================
-   SPECIAL "STILL CURIOUS?" NOTE
-   ============================================================ */
+/* STILL CURIOUS? NOTE */
 .community-faq-still-curious {
   position: relative;
-  margin-top: 24px;
-  background-color: var(--comm-orange);
-  background-image: 
-    linear-gradient(135deg, #ff8c42 0%, #ff682b 100%),
-    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
-  color: #111110;
-  border-radius: 4px;
-  padding: 26px 32px;
-  box-shadow: 0 10px 30px rgba(255, 104, 43, 0.22), 0 4px 12px rgba(0, 0, 0, 0.45);
-  transform: rotate(-0.8deg);
+  margin-top: 32px;
+  background: linear-gradient(105deg, #00baf0 0%, #008ef6 55%, #0654f8 100%);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 28px 34px;
+  box-shadow: 0 12px 36px rgba(0, 142, 246, 0.25), 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   z-index: 3;
 }
 
 .community-faq-still-curious:hover {
-  transform: rotate(0deg) translateY(-2px);
-  box-shadow: 0 16px 38px rgba(255, 104, 43, 0.32), 0 6px 16px rgba(0, 0, 0, 0.5);
-}
-
-.community-faq-still-curious-tape {
-  position: absolute;
-  top: -10px;
-  left: 36px;
-  width: 52px;
-  height: 22px;
-  transform: rotate(-8deg);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(240, 240, 240, 0.2) 100%);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  pointer-events: none;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 42px rgba(0, 142, 246, 0.35), 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
 .community-faq-curious-inner {
@@ -658,19 +277,19 @@
 
 .community-faq-curious-eyebrow {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #111110;
+  color: rgba(255, 255, 255, 0.9);
   margin: 0 0 6px;
 }
 
 .community-faq-curious-body {
-  font-size: clamp(16px, 1.15vw, 18px);
+  font-size: clamp(15px, 1.1vw, 18px);
   font-weight: 600;
   line-height: 1.4;
-  color: #1a1a19;
+  color: #ffffff;
   margin: 0;
   letter-spacing: -0.01em;
 }
@@ -679,9 +298,9 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #090a09;
+  background: #070809;
   color: #ffffff;
-  padding: 13px 24px;
+  padding: 13px 26px;
   border-radius: 999px;
   font-size: 14px;
   font-weight: 700;
@@ -693,7 +312,7 @@
 }
 
 .community-faq-curious-cta:hover {
-  background: #1a1c1a;
+  background: #121417;
   transform: translateX(3px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
@@ -706,190 +325,51 @@
   transform: translateX(4px);
 }
 
-/* ============================================================
-   RESPONSIVE DESIGN
-   ============================================================ */
-@media (min-width: 1672px) {
-  .community-faq-container {
-    max-width: 1620px;
-    padding: 0 60px;
-  }
-}
-
-@media (max-width: 1280px) {
-  .community-faq-layout {
-    grid-template-columns: 38% 62%;
-  }
-
-  .community-faq-intro-col {
-    padding-right: 32px;
-  }
-
-  .community-faq-board-col {
-    padding-left: 24px;
-  }
-
-  .community-faq-vertical-thread {
-    left: 38%;
-  }
-}
-
-@media (max-width: 1023px) {
-  .community-faq-section {
-    padding: 90px 0 110px;
-  }
-
-  .community-faq-container {
-    padding: 0 32px;
-  }
-
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
   .community-faq-layout {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 36px;
   }
 
   .community-faq-intro-col {
     position: relative;
     top: auto;
     padding-right: 0;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .community-faq-vertical-thread {
-    display: none;
-  }
-
-  .community-faq-board-col {
-    padding-left: 0;
-  }
-
-  .community-faq-photo-card {
-    margin: 32px auto;
-    max-width: 500px;
-    width: 100%;
-    transform: rotate(1deg);
+  .community-faq-heading {
+    font-size: clamp(34px, 7vw, 52px);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 640px) {
   .community-faq-section {
     padding: 70px 0 90px;
   }
 
   .community-faq-container {
-    padding: 0 18px;
-  }
-
-  .community-faq-heading {
-    font-size: clamp(38px, 10vw, 54px);
-    line-height: 0.98;
-    margin-bottom: 18px;
-  }
-
-  .community-faq-lead {
-    font-size: 16px;
-    margin-bottom: 24px;
-  }
-
-  .community-faq-handwritten {
-    margin-bottom: 28px;
-    transform: rotate(-1.5deg);
-  }
-
-  .community-faq-handwritten-text {
-    font-size: 24px;
-  }
-
-  .community-faq-handwritten-arrow {
-    right: -45px;
-    width: 40px;
-    height: 30px;
+    padding: 0 20px;
   }
 
   .community-faq-trigger {
-    padding: 16px 18px;
-    gap: 14px;
+    padding: 18px 20px;
   }
 
   .community-faq-trigger-left {
     gap: 14px;
   }
 
-  .community-faq-trigger-num {
-    font-size: 13px;
-  }
-
-  .community-faq-trigger-text {
-    font-size: 16px;
-    line-height: 1.35;
-  }
-
-  .community-faq-arrow-circle {
-    width: 30px;
-    height: 30px;
-  }
-
-  .community-faq-arrow-circle svg {
-    width: 14px;
-    height: 14px;
-  }
-
   .community-faq-answer-panel {
-    padding: 0 18px 20px 42px;
-  }
-
-  .community-faq-answer-p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .community-faq-signoff-text {
-    font-size: 18px;
-  }
-
-  /* Restrain slip rotation on mobile to <= 0.4deg */
-  .community-faq-slip {
-    transform: rotate(0deg) !important;
-  }
-
-  .community-faq-photo-card {
-    max-width: 100%;
-    transform: rotate(0.4deg);
-    margin: 28px 0 20px;
+    padding: 0 20px 20px 52px;
   }
 
   .community-faq-still-curious {
-    padding: 20px;
-    transform: rotate(0deg);
-  }
-
-  .community-faq-curious-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    padding: 22px 24px;
   }
 
   .community-faq-curious-cta {
     width: 100%;
     justify-content: center;
-  }
-}
-
-/* Reduced motion accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .community-faq-slip,
-  .community-faq-photo-card,
-  .community-faq-still-curious,
-  .community-faq-arrow-circle,
-  .community-faq-trigger-num,
-  .community-faq-curious-cta {
-    transition: none !important;
-    transform: none !important;
-    animation: none !important;
-  }
-
-  .community-faq-slip:hover {
-    transform: none !important;
   }
 }

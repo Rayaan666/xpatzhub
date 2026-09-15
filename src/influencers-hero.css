@@ -1,0 +1,35 @@
+@font-face{font-family:InfluencersAnton;src:url('/assets/seo-fonts/Anton-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+.influencers-hero{--lime:#d0ff38;background:#080808;color:white;margin-top:76px;overflow:hidden;font-family:Arial,Helvetica,sans-serif}
+.influencers-hero *{box-sizing:border-box}
+.influencers-hero__canvas{position:relative;isolation:isolate;width:100%;max-width:1920px;min-height: max(56.25vw,760px);margin-inline:auto;padding:2.4% 2.75% 9%;background:radial-gradient(ellipse at 86% 48%,#171815 0%,#080808 58%)}
+.influencers-hero .influencers-hero__title{position:relative;z-index:1;font-family:InfluencersAnton,'Arial Narrow',sans-serif;font-weight:400;font-size:clamp(90px,9.57vw,184px);line-height:.99;letter-spacing:-.045em;margin:0;width:max-content;max-width:100%;text-transform:uppercase}
+.influencers-hero__title>span{display:block;white-space:nowrap}
+.influencers-hero__title em{font-style:normal;color:var(--lime)}
+.influencers-hero__quotes{position:absolute;z-index:1;left:62.5%;top:24%;width:17%;height:auto;color:var(--lime)}
+.influencers-hero__scene{position:absolute;z-index:2;right:-1%;bottom:0;width:68%;pointer-events:none}
+.influencers-hero__scene img{display:block;width:100%;height:auto;object-fit:contain}
+.influencers-hero__copy{position:relative;z-index:3;width:34%;max-width:540px;margin-top:3.1%}
+.influencers-hero__eyebrow{margin:0 0 28px;font-size:clamp(10px,.84vw,16px);line-height:1.5;letter-spacing:.3em;color:#fff}
+.influencers-hero__description{margin:0;color:#e1e1e1;font-size:clamp(18px,1.55vw,29px);line-height:1.3;letter-spacing:-.02em}
+.influencers-hero__cta{display:flex;align-items:center;justify-content:center;gap:12px;width:330px;max-width:100%;min-height:56px;margin-top:34px;padding:12px 18px;border:0;border-radius:999px;background:var(--lime);color:#080808;font-family:inherit;font-weight:600;font-size:20px;cursor:pointer;transition:background .2s}
+.influencers-hero__cta:hover{background:#e0ff83}
+.influencers-hero__explore{display:table;margin-top:28px;color:white;font-size:18px;text-decoration:underline;text-underline-offset:7px;text-decoration-thickness:1px}
+.influencers-hero__cta:focus-visible,.influencers-hero__explore:focus-visible{outline:2px solid white;outline-offset:6px}
+.influencers-hero__caption{position:absolute;z-index:3;right:2.3%;top:67%;margin:0;font-size:clamp(9px,.78vw,15px);line-height:1.7;letter-spacing:.25em;color:#fff;text-shadow:0 2px 5px #000}
+.influencers-hero__services{position:absolute;z-index:3;bottom:5.5%;left:2.75%;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,2.5vw,48px);margin:0;padding:10px 0;list-style:none;font-size:clamp(9px,.7vw,13px);letter-spacing:.24em;text-transform:uppercase;color:white;text-shadow:0 2px 6px #000}
+.influencers-hero__services li+li:before{content:'/';margin-right:clamp(16px,2.5vw,48px);color:#ddd}
+@media(min-width:1920px){.influencers-hero__canvas{min-height:1080px}}
+@media(min-width:768px) and (max-width:1100px){.influencers-hero__canvas{min-height:760px;padding-top:35px}.influencers-hero .influencers-hero__title{font-size:9.5vw}.influencers-hero__copy{width:40%;margin-top:40px}.influencers-hero__description{font-size:20px}.influencers-hero__eyebrow{font-size:10px;letter-spacing:.19em}.influencers-hero__scene{width:67%}.influencers-hero__quotes{top:35%}.influencers-hero__cta{font-size:17px}.influencers-hero__caption{top:auto;bottom:18%}.influencers-hero__services{gap:18px;font-size:9px;letter-spacing:.16em}.influencers-hero__services li+li:before{margin-right:18px}}
+@media(max-width:767px){.influencers-hero{margin-top:76px}.influencers-hero__canvas{padding:30px 6% 24px;min-height:0;background:#080808}.influencers-hero .influencers-hero__title{font-size:11.5vw;letter-spacing:-.045em;line-height:1.05}.influencers-hero__copy{width:100%;max-width:540px;margin-top:28px}.influencers-hero__eyebrow{font-size:10px;letter-spacing:.22em;margin-bottom:20px}.influencers-hero__description{font-size:19px;line-height:1.5}.influencers-hero__cta{margin-top:25px;font-size:18px;min-height:56px}.influencers-hero__explore{margin-top:22px;font-size:16px}.influencers-hero__scene{position:relative;right:auto;bottom:auto;width:114%;margin:44px -7% 0;aspect-ratio:3/2}.influencers-hero__quotes{top:auto;bottom:calc(18vw + 95px);left:59%;width:27%}.influencers-hero__caption{position:relative;top:auto;right:auto;margin:4px 0 24px;text-align:right;font-size:9px}.influencers-hero__services{position:relative;left:auto;bottom:auto;gap:14px 0;font-size:9px;letter-spacing:.15em;padding:0;display:grid;grid-template-columns:1fr 1fr}.influencers-hero__services li+li:before{content:none}}
+/* The same photograph supplies a clipped foreground without another download. */
+.influencers-hero__scene{z-index:auto}
+.influencers-hero__scene>img:first-child{position:relative;z-index:0;mask-image:linear-gradient(to right,transparent,#000 13%);}
+.influencers-hero__scene .influencers-hero__foreground{position:absolute;inset:0;z-index:2;clip-path:polygon(0 100%,6% 74%,12% 57%,16% 39%,25% 35%,26% 23%,29% 15%,37% 9%,43% 11%,47% 17%,49% 27%,53% 27%,55% 30%,55% 39%,57% 55%,58% 60%,85% 60%,85% 100%)}
+.influencers-hero .influencers-hero__title{z-index:3}
+.influencers-hero__title>span:first-child{transform:scaleX(1.4);transform-origin:left center}
+.influencers-hero__title>span:last-child{font-size:.84em;transform:scaleX(1.38);transform-origin:left center}
+.influencers-hero__scene>img:first-child{mask-image:linear-gradient(to right,transparent,#000 13%),linear-gradient(to bottom,transparent,#000 14%);mask-composite:intersect}
+.influencers-hero__quotes{width:16%;}
+@media(max-width:767px){.influencers-hero__title>span:first-child{transform:scaleX(1.2)}.influencers-hero__title>span:last-child{font-size:.9em;transform:scaleX(1.2)}.influencers-hero__quotes{width:27%;bottom:calc(18vw + 120px)}}
+.influencers-hero__scene .influencers-hero__product{position:absolute;inset:0;z-index:2;clip-path:polygon(63.6% 38.2%,66.9% 38.2%,66.9% 44%,69% 44%,69% 57%,63.6% 57%)}
+@media(max-width:767px){.influencers-hero__quotes{bottom:calc(18vw + 205px)}}

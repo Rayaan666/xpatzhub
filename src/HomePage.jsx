@@ -9,18 +9,23 @@ import Footer from './Footer';
 import MobileHero from './MobileHero';
 import DesktopHero from './DesktopHero';
 import CommunityHero from './CommunityHero';
+import InfluencersHero from './InfluencersHero';
+import WhyInfluenceWorks from './WhyInfluenceWorks';
+import InfluenceImpact from './InfluenceImpact';
 import CommunityPower from './CommunityPower';
 import CommunityActivation from './CommunityActivation';
 import CommunityFaq from './CommunityFaq';
 const isCommunityPage = window.location.pathname.replace(/\/+$/, '') === '/community';
-const activePage = isCommunityPage ? 'community' : 'home';
+const isInfluencersPage = window.location.pathname.replace(/\/+$/, '') === '/influencers';
+const activePage = isInfluencersPage ? 'influencer' : isCommunityPage ? 'community' : 'home';
+if (isInfluencersPage) document.title = 'Influencer Marketing in the UAE | XPATZHUB';
 if (isCommunityPage) document.title = 'Community Marketing in the UAE | XPATZHUB';
 
 const navLinks = [
-  { name: 'Home', id: 'home', href: isCommunityPage ? '/' : '#home', subtitle: 'Growth Partner in UAE' },
+  { name: 'Home', id: 'home', href: isCommunityPage || isInfluencersPage ? '/' : '#home', subtitle: 'Growth Partner in UAE' },
   { name: 'SEO & Digital', id: 'digital', href: '/seo-digital-marketing', subtitle: 'Turn Visibility Into Results' },
   { name: 'Community', id: 'community', href: '/community', subtitle: '500K+ Expat Network' },
-  { name: 'Influencers', id: 'influencer', href: '#influencer', subtitle: 'Authentic Creator Reach' },
+  { name: 'Influencers', id: 'influencer', href: '/influencers', subtitle: 'Authentic Creator Reach' },
   { name: 'Get in Touch', id: 'contact', href: '#contact', subtitle: "Let's Grow Your Brand" },
 ];
 
@@ -38,6 +43,8 @@ function BurgerIcon({ isOpen }) {
 function App() {
   const reduced = useReducedMotion();
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches);
+  const contactDialogRef = useRef(null);
+  const triggerRef = useRef(null);
 
   useEffect(() => {
     const media = window.matchMedia('(max-width: 767px)');
@@ -69,41 +76,50 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Everything is a demo / non-functional home page
-  const noop = e => e.preventDefault();
+  const openContact = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    triggerRef.current = document.activeElement;
+    setMenu(false);
+    contactDialogRef.current?.showModal();
+  };
+
+  const closeContact = () => {
+    contactDialogRef.current?.close();
+  };
 
   return (
     <>
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="header-container">
           {/* Logo */}
-          <a href="/" className="brand-logo" aria-label="XPATZHUB home" onClick={isCommunityPage ? undefined : noop}>
+          <a href="/" className="brand-logo" aria-label="XPATZHUB home">
             <img src="/logo.png" alt="XPATZHUB" className="brand-logo-img" />
           </a>
 
           {/* Desktop nav */}
           <nav className="desktop-nav" aria-label="Main navigation">
             <div className="nav-links-wrap">
-              {navLinks.map(link => {
-                const isFunctional = link.id === 'home' || link.id === 'digital';
-                return (
-                  <a
-                    key={link.id}
-                    href={link.href}
-                    aria-current={link.id === activePage ? 'page' : undefined}
-                    className={`nav-link ${link.id === activePage ? 'active' : ''}`}
-                    onClick={isFunctional ? () => setMenu(false) : noop}
-                  >
-                    <span>{link.name}</span>
-                  </a>
-                );
-              })}
+              {navLinks.map(link => (
+                <a
+                  key={link.id}
+                  href={link.href}
+                  aria-current={link.id === activePage ? 'page' : undefined}
+                  className={`nav-link ${link.id === activePage ? 'active' : ''}`}
+                  onClick={(e) => {
+                    if (link.id === 'contact') {
+                      openContact(e);
+                    }
+                  }}
+                >
+                  <span>{link.name}</span>
+                </a>
+              ))}
             </div>
           </nav>
 
           {/* Right side actions */}
           <div className="header-actions">
-            <button className="header-cta-btn" onClick={noop}>
+            <button className="header-cta-btn" onClick={openContact}>
               <span>Let's Grow</span>
               <ArrowRight size={15} className="cta-icon" />
             </button>
@@ -161,10 +177,10 @@ function App() {
                       key={link.id}
                       href={link.href}
                       className={`mobile-nav-link ${link.id === activePage ? 'active' : ''}`}
-                      onClick={e => {
+                      onClick={(e) => {
                         setMenu(false);
-                        if (!(link.id === 'home' || link.id === 'digital')) {
-                          e.preventDefault();
+                        if (link.id === 'contact') {
+                          openContact(e);
                         }
                       }}
                       initial={{ opacity: 0, y: 10 }}
@@ -182,16 +198,16 @@ function App() {
 
                 {/* Footer */}
                 <div className="mobile-nav-footer">
-                  <button className="mobile-nav-cta" onClick={noop}>
+                  <button className="mobile-nav-cta" onClick={openContact}>
                     <span>Start Growing Today</span>
                     <ArrowRight size={16} />
                   </button>
                   <div className="mobile-nav-contact-info">
-                    <a href="tel:+971564800026" className="mobile-contact-item" onClick={noop}>
+                    <a href="tel:+971564800026" className="mobile-contact-item">
                       <Phone size={14} />
                       <span>+971 56 480 0026</span>
                     </a>
-                    <a href="mailto:anulmundra@indianexpatsindubai.com" className="mobile-contact-item" onClick={noop}>
+                    <a href="mailto:anulmundra@indianexpatsindubai.com" className="mobile-contact-item">
                       <Mail size={14} />
                       <span>anulmundra@indianexpatsindubai.com</span>
                     </a>
@@ -208,13 +224,39 @@ function App() {
       </header>
 
       <main>
-        {isCommunityPage ? <CommunityHero /> : isMobile ? <MobileHero /> : <DesktopHero />}
+        {isInfluencersPage ? <InfluencersHero onEnquire={openContact} /> : isCommunityPage ? <CommunityHero /> : isMobile ? <MobileHero /> : <DesktopHero />}
+        {isInfluencersPage && <WhyInfluenceWorks />}
         {isCommunityPage && <CommunityPower />}
         {isCommunityPage && <CommunityActivation />}
-        <Solutions onEnquire={noop} />
-        {isCommunityPage && <CommunityFaq onEnquire={noop} />}
-        <Footer onEnquire={noop} onOpen={noop} />
+        {!isCommunityPage && <Solutions onEnquire={openContact} />}
+        {isCommunityPage && <CommunityFaq onEnquire={openContact} />}
+        {isInfluencersPage && <InfluenceImpact />}
+        <Footer onEnquire={openContact} onOpen={openContact} />
       </main>
+
+      {/* Shared Global Contact Dialog */}
+      <dialog
+        ref={contactDialogRef}
+        className="dh-dialog"
+        aria-labelledby="dialog-title"
+        onClose={() => triggerRef.current?.focus()}
+        onClick={e => { if (e.target === contactDialogRef.current) closeContact(); }}
+      >
+        <button className="dh-dialog-close" aria-label="Close dialog" onClick={closeContact}>
+          <X />
+        </button>
+        <p>XPATZHUB</p>
+        <h2 id="dialog-title">Let’s grow your brand.</h2>
+        <p>Tell us what you have in mind for your brand in Dubai &amp; the UAE.</p>
+        <div className="flex flex-col gap-3 mt-4">
+          <a href="mailto:anulmundra@indianexpatsindubai.com" className="dh-dialog-link">
+            anulmundra@indianexpatsindubai.com
+          </a>
+          <a href="tel:+971564800026" className="dh-dialog-phone">
+            +971 56 480 0026
+          </a>
+        </div>
+      </dialog>
     </>
   );
 }

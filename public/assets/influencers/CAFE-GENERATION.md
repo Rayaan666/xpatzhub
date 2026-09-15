@@ -1,0 +1,7 @@
+# Why Influence Works photograph
+
+Generated using the built-in imagegen tool with the user's editorial reference as visual guidance. Final responsive assets: `creator-cafe-1536.webp` and `creator-cafe-768.webp`. The PNG source is retained alongside them. WebP encoding preserves the original proportions.
+
+## Prompt
+
+Use case: photorealistic-natural. Asset: a single wide landscape documentary café photograph for an editorial website section, 1536x1024 or wider landscape. Use the attached editorial reference only for its CENTRAL PHOTOGRAPH composition. Generate only the photograph, NO layout, NO lettering, NO annotations, NO graphic lines. Adult female creator seen from behind and side, dark hair in loose bun, ivory linen shirt, seated on left at a warm stone café table arranging an unbranded frosted skincare bottle and small cream jar on a stone tray. On right foreground the naturally proportioned hands of a camera operator hold a real mirrorless camera filming her activity. Face turned away, nobody looking at viewer. Ceramic vase with olive foliage, small ceramic cup, warm wood window frames, palm trees and subtle Dubai skyline beyond windows. Natural soft daylight, tactile linen, stone, wood, realistic hands, candid documentary moment, muted warm cream tones, no orange cast, no logos, no invented branding, no text. Match reference framing closely: woman fills left half, skincare at lower middle, camera right foreground, windows upper right. High detail natural photography.
