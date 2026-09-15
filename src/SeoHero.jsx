@@ -5,15 +5,10 @@ import './seo-hero.css';
 
 export default function SeoHero() {
   const dialog = useRef(null);
-  const howItWorksDialog = useRef(null);
   const trigger = useRef(null);
   function openEnquiry() {
     trigger.current = document.activeElement;
     dialog.current?.showModal();
-  }
-  function openHowItWorks() {
-    trigger.current = document.activeElement;
-    howItWorksDialog.current?.showModal();
   }
 
   const structuredData = {
@@ -54,9 +49,8 @@ export default function SeoHero() {
         <p className="seo-description" itemProp="description">
           Data-driven SEO, PPC campaigns &amp; performance content engineered to connect your brand with real customers across Dubai &amp; the UAE.
         </p>
-        <div className="flex items-center gap-3 mt-4">
+        <div className="flex items-center justify-center gap-3 mt-4">
           <button className="seo-primary" onClick={(e) => e.preventDefault()} aria-label="Get Your Free Strategy Call">Get Your Free Strategy Call <ArrowUpRight aria-hidden="true" /></button>
-          <button className="seo-secondary" onClick={(e) => e.preventDefault()} aria-label="See How It Works">See How It Works</button>
         </div>
       </div>
       <dialog ref={dialog} className="seo-dialog" aria-labelledby="seo-dialog-title" onClose={() => trigger.current?.focus()} onClick={event => { if (event.target === dialog.current) dialog.current.close(); }}>
@@ -66,13 +60,6 @@ export default function SeoHero() {
         <p>Contact our team for your free strategy call. Tell us about your brand, your website, and what you want to achieve.</p>
         <a className="seo-dialog-link" href="mailto:anulmundra@indianexpatsindubai.com?subject=Strategy%20Call">Email the team <ArrowRight size={18} /></a>
         <a href="tel:+971564800026">+971 56 480 0026</a>
-      </dialog>
-
-      <dialog ref={howItWorksDialog} className="seo-dialog" aria-labelledby="seo-how-title" onClose={() => trigger.current?.focus()} onClick={event => { if (event.target === howItWorksDialog.current) howItWorksDialog.current.close(); }}>
-        <button className="seo-close" aria-label="Close dialog" onClick={() => howItWorksDialog.current.close()}><X /></button>
-        <p className="seo-dialog-eyebrow">HOW IT WORKS</p>
-        <h2 id="seo-how-title">Understand your brand.</h2>
-        <p>We analyze your business goals, target audience, and current digital footprint to create a custom ROI-focused growth plan.</p>
       </dialog>
     </section>
   );

@@ -203,34 +203,39 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 11px 16px;
-  border-radius: 10px;
-  font-size: 13.5px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.25s ease;
 }
 
 .faq-btn-phone {
-  background: #087ef7;
+  background: linear-gradient(105deg, #00baf0, #008ef6 55%, #0654f8);
   color: #ffffff;
+  border-radius: 999px;
+  border: 0;
 }
 
 .faq-btn-phone:hover {
-  background: #006ce3;
+  background: linear-gradient(105deg, #18c4f7, #0596ff 55%, #1762f9);
+  box-shadow: 0 4px 22px rgba(0, 142, 246, 0.35);
   transform: translateY(-1px);
 }
 
 .faq-btn-email {
-  background: linear-gradient(105deg, #00baf0, #008ef6 55%, #0654f8);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
 }
 
 .faq-btn-email:hover {
-  background: linear-gradient(105deg, #18c4f7, #0596ff 55%, #1762f9);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
   color: #ffffff;
-  box-shadow: 0 4px 22px rgba(0, 142, 246, 0.35);
   transform: translateY(-1px);
 }
 

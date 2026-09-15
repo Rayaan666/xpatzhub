@@ -6,7 +6,6 @@ import GrowthJourney from './GrowthJourney';
 import DigitalServices from './DigitalServices';
 import PerformanceResults from './PerformanceResults';
 import FaqSection from './FaqSection';
-import SeoCtaSection from './SeoCtaSection';
 import Footer from './Footer';
 import './seo-base.css';
 export default function SeoPage() {
@@ -17,15 +16,22 @@ export default function SeoPage() {
   }, []);
 
   return (
-    <main>
+    <>
       <Navbar activeId="digital" />
-      <SeoHero />
-      <GrowthJourney />
-      <DigitalServices />
-      <PerformanceResults />
-      <FaqSection />
-      <SeoCtaSection />
-    </main>
+      <main>
+        <SeoHero />
+        <GrowthJourney />
+        <DigitalServices />
+        <PerformanceResults />
+        <FaqSection />
+      </main>
+      <Footer 
+        ctaTitle="Ready to Dominate Search Rankings & Drive Growth in Dubai & the UAE?"
+        ctaDescription="Partner with Dubai's premier SEO & digital marketing agency. Turn high-intent search traffic into qualified leads and revenue with data-driven search engine optimization, technical audits, and performance marketing."
+        ctaButtonText="Get Your Free SEO Audit"
+        ctaBgImage="/about/cta.png"
+      />
+    </>
   );
 }
 

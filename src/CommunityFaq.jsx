@@ -70,6 +70,33 @@ export default function CommunityFaq({ onEnquire }) {
               Everything you need to know about connecting your brand with XPATZHUB's
               community across the UAE.
             </motion.p>
+
+            {/* SPECIAL "STILL CURIOUS?" ELEMENT */}
+            <motion.div
+              className="community-faq-still-curious"
+              initial={reduced ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: 0.2 }}
+            >
+              <div className="community-faq-curious-inner">
+                <div className="community-faq-curious-text-group">
+                  <h4 className="community-faq-curious-eyebrow">STILL CURIOUS?</h4>
+                  <p className="community-faq-curious-body">
+                    Some questions are better answered over a conversation.
+                  </p>
+                </div>
+
+                <a
+                  href="#"
+                  className="community-faq-curious-cta"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <span>Let's Talk</span>
+                  <ArrowRight size={16} aria-hidden="true" />
+                </a>
+              </div>
+            </motion.div>
           </div>
 
           {/* ============================================================
@@ -145,35 +172,6 @@ export default function CommunityFaq({ onEnquire }) {
                 );
               })}
             </div>
-
-            {/* ============================================================
-                SPECIAL "STILL CURIOUS?" ELEMENT
-                ============================================================ */}
-            <motion.div
-              className="community-faq-still-curious"
-              initial={reduced ? false : { opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, delay: 0.2 }}
-            >
-              <div className="community-faq-curious-inner">
-                <div className="community-faq-curious-text-group">
-                  <h4 className="community-faq-curious-eyebrow">STILL CURIOUS?</h4>
-                  <p className="community-faq-curious-body">
-                    Some questions are better answered over a conversation.
-                  </p>
-                </div>
-
-                <a
-                  href="#"
-                  className="community-faq-curious-cta"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <span>Let's Talk</span>
-                  <ArrowRight size={16} aria-hidden="true" />
-                </a>
-              </div>
-            </motion.div>
           </div>
         </div>
       </div>

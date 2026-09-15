@@ -231,7 +231,17 @@ function App() {
         {!isCommunityPage && <Solutions onEnquire={openContact} />}
         {isCommunityPage && <CommunityFaq onEnquire={openContact} />}
         {isInfluencersPage && <InfluenceImpact />}
-        <Footer onEnquire={openContact} onOpen={openContact} />
+        <Footer 
+          onEnquire={openContact} 
+          onOpen={openContact} 
+          onCtaClick={openContact}
+          {...(isCommunityPage ? {
+            ctaTitle: "Ready to Connect With 500,000+ Engaged Expats in Dubai & the UAE?",
+            ctaDescription: "Tap into Dubai & Abu Dhabi's premier expat network. Build authentic brand trust, drive word-of-mouth growth, and activate high-converting community marketing campaigns across the UAE.",
+            ctaButtonText: "Activate Your Community Campaign",
+            ctaBgImage: "/community/CTA.png"
+          } : {})}
+        />
       </main>
 
       {/* Shared Global Contact Dialog */}

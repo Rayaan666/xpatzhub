@@ -2,7 +2,7 @@
 .seo-hero .seo-studio{position:absolute;inset:50px 0 -50px 0;z-index:-1;background:url('/assets/seo-search-studio.png') center bottom/cover no-repeat;pointer-events:none}
 .seo-hero .seo-headline{position:relative;text-align:center;padding-top:12.5vw;margin:0 auto;width:94%}
 .seo-hero .seo-eyebrow{margin:0 0 24px;font-size:clamp(12px,.9vw,16px);font-weight:400;line-height:1.5;letter-spacing:.48em}
-.seo-hero h1{margin:0;font-family:Inter,Arial,sans-serif;font-size:clamp(54px,5.62vw,112px);font-weight:700;line-height:.99;letter-spacing:-.045em}
+.seo-hero h1{margin:0;font-family:Arial,Helvetica,sans-serif;font-size:clamp(54px,5.62vw,112px);font-weight:900;line-height:.99;letter-spacing:-.045em}
 .seo-hero h1 span{display:block}.seo-hero h1 .seo-blue{background:linear-gradient(105deg,#00baf0,#008ef6 45%,#0654f8);background-clip:text;-webkit-text-fill-color:transparent;margin-top:5px}
 .seo-hero .seo-support{position:relative;text-align:center;margin:24px auto 0;width:94%}
 .seo-hero .seo-description{margin:0 auto 30px;font-family:Inter,Arial,sans-serif;font-size:clamp(23px,2.3vw,46px);font-weight:400;line-height:1.35;letter-spacing:-.045em}

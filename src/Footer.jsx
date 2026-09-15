@@ -2,24 +2,37 @@ import React from 'react';
 import { ArrowRight, MapPin, Instagram, Linkedin, Twitter, Youtube, Phone, Mail } from 'lucide-react';
 import './footer.css';
 
-export default function Footer({ hideCtaBanner = false }) {
+export default function Footer({ 
+  hideCtaBanner = false,
+  ctaTitle,
+  ctaDescription,
+  ctaButtonText,
+  ctaBgImage,
+  onCtaClick
+}) {
   const handleNonFunctional = (e) => {
     if (e && e.preventDefault) e.preventDefault();
   };
+
+  const title = ctaTitle || "Ready to Grow Your Brand Across the UAE?";
+  const description = ctaDescription || "Join 700+ leading brands leveraging Digital Marketing, Community Power, and Influencer Marketing to reach over 500,000 expats across Dubai, Abu Dhabi, and the UAE.";
+  const buttonText = ctaButtonText || "Start Growing Today";
+  const bgImage = ctaBgImage || 'https://res.cloudinary.com/utug407p/image/upload/ChatGPT_Image_Sep_8_2026_01_34_54_PM.png';
 
   return (
     <footer className="site-footer" id="contact">
       {/* Top CTA Banner */}
       {!hideCtaBanner && (
-        <div className="footer-cta-banner">
+        <div 
+          className="footer-cta-banner"
+          style={{ backgroundImage: `linear-gradient(135deg, rgba(3, 10, 24, 0.84) 0%, rgba(6, 18, 38, 0.92) 100%), url('${bgImage}')` }}
+        >
           <div className="footer-cta-content">
-            <h2>Ready to Grow Your Brand Across the UAE?</h2>
-            <p>
-              Join 700+ leading brands leveraging Digital Marketing, Community Power, and Influencer Marketing to reach over 500,000 expats across Dubai, Abu Dhabi, and the UAE.
-            </p>
+            <h2>{title}</h2>
+            <p>{description}</p>
             <div className="footer-cta-actions">
-              <button className="gradient-button primary-cta" onClick={handleNonFunctional}>
-                Start Growing Today <ArrowRight size={22} />
+              <button className="gradient-button primary-cta" onClick={onCtaClick || handleNonFunctional}>
+                {buttonText} <ArrowRight size={22} />
               </button>
             </div>
           </div>

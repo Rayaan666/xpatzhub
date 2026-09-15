@@ -102,7 +102,7 @@
   line-height: 1.55;
   color: #c7cbd0;
   max-width: 420px;
-  margin: 0;
+  margin: 0 0 32px;
 }
 
 /* RIGHT COLUMN ACCORDION */
@@ -247,11 +247,12 @@
 /* STILL CURIOUS? NOTE */
 .community-faq-still-curious {
   position: relative;
-  margin-top: 32px;
+  margin-top: 0;
+  max-width: 440px;
   background: linear-gradient(105deg, #00baf0 0%, #008ef6 55%, #0654f8 100%);
   color: #ffffff;
   border-radius: 12px;
-  padding: 28px 34px;
+  padding: 24px 28px;
   box-shadow: 0 12px 36px rgba(0, 142, 246, 0.25), 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   z-index: 3;
