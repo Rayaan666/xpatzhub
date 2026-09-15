@@ -99,27 +99,30 @@ function App() {
           {/* Desktop nav */}
           <nav className="desktop-nav" aria-label="Main navigation">
             <div className="nav-links-wrap">
-              {navLinks.map(link => (
-                <a
-                  key={link.id}
-                  href={link.href}
-                  aria-current={link.id === activePage ? 'page' : undefined}
-                  className={`nav-link ${link.id === activePage ? 'active' : ''}`}
-                  onClick={(e) => {
-                    if (link.id === 'contact') {
-                      openContact(e);
-                    }
-                  }}
-                >
-                  <span>{link.name}</span>
-                </a>
-              ))}
+              {navLinks.map(link => {
+                const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community';
+                return (
+                  <a
+                    key={link.id}
+                    href={isFunctional ? link.href : '#'}
+                    aria-current={link.id === activePage ? 'page' : undefined}
+                    className={`nav-link ${link.id === activePage ? 'active' : ''}`}
+                    onClick={(e) => {
+                      if (!isFunctional) {
+                        e.preventDefault();
+                      }
+                    }}
+                  >
+                    <span>{link.name}</span>
+                  </a>
+                );
+              })}
             </div>
           </nav>
 
           {/* Right side actions */}
           <div className="header-actions">
-            <button className="header-cta-btn" onClick={openContact}>
+            <button className="header-cta-btn" onClick={(e) => e.preventDefault()}>
               <span>Let's Grow</span>
               <ArrowRight size={15} className="cta-icon" />
             </button>
@@ -172,42 +175,46 @@ function App() {
 
                 {/* Links */}
                 <div className="mobile-nav-links">
-                  {navLinks.map((link, i) => (
-                    <motion.a
-                      key={link.id}
-                      href={link.href}
-                      className={`mobile-nav-link ${link.id === activePage ? 'active' : ''}`}
-                      onClick={(e) => {
-                        setMenu(false);
-                        if (link.id === 'contact') {
-                          openContact(e);
-                        }
-                      }}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.04 + i * 0.04, ease: [0.16, 1, 0.3, 1], duration: 0.3 }}
-                    >
-                      <div className="mobile-nav-link-content">
-                        <span className="mobile-nav-link-title">{link.name}</span>
-                        {link.subtitle && <span className="mobile-nav-link-sub">{link.subtitle}</span>}
-                      </div>
-                      <span className="mobile-nav-link-num">0{i + 1}</span>
-                    </motion.a>
-                  ))}
+                  {navLinks.map((link, i) => {
+                    const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community';
+                    return (
+                      <motion.a
+                        key={link.id}
+                        href={isFunctional ? link.href : '#'}
+                        className={`mobile-nav-link ${link.id === activePage ? 'active' : ''}`}
+                        onClick={(e) => {
+                          if (!isFunctional) {
+                            e.preventDefault();
+                          } else {
+                            setMenu(false);
+                          }
+                        }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.04 + i * 0.04, ease: [0.16, 1, 0.3, 1], duration: 0.3 }}
+                      >
+                        <div className="mobile-nav-link-content">
+                          <span className="mobile-nav-link-title">{link.name}</span>
+                          {link.subtitle && <span className="mobile-nav-link-sub">{link.subtitle}</span>}
+                        </div>
+                        <span className="mobile-nav-link-num">0{i + 1}</span>
+                      </motion.a>
+                    );
+                  })}
                 </div>
 
                 {/* Footer */}
                 <div className="mobile-nav-footer">
-                  <button className="mobile-nav-cta" onClick={openContact}>
+                  <button className="mobile-nav-cta" onClick={(e) => e.preventDefault()}>
                     <span>Start Growing Today</span>
                     <ArrowRight size={16} />
                   </button>
                   <div className="mobile-nav-contact-info">
-                    <a href="tel:+971564800026" className="mobile-contact-item">
+                    <a href="#" onClick={(e) => e.preventDefault()} className="mobile-contact-item">
                       <Phone size={14} />
                       <span>+971 56 480 0026</span>
                     </a>
-                    <a href="mailto:anulmundra@indianexpatsindubai.com" className="mobile-contact-item">
+                    <a href="#" onClick={(e) => e.preventDefault()} className="mobile-contact-item">
                       <Mail size={14} />
                       <span>anulmundra@indianexpatsindubai.com</span>
                     </a>
@@ -224,17 +231,17 @@ function App() {
       </header>
 
       <main>
-        {isInfluencersPage ? <InfluencersHero onEnquire={openContact} /> : isCommunityPage ? <CommunityHero /> : isMobile ? <MobileHero /> : <DesktopHero />}
+        {isInfluencersPage ? <InfluencersHero onEnquire={(e) => e?.preventDefault && e.preventDefault()} /> : isCommunityPage ? <CommunityHero /> : isMobile ? <MobileHero /> : <DesktopHero />}
         {isInfluencersPage && <WhyInfluenceWorks />}
         {isCommunityPage && <CommunityPower />}
         {isCommunityPage && <CommunityActivation />}
-        {!isCommunityPage && <Solutions onEnquire={openContact} />}
-        {isCommunityPage && <CommunityFaq onEnquire={openContact} />}
+        {!isCommunityPage && <Solutions onEnquire={(e) => e?.preventDefault && e.preventDefault()} />}
+        {isCommunityPage && <CommunityFaq onEnquire={(e) => e?.preventDefault && e.preventDefault()} />}
         {isInfluencersPage && <InfluenceImpact />}
         <Footer 
-          onEnquire={openContact} 
-          onOpen={openContact} 
-          onCtaClick={openContact}
+          onEnquire={(e) => e?.preventDefault && e.preventDefault()} 
+          onOpen={(e) => e?.preventDefault && e.preventDefault()} 
+          onCtaClick={(e) => e?.preventDefault && e.preventDefault()}
           {...(isCommunityPage ? {
             ctaTitle: "Ready to Connect With 500,000+ Engaged Expats in Dubai & the UAE?",
             ctaDescription: "Tap into Dubai & Abu Dhabi's premier expat network. Build authentic brand trust, drive word-of-mouth growth, and activate high-converting community marketing campaigns across the UAE.",
