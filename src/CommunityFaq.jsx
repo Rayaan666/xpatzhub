@@ -90,7 +90,10 @@ export default function CommunityFaq({ onEnquire }) {
                 <a
                   href="#"
                   className="community-faq-curious-cta"
-                  onClick={(e) => e.preventDefault()}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onEnquire) onEnquire(e);
+                  }}
                 >
                   <span>Let's Talk</span>
                   <ArrowRight size={16} aria-hidden="true" />

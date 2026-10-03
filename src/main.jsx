@@ -2,6 +2,8 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import HomePage from './HomePage';
 import SeoPage from './SeoPage';
+import PrVisibilityPage from './PrVisibilityPage';
+import EventsPage from './EventsPage';
 
 import './styles.css';
 import './navbar.css';
@@ -28,7 +30,7 @@ const rootElement = document.getElementById('root');
 if (rootElement) {
   createRoot(rootElement).render(
     <React.StrictMode>
-      {isSeoPage ? <SeoPage /> : <HomePage />}
+      {path === '/events-experiences-uae' ? <EventsPage /> : path === '/pr-brand-visibility' ? <PrVisibilityPage /> : isSeoPage ? <SeoPage /> : <HomePage />}
     </React.StrictMode>
   );
 }

@@ -45,7 +45,7 @@ export default function GrowthJourney() {
           ))}
         </ol>
       </div>
-      <div className="growth-bottom"><p>REAL STRATEGY. REAL PEOPLE. REAL RESULTS.</p><a href="#contact" onClick={e => e.preventDefault()}>Let’s Grow Together <ArrowUpRight aria-hidden="true" /></a></div>
+      <div className="growth-bottom"><p>REAL STRATEGY. REAL PEOPLE. REAL RESULTS.</p><a href="mailto:anulmundra@indianexpatsindubai.com?subject=Growth%20Strategy">Let’s Grow Together <ArrowUpRight aria-hidden="true" /></a></div>
     </div>
   </section>;
 }

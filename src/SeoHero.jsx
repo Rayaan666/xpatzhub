@@ -50,7 +50,7 @@ export default function SeoHero() {
           Data-driven SEO, PPC campaigns &amp; performance content engineered to connect your brand with real customers across Dubai &amp; the UAE.
         </p>
         <div className="flex items-center justify-center gap-3 mt-4">
-          <button className="seo-primary" onClick={(e) => e.preventDefault()} aria-label="Get Your Free Strategy Call">Get Your Free Strategy Call <ArrowUpRight aria-hidden="true" /></button>
+          <button className="seo-primary" onClick={openEnquiry} aria-label="Get Your Free Strategy Call">Get Your Free Strategy Call <ArrowUpRight aria-hidden="true" /></button>
         </div>
       </div>
       <dialog ref={dialog} className="seo-dialog" aria-labelledby="seo-dialog-title" onClose={() => trigger.current?.focus()} onClick={event => { if (event.target === dialog.current) dialog.current.close(); }}>

@@ -66,9 +66,9 @@ export default function Footer({
           <ul>
             <li><a href="/seo-digital-marketing">SEO & Digital Marketing</a></li>
             <li><a href="/community">Community Marketing</a></li>
-            <li><a href="#" onClick={handleNonFunctional}>Influencer Marketing</a></li>
-            <li><a href="#" onClick={handleNonFunctional}>PR & Media Visibility</a></li>
-            <li><a href="#" onClick={handleNonFunctional}>Events & Experiences</a></li>
+            <li><a href="/influencers">Influencer Marketing</a></li>
+            <li><a href="#" onClick={onCtaClick || handleNonFunctional}>PR & Media Visibility</a></li>
+            <li><a href="#" onClick={onCtaClick || handleNonFunctional}>Events & Experiences</a></li>
           </ul>
         </div>
 
@@ -76,9 +76,9 @@ export default function Footer({
         <div className="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="#" onClick={handleNonFunctional}>About XPATZHUB</a></li>
+            <li><a href="/" onClick={(e) => { if(window.location.pathname==='/') { e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); } }}>About XPATZHUB</a></li>
             <li><a href="/community">Expat Community Network</a></li>
-            <li><a href="#" onClick={handleNonFunctional}>Contact Us</a></li>
+            <li><a href="#" onClick={onCtaClick || handleNonFunctional}>Contact Us</a></li>
           </ul>
         </div>
 
@@ -86,20 +86,20 @@ export default function Footer({
         <div className="footer-col footer-col-contact">
           <h4>Get In Touch</h4>
           <div className="footer-contact-info">
-            <a href="#" onClick={handleNonFunctional} className="footer-contact-item">
+            <a href="tel:+971564800026" className="footer-contact-item">
               <span className="footer-contact-icon"><Phone size={16} /></span>
               <span>+971 56 480 0026</span>
             </a>
-            <a href="#" onClick={handleNonFunctional} className="footer-contact-item">
+            <a href="mailto:anulmundra@indianexpatsindubai.com" className="footer-contact-item">
               <span className="footer-contact-icon"><Mail size={16} /></span>
               <span>anulmundra@indianexpatsindubai.com</span>
             </a>
           </div>
           <div className="footer-socials">
-            <a href="#" onClick={handleNonFunctional} aria-label="Instagram"><Instagram size={18} /></a>
-            <a href="#" onClick={handleNonFunctional} aria-label="LinkedIn"><Linkedin size={18} /></a>
-            <a href="#" onClick={handleNonFunctional} aria-label="Twitter"><Twitter size={18} /></a>
-            <a href="#" onClick={handleNonFunctional} aria-label="YouTube"><Youtube size={18} /></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={18} /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={18} /></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><Twitter size={18} /></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><Youtube size={18} /></a>
           </div>
         </div>
       </div>
@@ -110,9 +110,9 @@ export default function Footer({
           © {new Date().getFullYear()} XPATZHUB. All rights reserved. Dubai &amp; Abu Dhabi, United Arab Emirates.
         </p>
         <div className="footer-legal-links">
-          <a href="#" onClick={handleNonFunctional}>Privacy Policy</a>
+          <a href="#" onClick={onCtaClick || handleNonFunctional}>Privacy Policy</a>
           <span>·</span>
-          <a href="#" onClick={handleNonFunctional}>Terms of Service</a>
+          <a href="#" onClick={onCtaClick || handleNonFunctional}>Terms of Service</a>
         </div>
       </div>
     </footer>

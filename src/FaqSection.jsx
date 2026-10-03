@@ -59,7 +59,7 @@ export default function FaqSection() {
             {/* Small Contact CTA */}
             <motion.div className="faq-contact-cta" {...reveal(0.22, 0)}>
               <div className="faq-contact-prompt">Still have a question?</div>
-              <a href="#" onClick={(e) => e.preventDefault()} className="faq-contact-link">
+              <a href="mailto:anulmundra@indianexpatsindubai.com?subject=FAQ%20Question" className="faq-contact-link">
                 Let's Talk{' '}
                 <ArrowRight size={18} aria-hidden="true" />
               </a>
@@ -71,10 +71,10 @@ export default function FaqSection() {
                 Book a free 15-minute consultation with our Dubai growth strategists.
               </p>
               <div className="faq-support-actions">
-                <a href="#" onClick={(e) => e.preventDefault()} className="faq-support-btn faq-btn-phone">
+                <a href="tel:+971564800026" className="faq-support-btn faq-btn-phone">
                   <Phone size={15} /> +971 56 480 0026
                 </a>
-                <a href="#" onClick={(e) => e.preventDefault()} className="faq-support-btn faq-btn-email">
+                <a href="mailto:anulmundra@indianexpatsindubai.com?subject=Custom%20Consultation" className="faq-support-btn faq-btn-email">
                   <Mail size={15} /> Email Strategy Team
                 </a>
               </div>

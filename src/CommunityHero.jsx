@@ -14,7 +14,12 @@ function Photo({ name, caption, alt, wide = false }) {
   </figure>;
 }
 
-export default function CommunityHero() {
+export default function CommunityHero({ onOpenContact }) {
+  const openEnquiry = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (onOpenContact) onOpenContact(e);
+  };
+
   return <section className="community-hero" id="community" aria-labelledby="community-title">
     <div className="community-hero__canvas">
       <svg className="community-hero__thread" viewBox="0 0 1672 941" preserveAspectRatio="none" aria-hidden="true"><path d="M115 -5C22 28 46 60 24 114S-35 318 0 556C15 624 70 560 106 638" /><path d="M0 562C20 619 75 574 99 626S143 688 210 686 335 694 382 752M1700 48C1650 105 1591 73 1570 154M1700 561C1600 559 1567 607 1474 628S1452 707 1300 738" /></svg>

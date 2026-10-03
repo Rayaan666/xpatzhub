@@ -21,7 +21,7 @@ function BurgerIcon({ isOpen }) {
   );
 }
 
-export default function Navbar({ activeId = 'digital' }) {
+export default function Navbar({ activeId = 'digital', onContactClick }) {
   const [menu, setMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -80,7 +80,7 @@ export default function Navbar({ activeId = 'digital' }) {
 
         {/* Right side actions */}
         <div className="header-actions">
-          <button className="header-cta-btn" onClick={handleNonFunctional}>
+          <button className="header-cta-btn" onClick={onContactClick}>
             <span>Let's Grow</span>
             <ArrowRight size={15} className="cta-icon" />
           </button>
@@ -134,17 +134,20 @@ export default function Navbar({ activeId = 'digital' }) {
               {/* Links */}
               <div className="mobile-nav-links">
                 {navLinks.map((link, i) => {
-                  const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community';
+                  const isContact = link.id === 'contact';
+                  const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community' || isContact;
                   return (
                     <motion.a
                       key={link.id}
-                      href={isFunctional ? link.href : '#'}
+                      href={isContact ? '#contact' : link.href}
                       className={`mobile-nav-link ${link.id === activeId ? 'active' : ''}`}
                       onClick={(e) => {
-                        if (!isFunctional) {
+                        setMenu(false);
+                        if (isContact) {
+                          e.preventDefault();
+                          if (onContactClick) onContactClick(e);
+                        } else if (!isFunctional) {
                           handleNonFunctional(e);
-                        } else {
-                          setMenu(false);
                         }
                       }}
                       initial={{ opacity: 0, y: 10 }}
@@ -165,7 +168,10 @@ export default function Navbar({ activeId = 'digital' }) {
               <div className="mobile-nav-footer">
                 <button
                   className="mobile-nav-cta"
-                  onClick={handleNonFunctional}
+                  onClick={(e) => {
+                    setMenu(false);
+                    if (onContactClick) onContactClick(e);
+                  }}
                 >
                   <span>Start Growing Today</span>
                   <ArrowRight size={16} />

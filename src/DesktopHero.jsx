@@ -20,7 +20,7 @@ const searchItems = [
   { name: 'PR & Media', category: 'PR Visibility', desc: 'Media relations, press coverage & billboards.' },
 ];
 
-export default function DesktopHero() {
+export default function DesktopHero({ onOpenContact }) {
   const reduced = useReducedMotion();
   const dialog = useRef(null);
   const searchDialog = useRef(null);
@@ -78,7 +78,7 @@ export default function DesktopHero() {
             We connect brands with real people through<br className="dh-desktop-break"/> strategic marketing, events, PR and the power<br className="dh-desktop-break"/> of the UAE’s largest expat community.
           </motion.p>
           <motion.div className="dh-actions flex items-center gap-3" {...reveal(.3)}>
-            <button className="dh-primary flex items-center justify-between" onClick={(e) => e.preventDefault()}>
+            <button className="dh-primary flex items-center justify-between" onClick={onOpenContact || ((e) => openDialog(dialog))}>
               Let’s Grow Your Brand <ArrowRight/>
             </button>
           </motion.div>
