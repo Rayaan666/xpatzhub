@@ -1,0 +1,395 @@
+/* ==========================================================================
+   XPATZHUB — PR & Brand Visibility FAQ Section (Dark Theme + Blue Accents)
+   ========================================================================== */
+
+.pr-faq-section {
+  --impact-lime: #008ef6;
+  --impact-white: #f4f2ea;
+  --impact-muted: #c4c5bf;
+  --impact-rule: #363831;
+  position: relative;
+  background: #10110f;
+  color: var(--impact-white);
+  padding: 60px 24px 70px;
+  overflow: hidden;
+  border-top: 1px solid var(--impact-rule);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  scroll-margin-top: 80px;
+}
+
+.pr-faq-container {
+  max-width: 1872px;
+  margin: 0 auto;
+}
+
+.pr-faq-layout {
+  display: grid;
+  grid-template-columns: 38% 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   Left Intro Column (Sticky on Desktop)
+   -------------------------------------------------------------------------- */
+.pr-faq-intro-col {
+  position: sticky;
+  top: 110px;
+}
+
+.pr-faq-header {
+  margin-bottom: 30px;
+}
+
+.pr-faq-eyebrow {
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--impact-lime);
+  text-transform: uppercase;
+}
+
+.pr-faq-heading {
+  margin: 0 0 20px;
+  font-size: clamp(40px, 3.8vw, 68px);
+  font-weight: 750;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  color: var(--impact-white);
+}
+
+.pr-faq-heading span {
+  display: block;
+  white-space: nowrap;
+}
+
+.pr-faq-heading span + span {
+  color: var(--impact-lime);
+}
+
+.pr-faq-lead {
+  font-size: clamp(17px, 1.2vw, 21px);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 22px 0 0;
+  color: var(--impact-muted);
+  max-width: 520px;
+}
+
+/* Consultation / Action Card */
+.pr-faq-card {
+  padding: 24px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--impact-rule);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  max-width: 480px;
+}
+
+.pr-faq-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.pr-faq-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 186, 240, 0.15), rgba(6, 84, 248, 0.15));
+  border: 1px solid rgba(0, 186, 240, 0.3);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pr-faq-card-title {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.pr-faq-card-sub {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #94a3b8;
+}
+
+.pr-faq-card-actions {
+  margin-bottom: 16px;
+}
+
+.pr-faq-primary-btn {
+  width: 100%;
+  height: 48px;
+  border-radius: 9999px;
+  background: linear-gradient(105deg, #00baf0, #008ef6 55%, #0654f8);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 142, 246, 0.3);
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pr-faq-primary-btn:hover {
+  background: linear-gradient(105deg, #18c4f7, #0596ff 55%, #1762f9);
+  box-shadow: 0 8px 26px rgba(0, 142, 246, 0.45);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.pr-faq-primary-btn:active {
+  transform: translateY(0);
+}
+
+.pr-faq-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #64748b;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pr-faq-footer-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pr-faq-footer-item:hover {
+  color: #38bdf8;
+}
+
+.pr-faq-footer-divider {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   Right Accordion Column
+   -------------------------------------------------------------------------- */
+.pr-faq-accordion-col {
+  min-width: 0;
+}
+
+.pr-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pr-faq-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--impact-rule);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.pr-faq-item:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(0, 142, 246, 0.35);
+}
+
+.pr-faq-item.is-open {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--impact-lime);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.pr-faq-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--impact-lime);
+  border-radius: 3px 0 0 3px;
+}
+
+.pr-faq-trigger {
+  width: 100%;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+}
+
+.pr-faq-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+}
+
+.pr-faq-number {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--impact-lime);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.95;
+}
+
+.pr-faq-question {
+  margin: 0;
+  font-size: clamp(16px, 1.15vw, 19px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  color: var(--impact-white);
+}
+
+.pr-faq-item.is-open .pr-faq-question {
+  color: #ffffff;
+}
+
+.pr-faq-chevron-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, color 0.2s ease;
+}
+
+.pr-faq-item:hover .pr-faq-chevron-box {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pr-faq-chevron-box.is-open {
+  transform: rotate(180deg);
+  background: rgba(0, 142, 246, 0.15);
+  border-color: rgba(0, 142, 246, 0.4);
+  color: #38bdf8;
+}
+
+.pr-faq-answer-wrap {
+  overflow: hidden;
+}
+
+.pr-faq-answer-inner {
+  padding: 0 26px 24px 62px;
+}
+
+.pr-faq-answer {
+  margin: 0;
+  font-size: clamp(14.5px, 1.02vw, 16px);
+  line-height: 1.65;
+  color: #cbd5e1;
+  letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Brand Divider
+   -------------------------------------------------------------------------- */
+.pr-faq-bottom-divider {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 80px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pr-faq-bottom-brand {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #ffffff;
+}
+
+.pr-faq-bottom-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pr-faq-bottom-text {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .pr-faq-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .pr-faq-intro-col {
+    position: static;
+  }
+
+  .pr-faq-lead,
+  .pr-faq-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .pr-faq-section {
+    padding: 60px 20px 40px;
+  }
+
+  .pr-faq-trigger {
+    padding: 18px 18px;
+    gap: 14px;
+  }
+
+  .pr-faq-trigger-left {
+    gap: 12px;
+  }
+
+  .pr-faq-answer-inner {
+    padding: 0 18px 20px 42px;
+  }
+
+  .pr-faq-bottom-divider {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 50px;
+  }
+
+  .pr-faq-bottom-line {
+    display: none;
+  }
+}

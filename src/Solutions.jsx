@@ -44,14 +44,16 @@ function CampaignPanel({ solution, index, onEnquire }) {
   </article>;
 }
 
-export default function Solutions({ onEnquire }) {
+export default function Solutions({ onEnquire, hideHeader = false }) {
   const reduced = useReducedMotion();
   return <section className="solutions-section" id="solutions" aria-labelledby="solutions-heading">
-    <motion.header className="solutions-heading" initial={reduced ? false : { opacity: .8, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .6 }}>
-      <p className="solutions-eyebrow">Five powerful ways to</p>
-      <h2 id="solutions-heading">Grow your <span>brand</span></h2>
-      <p className="solutions-intro">Strategic digital marketing, community reach, creator power, high-impact PR, and events —<br className="solutions-break"/> all working seamlessly together to take your brand further in the UAE.</p>
-    </motion.header>
+    {!hideHeader && (
+      <motion.header className="solutions-heading" initial={reduced ? false : { opacity: .8, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .6 }}>
+        <p className="solutions-eyebrow">Five powerful ways to</p>
+        <h2 id="solutions-heading">Grow your <span>brand</span></h2>
+        <p className="solutions-intro">Strategic digital marketing, community reach, creator power, high-impact PR, and events —<br className="solutions-break"/> all working seamlessly together to take your brand further in the UAE.</p>
+      </motion.header>
+    )}
     <div className="solutions-panels">{solutions.map((solution, index) => <CampaignPanel key={solution.id} solution={solution} index={index} onEnquire={onEnquire} />)}</div>
     <div className="solutions-editorial" aria-label="XPATZHUB. Marketing, Events, Community. In the UAE."><span>XPATZHUB</span><i/><span>MARKETING · EVENTS · COMMUNITY</span><i/><span>IN THE UAE</span></div>
   </section>;

@@ -15,10 +15,17 @@ import InfluenceImpact from './InfluenceImpact';
 import CommunityPower from './CommunityPower';
 import CommunityActivation from './CommunityActivation';
 import CommunityFaq from './CommunityFaq';
+import InfluencerFaq from './InfluencerFaq';
 const isCommunityPage = window.location.pathname.replace(/\/+$/, '') === '/community';
 const isInfluencersPage = window.location.pathname.replace(/\/+$/, '') === '/influencers';
 const activePage = isInfluencersPage ? 'influencer' : isCommunityPage ? 'community' : 'home';
-if (isInfluencersPage) document.title = 'Influencer Marketing in the UAE | XPATZHUB';
+if (isInfluencersPage) {
+  document.title = 'Influencer Marketing Agency in Dubai & UAE | XPATZHUB';
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.setAttribute('content', 'Scale your brand with premier UAE influencer marketing. Connect with vetted creators, drive authentic engagement, and activate high-ROI creator campaigns in Dubai & Abu Dhabi.');
+  }
+}
 if (isCommunityPage) document.title = 'Community Marketing in the UAE | XPATZHUB';
 
 const navLinks = [
@@ -26,6 +33,7 @@ const navLinks = [
   { name: 'SEO & Digital', id: 'digital', href: '/seo-digital-marketing', subtitle: 'Turn Visibility Into Results' },
   { name: 'Community', id: 'community', href: '/community', subtitle: '500K+ Expat Network' },
   { name: 'Influencers', id: 'influencer', href: '/influencers', subtitle: 'Authentic Creator Reach' },
+  { name: 'PR & Visibility', id: 'pr', href: '/pr-brand-visibility', subtitle: 'Be Seen & Remembered' },
   { name: 'Get in Touch', id: 'contact', href: '#contact', subtitle: "Let's Grow Your Brand" },
 ];
 
@@ -236,9 +244,10 @@ function App() {
         {isInfluencersPage && <WhyInfluenceWorks />}
         {isCommunityPage && <CommunityPower />}
         {isCommunityPage && <CommunityActivation />}
-        {!isCommunityPage && <Solutions onEnquire={openContact} />}
+        {!isCommunityPage && !isInfluencersPage && <Solutions onEnquire={openContact} />}
         {isCommunityPage && <CommunityFaq onEnquire={openContact} />}
         {isInfluencersPage && <InfluenceImpact />}
+        {isInfluencersPage && <InfluencerFaq onEnquire={openContact} />}
         <Footer 
           onEnquire={openContact} 
           onOpen={openContact} 
@@ -248,6 +257,11 @@ function App() {
             ctaDescription: "Tap into Dubai & Abu Dhabi's premier expat network. Build authentic brand trust, drive word-of-mouth growth, and activate high-converting community marketing campaigns across the UAE.",
             ctaButtonText: "Activate Your Community Campaign",
             ctaBgImage: "/community/CTA.png"
+          } : isInfluencersPage ? {
+            ctaTitle: "Ready to Scale Your Brand With Top UAE Creators & Influencers?",
+            ctaDescription: "Partner with Dubai & Abu Dhabi's most trusted voices. From strategic creator selection and campaign management to high-impact content and measurable ROI, we turn authentic storytelling into brand growth.",
+            ctaButtonText: "Launch Your Influencer Campaign",
+            ctaBgImage: "/assets/influencers/creator-cafe-1536.webp"
           } : {})}
         />
       </main>

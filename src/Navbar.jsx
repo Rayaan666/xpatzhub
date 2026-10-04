@@ -7,8 +7,9 @@ const navLinks = [
   { name: 'Home', id: 'home', href: '/', subtitle: 'Growth Partner in UAE' },
   { name: 'SEO & Digital', id: 'digital', href: '/seo-digital-marketing', subtitle: 'Turn Visibility Into Results' },
   { name: 'Community', id: 'community', href: '/community', subtitle: '500K+ Expat Network' },
-  { name: 'Influencers', id: 'influencer', href: '#', subtitle: 'Authentic Creator Reach' },
-  { name: 'Get in Touch', id: 'contact', href: '#', subtitle: "Let's Grow Your Brand" },
+  { name: 'Influencers', id: 'influencer', href: '/influencers', subtitle: 'Authentic Creator Reach' },
+  { name: 'PR & Visibility', id: 'pr', href: '/pr-brand-visibility', subtitle: 'Be Seen & Remembered' },
+  { name: 'Get in Touch', id: 'contact', href: '#contact', subtitle: "Let's Grow Your Brand" },
 ];
 
 function BurgerIcon({ isOpen }) {
@@ -58,7 +59,7 @@ export default function Navbar({ activeId = 'digital', onContactClick }) {
         <nav className="desktop-nav" aria-label="Main navigation">
           <div className="nav-links-wrap">
             {navLinks.map(link => {
-              const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community';
+              const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community' || link.id === 'influencer' || link.id === 'pr';
               return (
                 <a
                   key={link.id}
@@ -135,7 +136,7 @@ export default function Navbar({ activeId = 'digital', onContactClick }) {
               <div className="mobile-nav-links">
                 {navLinks.map((link, i) => {
                   const isContact = link.id === 'contact';
-                  const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community' || isContact;
+                  const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community' || link.id === 'influencer' || link.id === 'pr' || isContact;
                   return (
                     <motion.a
                       key={link.id}

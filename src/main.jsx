@@ -22,6 +22,7 @@ import './digital-services.css';
 import './performance-results.css';
 import './faq-section.css';
 import './seo-cta-section.css';
+import './influencer-faq.css';
 
 const path = typeof window !== 'undefined' ? (window.location.pathname.replace(/\/+$/, '') || '/') : '/';
 const isSeoPage = path === '/seo-digital-marketing';

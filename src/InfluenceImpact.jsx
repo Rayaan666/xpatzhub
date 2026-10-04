@@ -26,13 +26,12 @@ export default function InfluenceImpact() {
 
   return <section className="influence-impact relative overflow-hidden" aria-labelledby="influence-impact-title">
     <div className="influence-impact__inner mx-auto">
-      <header className="influence-impact__intro grid">
+      <header className="influence-impact__intro grid border-t border-[#363831] pt-8">
         <motion.div {...reveal()}>
           <p className="influence-impact__eyebrow">BEYOND THE POST</p>
           <h2 id="influence-impact-title"><span>Attention Is Good.</span><span>Action Is Better.</span></h2>
         </motion.div>
         <motion.p {...reveal(.08)} className="influence-impact__lead">We look beyond likes and follower counts to understand how creator campaigns build visibility, spark engagement and create meaningful opportunities for brands.</motion.p>
-        <motion.p {...reveal(.12)} className="influence-impact__handnote"><span>Real</span><span>Creators.</span><span>Real</span><span>Opportunities.</span></motion.p>
       </header>
 
       <div className="influence-impact__campaign relative">
@@ -44,7 +43,6 @@ export default function InfluenceImpact() {
         </div>
         <svg className="influence-impact__curve" viewBox="0 0 1672 160" preserveAspectRatio="none" aria-hidden="true"><motion.path d="M-20 100 C280 161 790 106 1060 102 S1440 6 1692 33" fill="none" initial={reduced ? false : { pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: 1.3, delay: .2 }} /></svg>
         <motion.p {...reveal(.2)} className="influence-impact__display" aria-hidden="true">IMPACT.</motion.p>
-        <p className="influence-impact__editorial"><span>CREATORS</span><span>CULTURE</span><span>COMMERCE</span><span>A BRIGHTER TOMORROW</span></p>
       </div>
 
       <ol className="influence-impact__outcomes grid">
@@ -56,7 +54,6 @@ export default function InfluenceImpact() {
 
       <div className="influence-impact__closing flex">
         <p className="influence-impact__statement"><span>FROM SCROLL →</span> <span>TO CONNECTION →</span> <span>TO ACTION.</span></p>
-        <p className="influence-impact__closing-note"><span>Influence means more</span><span>when something happens next.</span></p>
       </div>
     </div>
   </section>;

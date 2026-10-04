@@ -3,7 +3,7 @@
 :root {
   --comm-blue: #008ef6;
   --comm-cyan: #00baf0;
-  --comm-bg-dark: #070809;
+  --comm-bg-dark: #10110f;
   --comm-card-bg: #0d0e11;
   --comm-card-hover: #12151a;
   --comm-border: #1e2227;
@@ -13,11 +13,7 @@
 
 .community-faq-section {
   position: relative;
-  background-color: var(--comm-bg-dark);
-  background-image: 
-    radial-gradient(circle at 18% 25%, rgba(0, 186, 240, 0.04) 0%, transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(0, 142, 246, 0.035) 0%, transparent 40%),
-    linear-gradient(180deg, #060706 0%, #08090b 50%, #060706 100%);
+  background-color: #10110f;
   color: var(--comm-text-light);
   overflow: hidden;
   padding: 100px 0 120px;
