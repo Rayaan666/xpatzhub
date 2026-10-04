@@ -27,9 +27,8 @@ export default function MobileHero(){
           <svg viewBox="0 0 941 1672" role="img" aria-label={p.label}>
             <defs>
               <clipPath id={`portrait-${p.id}`} clipPathUnits="userSpaceOnUse"><path d={p.path}/></clipPath>
-              {p.id==='central'&&<mask id="portrait-copy-clear" maskUnits="userSpaceOnUse" x="0" y="0" width="941" height="1672"><rect width="941" height="1672" fill="white"/><rect x="0" y="840" width="512" height="272" fill="black"/></mask>}
             </defs>
-            <g mask={p.id==='central'?'url(#portrait-copy-clear)':undefined}><image href="/assets/mobile-approved.png" width="941" height="1672" clipPath={`url(#portrait-${p.id})`}/></g>
+            <g><image href="/assets/mobile-approved.png" width="941" height="1672" clipPath={`url(#portrait-${p.id})`}/></g>
           </svg>
         </motion.div>)}
       </div>
