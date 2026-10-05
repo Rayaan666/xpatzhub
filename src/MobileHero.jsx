@@ -13,7 +13,7 @@ const phones = [
   {id:'community',label:'Community Power. A stronger UAE through stronger connections. Dubai community gathering with palms and warm lighting.',path:'M595 1022 Q579 983 622 963 L853 897 Q897 880 916 922 L941 984 V1418 L819 1469 Q779 1484 757 1442 Z',x:15,y:0},
 ];
 const ease=[.22,1,.36,1];
-export default function MobileHero(){
+export default function MobileHero({ onOpenContact }){
   const reduced=useReducedMotion();
   const [panel,setPanel]=useState('Contact');
   const dialog=useRef(null),previousFocus=useRef(null);
@@ -28,7 +28,7 @@ export default function MobileHero(){
             <defs>
               <clipPath id={`portrait-${p.id}`} clipPathUnits="userSpaceOnUse"><path d={p.path}/></clipPath>
             </defs>
-            <g><image href="/assets/mobile-approved.png" width="941" height="1672" clipPath={`url(#portrait-${p.id})`}/></g>
+            <g><image href="/assets/mobile-approved.png" xlinkHref="/assets/mobile-approved.png" width="941" height="1672" clipPath={`url(#portrait-${p.id})`}/></g>
           </svg>
         </motion.div>)}
       </div>
