@@ -28,13 +28,18 @@ export default function MobileHero({ onOpenContact }){
             <defs>
               <clipPath id={`portrait-${p.id}`} clipPathUnits="userSpaceOnUse"><path d={p.path}/></clipPath>
             </defs>
-            <g><image href="/assets/mobile-approved.png" xlinkHref="/assets/mobile-approved.png" width="941" height="1672" clipPath={`url(#portrait-${p.id})`}/></g>
+            <g>
+              <image href="/assets/mobile-approved.png" xlinkHref="/assets/mobile-approved.png" width="941" height="1672" clipPath={`url(#portrait-${p.id})`}/>
+              {p.id==='central' && (
+                <polygon points="250,500 316,410 560,335 670,950 480,1020" fill="#070a0e" clipPath="url(#portrait-central)" opacity="0.98" />
+              )}
+            </g>
           </svg>
         </motion.div>)}
       </div>
       <div className="pm-copy">
         <motion.h1 className="pm-headline" {...reveal(0,20)}><span>YOUR</span><span>BRAND’S</span><span className="pm-growth">GROWTH</span><span>PARTNER</span></motion.h1>
-        <motion.p className="pm-description" {...reveal(.06,12)}>We connect brands with real people<br/>through strategic marketing, events,<br/>PR and the power of the UAE’s largest<br/>expat community.</motion.p>
+        <motion.p className="pm-description" {...reveal(.06,12)}>We connect brands with real people through strategic marketing, events, PR and the power of the UAE’s largest expat community.</motion.p>
         <motion.button className="pm-primary flex items-center justify-between" onClick={onOpenContact || (() => open('Contact'))} {...reveal(.1,10)}>Let’s Grow Your Brand<ArrowRight aria-hidden="true"/></motion.button>
       </div>
       <dl className="pm-stats flex" aria-label="Community statistics">{[['500K+','COMMUNITY REACH'],['700+','BRANDS WORKED WITH'],['1000+','EVENTS & CAMPAIGNS']].map(([value,label])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
