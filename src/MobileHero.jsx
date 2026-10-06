@@ -27,12 +27,12 @@ export default function MobileHero({ onOpenContact }){
           <svg viewBox="0 0 941 1672" role="img" aria-label={p.label}>
             <defs>
               <clipPath id={`portrait-${p.id}`} clipPathUnits="userSpaceOnUse"><path d={p.path}/></clipPath>
+              {p.id==='central' && <clipPath id="portrait-central-repair"><rect x="435" y="842" width="75" height="174"/></clipPath>}
             </defs>
             <g>
               <image href="/assets/mobile-approved.png" xlinkHref="/assets/mobile-approved.png" width="941" height="1672" clipPath={`url(#portrait-${p.id})`}/>
-              {p.id==='central' && (
-                <polygon points="250,500 316,410 560,335 670,950 480,1020" fill="#070a0e" clipPath="url(#portrait-central)" opacity="0.98" />
-              )}
+              {/* Restore only the phone edge obscured by lettering baked into the poster. */}
+              {p.id==='central' && <g clipPath="url(#portrait-central)"><image href="/assets/mobile-phone-repaired.png" width="941" height="1672" preserveAspectRatio="none" clipPath="url(#portrait-central-repair)"/></g>}
             </g>
           </svg>
         </motion.div>)}
