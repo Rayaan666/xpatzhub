@@ -1,7 +1,20 @@
 /* ==========================================================================
    XPATZHUB — Events & Experiences FAQ Section
-   Editorial Forest Green & Warm Sand Luxury Palette
+   Editorial Dark Palette
    ========================================================================== */
+
+@font-face {
+  font-family: PrBodoni;
+  src: url('/assets/pr-visibility/BodoniModa.ttf') format('truetype');
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: PrScript;
+  src: url('/assets/hero-2026/fonts/GreatVibes-Regular.ttf') format('truetype');
+  font-display: swap;
+}
 
 .events-faq-section {
   --events-blue: #008ef6;

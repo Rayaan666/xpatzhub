@@ -1,4 +1,6 @@
 @font-face{font-family:ExperienceScript;src:url('/assets/hero-2026/fonts/GreatVibes-Regular.ttf') format('truetype');font-display:swap}
+@font-face{font-family:PrBodoni;src:url('/assets/pr-visibility/BodoniModa.ttf') format('truetype');font-weight:400 900;font-display:swap}
+@font-face{font-family:PrScript;src:url('/assets/hero-2026/fonts/GreatVibes-Regular.ttf') format('truetype');font-display:swap}
 .event-experience{background:#f8fafc;color:#0f172a;font-family:Inter,Arial,Helvetica,sans-serif}
 .experience-editorial{padding:22px 3.6% 0;overflow:hidden}
 .experience-intro{display:grid;grid-template-columns:minmax(0,2.35fr) minmax(0,1fr);gap:4.5%}
@@ -12,14 +14,14 @@
 .experience-circle{border-radius:50%;aspect-ratio:1;overflow:hidden}.experience-circle img{width:100%;height:100%;display:block;object-fit:cover;object-position:50% 50%}
 .experience-arc{position:absolute;inset:-2% -2% auto auto;width:104%;height:104%;color:#0284c7;pointer-events:none}
 .experience-detail{position:absolute;left:-.3vw;bottom:1.7vw;width:17vw;height:14.9vw;object-fit:cover;border:4px solid #fffcf4;z-index:2;box-shadow:0 12px 30px rgba(2,132,199,0.15)}
-.experience-note{position:absolute;left:0;top:6.1vw;font-family:ExperienceScript,cursive;font-size:clamp(28px,2.18vw,43px);line-height:1.12;margin:0;color:#0369a1}
+.experience-note{position:absolute;left:0;top:6.1vw;font-family:PrScript,ExperienceScript,cursive;font-size:clamp(28px,2.18vw,43px);line-height:1.12;margin:0;color:#0369a1}
 .experience-note span{display:block;transform:rotate(-12deg)}.experience-note svg{display:block;width:8vw;margin:8px 0 0 12px;color:#0284c7}
 .experience-journey{list-style:none;margin:0;padding:3.5vw 0 2.4vw;display:flex;flex-direction:column;justify-content:space-between;gap:26px;position:relative;z-index:1}
 .experience-journey li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:15px;align-items:start;margin:0}
 .experience-journey li:nth-child(2){margin-left:4.5vw}.experience-journey li:nth-child(3){margin-left:8.7vw}.experience-journey li:nth-child(4){margin-left:12vw}.experience-journey li:nth-child(5){margin-left:9.5vw}
 .experience-number{font-size:clamp(20px,1.4vw,25px);font-weight:600;color:#0284c7;padding-top:5px;line-height:1.1}
 .experience-journey h3{font-size:clamp(30px,2.35vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.05;margin:0 0 6px;color:#091e42}
-.experience-journey li p{font-family:Georgia,'Times New Roman',serif;font-size:clamp(17px,1.2vw,22px);line-height:1.3;margin:0;color:#334155}
+.experience-journey li p{font-family:PrBodoni,Georgia,'Times New Roman',serif;font-size:clamp(17px,1.2vw,22px);line-height:1.3;margin:0;color:#334155}
 .experience-band{position:relative;z-index:3;background:linear-gradient(135deg,#0a1b38 0%,#040d1e 100%);color:#bae6fd;display:flex;align-items:center;justify-content:space-between;gap:30px;padding:24px 3.6% 25px;border-top:1px solid rgba(56,189,248,0.2)}
 .experience-band-eyebrow{font-size:clamp(12px,1vw,16px);letter-spacing:.28em;line-height:1.4;color:#38bdf8;margin:0 0 3px}
 .experience-statement{font-size:clamp(32px,3vw,56px);font-weight:800;line-height:1.08;letter-spacing:-.035em;margin:0;color:#ffffff}

@@ -20,6 +20,19 @@
   --git-blue-glow: rgba(0, 142, 246, 0.18);
 }
 
+@font-face {
+  font-family: PrBodoni;
+  src: url('/assets/pr-visibility/BodoniModa.ttf') format('truetype');
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: PrScript;
+  src: url('/assets/hero-2026/fonts/GreatVibes-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
 .git-page {
   background-color: var(--git-bg-darkest);
   color: var(--git-ivory);
@@ -151,7 +164,7 @@
 }
 
 .git-handwritten-text {
-  font-family: 'Nothing You Could Do', cursive;
+  font-family: PrScript, cursive;
   font-size: clamp(21px, 1.6vw, 26px);
   color: var(--git-ivory);
   line-height: 1.2;

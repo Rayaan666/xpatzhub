@@ -1,10 +1,12 @@
 @font-face{font-family:CreateBodoni;src:url('/assets/pr-visibility/BodoniModa.ttf') format('truetype');font-weight:400 900;font-display:swap}
+@font-face{font-family:PrBodoni;src:url('/assets/pr-visibility/BodoniModa.ttf') format('truetype');font-weight:400 900;font-display:swap}
+@font-face{font-family:PrScript;src:url('/assets/hero-2026/fonts/GreatVibes-Regular.ttf') format('truetype');font-display:swap}
 .events-create{background:#030814;color:#f6f5ef;padding:26px 1.2% 18px;font-family:Inter,Arial,Helvetica,sans-serif}
 .create-intro{display:grid;grid-template-columns:64% 32%;justify-content:space-between;margin:0 2.15% 20px;position:relative;z-index:2;pointer-events:none}
 .create-eyebrow{font-size:clamp(10px,.7vw,13px);letter-spacing:.43em;line-height:1.5;margin:0 0 6px;color:#38bdf8}
 .create-intro h2{font-size:clamp(42px,3.95vw,78px);font-weight:800;line-height:1.02;letter-spacing:-.045em;margin:0}
 .create-intro h2 span{display:block}.create-intro h2 span+span{color:#38bdf8;font-size:.74em;white-space:nowrap}
-.create-summary{font-family:Georgia,'Times New Roman',serif;font-size:clamp(18px,1.25vw,24px);line-height:1.2;color:#cbd5e1;margin:32px 0 0}
+.create-summary{font-family:PrBodoni,CreateBodoni,Georgia,serif;font-size:clamp(18px,1.25vw,24px);line-height:1.2;color:#cbd5e1;margin:32px 0 0}
 .create-columns{grid-template-columns:36fr 27.5fr 34fr;gap:1vw;align-items:stretch}
 .create-category{min-width:0;display:flex;flex-direction:column}
 .create-photo{height:26.2vw;overflow:hidden;clip-path:polygon(0 0,100% 14%,100% 100%,0 100%);flex-shrink:0}
@@ -15,14 +17,14 @@
 .create-brands .create-copy{padding-left:.5vw}.create-celebrations .create-copy{padding-left:4.1vw}
 .create-label{font-size:clamp(9px,.64vw,12px);letter-spacing:.28em;line-height:1.5;display:flex;align-items:center;gap:2.2vw;margin:0 0 6px}
 .create-label span{font-size:12px;letter-spacing:.1em;color:#38bdf8;font-weight:600}
-.create-copy h3{font-family:CreateBodoni,Georgia,serif;font-size:clamp(54px,5.05vw,100px);font-weight:500;line-height:.98;letter-spacing:-.06em;margin:0 0 9px;white-space:nowrap}
+.create-copy h3{font-family:PrBodoni,CreateBodoni,Georgia,serif;font-size:clamp(54px,5.05vw,100px);font-weight:500;line-height:.98;letter-spacing:-.06em;margin:0 0 9px;white-space:nowrap}
 .create-brands h3{color:#38bdf8}
-.create-tagline{font-family:Georgia,'Times New Roman',serif;font-size:clamp(18px,1.45vw,28px);line-height:1.25;margin:0 0 15px;color:#f6f5ef}
-.create-services{list-style:none;padding:0;margin:0 0 7px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(16px,1.07vw,21px);line-height:1.25;color:#94a3b8}
+.create-tagline{font-family:PrBodoni,CreateBodoni,Georgia,serif;font-size:clamp(18px,1.45vw,28px);line-height:1.25;margin:0 0 15px;color:#f6f5ef}
+.create-services{list-style:none;padding:0;margin:0 0 7px;font-family:PrBodoni,CreateBodoni,Georgia,serif;font-size:clamp(16px,1.07vw,21px);line-height:1.25;color:#94a3b8}
 .create-link{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:flex-start;margin-top:auto;color:#38bdf8;transition:color .2s}
 .create-link svg{transition:transform .25s ease}.create-link:hover{color:#ffffff}.create-link:hover svg{transform:translateX(5px)}.create-link:focus-visible{outline:2px solid #38bdf8;outline-offset:3px}
 .create-footer{border-top:1px solid #1e293b;margin:3px .45% 0;padding:10px 1.7% 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.create-footer>p{font-family:Georgia,'Times New Roman',serif;font-size:clamp(21px,1.55vw,30px);line-height:1.3;margin:0}.create-footer em{color:#38bdf8}
+.create-footer>p{font-family:PrBodoni,CreateBodoni,Georgia,serif;font-size:clamp(21px,1.55vw,30px);line-height:1.3;margin:0}.create-footer em{color:#38bdf8}
 .create-footer ul{list-style:none;margin:0;padding:0;display:flex;gap:24px;font-size:clamp(8px,.52vw,10px);letter-spacing:.3em;color:#38bdf8}.create-footer li+li:before{content:'/';margin-right:24px}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.create-category:hover .create-photo img{transform:scale(1.025)}}
 @media(min-width:1001px) and (max-width:1250px){.create-copy{padding-left:1.5vw}.create-celebrations .create-copy{padding-left:1.5vw}.create-copy h3{font-size:4.9vw}.create-label{letter-spacing:.18em;gap:14px}.create-summary{font-size:18px;margin-top:22px}.create-footer ul{gap:12px;letter-spacing:.2em}.create-footer li+li:before{margin-right:12px}}
