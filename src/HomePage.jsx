@@ -34,7 +34,8 @@ const navLinks = [
   { name: 'Community', id: 'community', href: '/community', subtitle: '500K+ Expat Network' },
   { name: 'Influencers', id: 'influencer', href: '/influencers', subtitle: 'Authentic Creator Reach' },
   { name: 'PR & Visibility', id: 'pr', href: '/pr-brand-visibility', subtitle: 'Be Seen & Remembered' },
-  { name: 'Get in Touch', id: 'contact', href: '#contact', subtitle: "Let's Grow Your Brand" },
+  { name: 'Events', id: 'events', href: '/events-experiences-uae', subtitle: 'Moments That Connect' },
+  { name: 'Get in Touch', id: 'contact', href: '/get-in-touch', subtitle: "Let's Grow Your Brand" },
 ];
 
 // Animated burger icon — morphs 3 lines → X
@@ -108,19 +109,12 @@ function App() {
           <nav className="desktop-nav" aria-label="Main navigation">
             <div className="nav-links-wrap">
               {navLinks.map(link => {
-                const isContact = link.id === 'contact';
                 return (
                   <a
                     key={link.id}
-                    href={isContact ? '#contact' : link.href}
+                    href={link.href}
                     aria-current={link.id === activePage ? 'page' : undefined}
                     className={`nav-link ${link.id === activePage ? 'active' : ''}`}
-                    onClick={(e) => {
-                      if (isContact) {
-                        e.preventDefault();
-                        openContact(e);
-                      }
-                    }}
                   >
                     <span>{link.name}</span>
                   </a>
@@ -185,18 +179,13 @@ function App() {
                 {/* Links */}
                 <div className="mobile-nav-links">
                   {navLinks.map((link, i) => {
-                    const isContact = link.id === 'contact';
-                    const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community' || link.id === 'influencer' || isContact;
                     return (
                       <motion.a
                         key={link.id}
-                        href={isContact ? '#contact' : link.href}
+                        href={link.href}
                         className={`mobile-nav-link ${link.id === activePage ? 'active' : ''}`}
-                        onClick={(e) => {
+                        onClick={() => {
                           setMenu(false);
-                          if (isContact) {
-                            openContact(e);
-                          }
                         }}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}

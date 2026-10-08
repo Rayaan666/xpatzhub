@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { ArrowRight, ChevronDown, Sparkles, MessageCircle, Phone, Mail } from 'lucide-react';
+import { ArrowRight, ChevronDown, MessageCircle, Phone, Mail } from 'lucide-react';
 import { influencerFaqData, influencerFaqSchemaData } from './influencerFaqContent';
 import './influencer-faq.css';
 

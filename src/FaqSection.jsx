@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Phone, Mail, Sparkles, Clock } from 'lucide-react';
+import { ArrowRight, Phone, Mail, Clock } from 'lucide-react';
 import { faqData, faqSchemaData } from './faqContent';
 import './faq-section.css';
 

@@ -9,7 +9,8 @@ const navLinks = [
   { name: 'Community', id: 'community', href: '/community', subtitle: '500K+ Expat Network' },
   { name: 'Influencers', id: 'influencer', href: '/influencers', subtitle: 'Authentic Creator Reach' },
   { name: 'PR & Visibility', id: 'pr', href: '/pr-brand-visibility', subtitle: 'Be Seen & Remembered' },
-  { name: 'Get in Touch', id: 'contact', href: '#contact', subtitle: "Let's Grow Your Brand" },
+  { name: 'Events', id: 'events', href: '/events-experiences-uae', subtitle: 'Moments That Connect' },
+  { name: 'Get in Touch', id: 'contact', href: '/get-in-touch', subtitle: "Let's Grow Your Brand" },
 ];
 
 function BurgerIcon({ isOpen }) {
@@ -59,7 +60,7 @@ export default function Navbar({ activeId = 'digital', onContactClick }) {
         <nav className="desktop-nav" aria-label="Main navigation">
           <div className="nav-links-wrap">
             {navLinks.map(link => {
-              const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community' || link.id === 'influencer' || link.id === 'pr';
+              const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community' || link.id === 'influencer' || link.id === 'pr' || link.id === 'events' || link.id === 'contact';
               return (
                 <a
                   key={link.id}
@@ -81,7 +82,16 @@ export default function Navbar({ activeId = 'digital', onContactClick }) {
 
         {/* Right side actions */}
         <div className="header-actions">
-          <button className="header-cta-btn" onClick={onContactClick}>
+          <button
+            className="header-cta-btn"
+            onClick={(e) => {
+              if (onContactClick) {
+                onContactClick(e);
+              } else {
+                window.location.href = '/get-in-touch';
+              }
+            }}
+          >
             <span>Let's Grow</span>
             <ArrowRight size={15} className="cta-icon" />
           </button>
@@ -136,17 +146,17 @@ export default function Navbar({ activeId = 'digital', onContactClick }) {
               <div className="mobile-nav-links">
                 {navLinks.map((link, i) => {
                   const isContact = link.id === 'contact';
-                  const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community' || link.id === 'influencer' || link.id === 'pr' || isContact;
+                  const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community' || link.id === 'influencer' || link.id === 'pr' || link.id === 'events' || isContact;
                   return (
                     <motion.a
                       key={link.id}
-                      href={isContact ? '#contact' : link.href}
+                      href={link.href}
                       className={`mobile-nav-link ${link.id === activeId ? 'active' : ''}`}
                       onClick={(e) => {
                         setMenu(false);
-                        if (isContact) {
+                        if (isContact && onContactClick) {
                           e.preventDefault();
-                          if (onContactClick) onContactClick(e);
+                          onContactClick(e);
                         } else if (!isFunctional) {
                           handleNonFunctional(e);
                         }
@@ -171,7 +181,11 @@ export default function Navbar({ activeId = 'digital', onContactClick }) {
                   className="mobile-nav-cta"
                   onClick={(e) => {
                     setMenu(false);
-                    if (onContactClick) onContactClick(e);
+                    if (onContactClick) {
+                      onContactClick(e);
+                    } else {
+                      window.location.href = '/get-in-touch';
+                    }
                   }}
                 >
                   <span>Start Growing Today</span>

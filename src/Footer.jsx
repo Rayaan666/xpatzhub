@@ -28,8 +28,8 @@ export default function Footer({
           style={{ backgroundImage: `linear-gradient(135deg, rgba(3, 10, 24, 0.84) 0%, rgba(6, 18, 38, 0.92) 100%), url('${bgImage}')` }}
         >
           <div className="footer-cta-content">
-            <h2>{title}</h2>
-            <p>{description}</p>
+            {typeof title === 'string' ? <h2>{title}</h2> : title}
+            {typeof description === 'string' ? <p>{description}</p> : description}
             <div className="footer-cta-actions">
               <button className="gradient-button primary-cta" onClick={onCtaClick || handleNonFunctional}>
                 {buttonText} <ArrowRight size={22} />

@@ -4,6 +4,7 @@ import HomePage from './HomePage';
 import SeoPage from './SeoPage';
 import PrVisibilityPage from './PrVisibilityPage';
 import EventsPage from './EventsPage';
+import GetInTouchPage from './GetInTouchPage';
 
 import './styles.css';
 import './navbar.css';
@@ -23,6 +24,7 @@ import './performance-results.css';
 import './faq-section.css';
 import './seo-cta-section.css';
 import './influencer-faq.css';
+import './get-in-touch.css';
 
 const path = typeof window !== 'undefined' ? (window.location.pathname.replace(/\/+$/, '') || '/') : '/';
 const isSeoPage = path === '/seo-digital-marketing';
@@ -31,7 +33,17 @@ const rootElement = document.getElementById('root');
 if (rootElement) {
   createRoot(rootElement).render(
     <React.StrictMode>
-      {path === '/events-experiences-uae' ? <EventsPage /> : path === '/pr-brand-visibility' ? <PrVisibilityPage /> : isSeoPage ? <SeoPage /> : <HomePage />}
+      {path === '/get-in-touch' ? (
+        <GetInTouchPage />
+      ) : path === '/events-experiences-uae' ? (
+        <EventsPage />
+      ) : path === '/pr-brand-visibility' ? (
+        <PrVisibilityPage />
+      ) : isSeoPage ? (
+        <SeoPage />
+      ) : (
+        <HomePage />
+      )}
     </React.StrictMode>
   );
 }

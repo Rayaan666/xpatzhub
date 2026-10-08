@@ -1,0 +1,641 @@
+/* ==========================================================================
+   XPATZHUB — Standalone "Get in Touch" Page Styling
+   Editorial Dark Palette · Real Dubai Terrace Atmosphere · Tailored Form
+   ========================================================================== */
+
+:root {
+  --git-bg-darkest: #10110f;
+  --git-bg-dark: #121311;
+  --git-bg-surface: #161714;
+  --git-bg-form: #141513;
+  --git-border-subtle: #363831;
+  --git-border-field: rgba(255, 255, 255, 0.12);
+  --git-ivory: #f4f2ea;
+  --git-ivory-dim: #d8d4c9;
+  --git-muted: #c4c5bf;
+  --git-muted-dark: #6e7075;
+  --git-blue: #008ef6;
+  --git-blue-light: #38bdf8;
+  --git-blue-deep: #0654f8;
+  --git-blue-glow: rgba(0, 142, 246, 0.18);
+}
+
+.git-page {
+  background-color: var(--git-bg-darkest);
+  color: var(--git-ivory);
+  min-height: 100vh;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  padding-top: 76px; /* Header clearance */
+}
+
+/* --------------------------------------------------------------------------
+   Hero / Main Immersive Composition
+   -------------------------------------------------------------------------- */
+.git-hero {
+  position: relative;
+  min-height: calc(100vh - 76px);
+  padding: 48px 4% 56px;
+  display: flex;
+  align-items: center;
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+.git-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 52px;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Left Side — Main Editorial Message & Cinematic Photo
+   -------------------------------------------------------------------------- */
+.git-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 18px;
+}
+
+/* Background Atmosphere & Cinematic Photo integration */
+.git-photo-backdrop {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 32px;
+  border: 1px solid var(--git-border-subtle);
+  background: var(--git-bg-darkest);
+}
+
+.git-photo-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+}
+
+/* Gradient Mask over photograph into background */
+.git-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 17, 15, 0.15) 0%, rgba(16, 17, 15, 0.35) 50%, rgba(16, 17, 15, 0.9) 100%),
+              linear-gradient(90deg, rgba(16, 17, 15, 0.35) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.git-eyebrow {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--git-blue-light);
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.git-eyebrow-line {
+  width: 36px;
+  height: 1px;
+  background: var(--git-blue-light);
+  opacity: 0.8;
+}
+
+.git-headline {
+  font-size: clamp(40px, 4.3vw, 68px);
+  font-weight: 850;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  margin: 0 0 24px;
+  color: var(--git-ivory);
+  text-transform: uppercase;
+}
+
+.git-headline span {
+  display: block;
+}
+
+.git-headline .git-highlight {
+  color: var(--git-blue-light);
+  background: linear-gradient(105deg, #38bdf8 0%, #008ef6 60%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.git-support {
+  font-size: clamp(16px, 1.12vw, 19px);
+  line-height: 1.55;
+  color: var(--git-muted);
+  max-width: 580px;
+  margin: 0 0 26px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Handwritten subtle annotation */
+.git-handwritten-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.git-handwritten-text {
+  font-family: 'Nothing You Could Do', cursive;
+  font-size: clamp(21px, 1.6vw, 26px);
+  color: var(--git-ivory);
+  line-height: 1.2;
+  transform: rotate(-1.5deg);
+  letter-spacing: 0.01em;
+}
+
+.git-handwritten-underline {
+  margin-top: 4px;
+  width: 140px;
+  height: 8px;
+  color: var(--git-blue-light);
+}
+
+/* --------------------------------------------------------------------------
+   Right Side — Tailored Editorial Form Area
+   -------------------------------------------------------------------------- */
+.git-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.git-form-container {
+  background-color: var(--git-bg-form);
+  border: 1px solid var(--git-border-subtle);
+  border-radius: 20px;
+  padding: 38px 40px;
+  position: relative;
+}
+
+.git-form-top {
+  margin-bottom: 28px;
+}
+
+/* Status Indicator Dot */
+.git-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--git-blue-light);
+  margin-bottom: 14px;
+}
+
+.git-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--git-blue-light);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+  position: relative;
+}
+
+.git-status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--git-blue-light);
+  opacity: 0.45;
+}
+
+.git-form-heading {
+  font-size: clamp(26px, 2.2vw, 34px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin: 0 0 8px;
+  color: var(--git-ivory);
+  text-transform: uppercase;
+}
+
+.git-form-heading .git-highlight {
+  color: var(--git-blue-light);
+  background: linear-gradient(105deg, #38bdf8 0%, #008ef6 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.git-form-sub {
+  font-size: 13.5px;
+  color: var(--git-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Editorial Form Inputs (Label + Underline)
+   -------------------------------------------------------------------------- */
+.git-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.git-fields-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.git-field-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.git-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--git-muted);
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+.git-label .git-req {
+  color: var(--git-blue-light);
+  margin-left: 2px;
+}
+
+.git-field-group:focus-within .git-label {
+  color: var(--git-blue-light);
+}
+
+.git-input,
+.git-textarea {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--git-border-field);
+  color: var(--git-ivory);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 0 10px;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.git-input::placeholder,
+.git-textarea::placeholder {
+  color: var(--git-muted-dark);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.git-input:focus,
+.git-textarea:focus {
+  border-bottom-color: var(--git-blue-light);
+}
+
+/* Textarea customization */
+.git-textarea {
+  min-height: 84px;
+  resize: vertical;
+  line-height: 1.5;
+  padding-top: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   Service Pills Selection
+   -------------------------------------------------------------------------- */
+.git-services-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.git-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.git-pill {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  color: #c5c7cb;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 7px 15px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.git-pill:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--git-ivory);
+}
+
+.git-pill.is-selected {
+  background: rgba(0, 142, 246, 0.14);
+  border-color: var(--git-blue-light);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 0 14px rgba(0, 142, 246, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   Submit Button
+   -------------------------------------------------------------------------- */
+.git-submit-btn {
+  appearance: none;
+  background: linear-gradient(105deg, #00baf0, #008ef6 55%, #0654f8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 52px;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0 34px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  margin-top: 6px;
+}
+
+.git-submit-btn:hover {
+  filter: brightness(1.12);
+}
+
+.git-submit-btn .git-arrow-icon {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.git-submit-btn:hover .git-arrow-icon {
+  transform: translate(3px, -3px);
+}
+
+.git-submit-btn:active {
+  transform: scale(0.99);
+}
+
+.git-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.git-success-msg {
+  padding: 16px 20px;
+  background: rgba(0, 142, 246, 0.12);
+  border: 1px solid var(--git-blue-light);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Horizontal Contact Details Strip
+   -------------------------------------------------------------------------- */
+.git-contact-strip {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.git-strip-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.git-strip-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--git-muted-dark);
+  text-transform: uppercase;
+}
+
+.git-strip-val {
+  font-size: 13px;
+  color: var(--git-ivory);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  word-break: break-all;
+}
+
+.git-strip-val:hover {
+  color: var(--git-blue-light);
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Closing Strip (Minimal editorial section before footer)
+   -------------------------------------------------------------------------- */
+.git-closing-section {
+  position: relative;
+  background-color: var(--git-bg-darkest);
+  border-top: 1px solid var(--git-border-subtle);
+  padding: 56px 4% 64px;
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+.git-closing-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+}
+
+.git-closing-headline {
+  font-size: clamp(28px, 2.8vw, 44px);
+  font-weight: 850;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--git-ivory);
+  margin: 0;
+}
+
+.git-closing-headline span {
+  display: block;
+}
+
+.git-closing-headline .git-highlight {
+  color: var(--git-blue-light);
+  background: linear-gradient(105deg, #38bdf8 0%, #008ef6 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Flowing thin blue line */
+.git-closing-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.4) 30%, rgba(0, 142, 246, 0.6) 70%, transparent 100%);
+  pointer-events: none;
+}
+
+.git-pillars-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 520px;
+}
+
+.git-pillar-item {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--git-muted);
+  position: relative;
+}
+
+.git-pillar-item::after {
+  content: '·';
+  position: absolute;
+  right: -14px;
+  top: 0;
+  color: var(--git-blue-light);
+  opacity: 0.6;
+}
+
+.git-pillar-item:last-child::after {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Design (Tablets & Mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .git-hero {
+    padding: 36px 3.5% 48px;
+  }
+
+  .git-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .git-left {
+    padding-right: 0;
+  }
+
+  .git-photo-img {
+    height: 360px;
+  }
+
+  .git-closing-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .git-pillars-list {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .git-page {
+    padding-top: 72px;
+  }
+
+  .git-hero {
+    padding: 24px 20px 40px;
+  }
+
+  .git-hero-grid {
+    gap: 36px;
+  }
+
+  .git-eyebrow {
+    font-size: 10.5px;
+    letter-spacing: 0.26em;
+    margin-bottom: 16px;
+  }
+
+  .git-headline {
+    font-size: clamp(34px, 8.5vw, 44px);
+    margin-bottom: 18px;
+  }
+
+  .git-support {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .git-photo-backdrop {
+    margin-top: 24px;
+  }
+
+  .git-photo-img {
+    height: 260px;
+  }
+
+  .git-form-container {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .git-fields-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .git-contact-strip {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .git-closing-section {
+    padding: 44px 20px 52px;
+  }
+
+  .git-closing-headline {
+    font-size: 26px;
+  }
+}
