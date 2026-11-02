@@ -14,7 +14,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: url('/assets/seo-search-studio.png') center top / 100% 100% no-repeat;
+  background: url('https://res.cloudinary.com/jqymijyc/image/upload/seo-search-studio') center top / 100% 100% no-repeat;
   pointer-events: none;
 }
 
@@ -198,7 +198,7 @@
     width: 100%;
     height: 65cqw;
     margin-top: 6cqw;
-    background: url('/assets/seo-search-studio.png') center bottom / cover no-repeat;
+    background: url('https://res.cloudinary.com/jqymijyc/image/upload/seo-search-studio') center bottom / cover no-repeat;
     mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
   }

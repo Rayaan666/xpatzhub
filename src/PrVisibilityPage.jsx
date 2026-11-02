@@ -32,7 +32,7 @@ export default function PrVisibilityPage() {
       <Navbar activeId="pr" />
       <main className="pr-page">
         <section className="pr-hero relative isolate overflow-hidden" aria-labelledby="pr-title">
-      <motion.img className="pr-photograph" src="/assets/pr-visibility/newspaper.png" alt="A curved newspaper titled The Brand Story, featuring a monochrome interview in Dubai, with a loose photographic print on the studio surface." initial={reduced ? false : { opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: reduced ? 0 : 1.1 }} fetchPriority="high" />
+      <motion.img className="pr-photograph" src="https://res.cloudinary.com/jqymijyc/image/upload/newspaper" alt="A curved newspaper titled The Brand Story, featuring a monochrome interview in Dubai, with a loose photographic print on the studio surface." initial={reduced ? false : { opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: reduced ? 0 : 1.1 }} fetchPriority="high" />
       <motion.p className="pr-eyebrow" {...reveal()}>PR &amp; BRAND VISIBILITY<span aria-hidden="true" /></motion.p>
       <h1 id="pr-title" className="pr-title">
         {['Be Seen.', 'Be Heard.', 'Be Remembered.'].map((line, i) => <motion.span key={line} {...reveal(.12 + i * .12, 18)}>{line}</motion.span>)}

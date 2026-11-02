@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import './why-influence-works.css';
 
@@ -25,7 +25,7 @@ export default function WhyInfluenceWorks() {
       </motion.header>
       <div className="why-influence__composition relative">
         <motion.figure {...reveal} className="why-influence__photo overflow-hidden">
-          <img src="/assets/influencers/creator-cafe-1536.webp" srcSet="/assets/influencers/creator-cafe-768.webp 768w, /assets/influencers/creator-cafe-1536.webp 1536w" sizes="(max-width: 1000px) 90vw, (max-width: 1680px) 58.3vw, 975px" width="1536" height="864" loading="lazy" decoding="async" alt="A creator arranges skincare at a sunlit café table as a camera operator films, with ceramic cups, greenery, palms and the Dubai skyline beyond the windows." />
+          <img src="https://res.cloudinary.com/jqymijyc/image/upload/creator-cafe-768" sizes="(max-width: 1000px) 90vw, (max-width: 1680px) 58.3vw, 975px" width="768" height="432" loading="lazy" decoding="async" alt="A creator arranges skincare at a sunlit café table as a camera operator films, with ceramic cups, greenery, palms and the Dubai skyline beyond the windows." />
         </motion.figure>
         <svg className="why-influence__lines" viewBox="0 0 1528 530" preserveAspectRatio="none" aria-hidden="true">
           {principles.map((item, index) => <g key={item.word}>

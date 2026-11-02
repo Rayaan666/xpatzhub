@@ -2,9 +2,9 @@ import { motion, useReducedMotion } from 'framer-motion';
 import './influence-impact.css';
 
 const photos = [
-  { id: 'seen', label: 'SEEN.', width: 544, alt: 'A hand arranges an amber fragrance bottle with a black cap on textured dark stone.' },
-  { id: 'remembered', label: 'REMEMBERED.', width: 1088, alt: 'A creator seen from behind films the same fragrance in a stone-lined Dubai boutique, with the skyline beyond a large window.' },
-  { id: 'acted', label: 'ACTED ON.', width: 544, alt: 'Hands hold a phone displaying the finished photograph of the campaign’s amber fragrance bottle.' },
+  { id: 'seen', label: 'SEEN.', src: 'https://res.cloudinary.com/jqymijyc/image/upload/seen-544', width: 544, alt: 'A hand arranges an amber fragrance bottle with a black cap on textured dark stone.' },
+  { id: 'remembered', label: 'REMEMBERED.', src: 'https://res.cloudinary.com/jqymijyc/image/upload/remembered-544', width: 544, alt: 'A creator seen from behind films the same fragrance in a stone-lined Dubai boutique, with the skyline beyond a large window.' },
+  { id: 'acted', label: 'ACTED ON.', src: 'https://res.cloudinary.com/jqymijyc/image/upload/acted-272', width: 272, alt: 'Hands hold a phone displaying the finished photograph of the campaign’s amber fragrance bottle.' },
 ];
 const outcomes = [
   ['REACH', 'Put your brand in front of relevant creator audiences.'],
@@ -37,7 +37,7 @@ export default function InfluenceImpact() {
       <div className="influence-impact__campaign relative">
         <div className="influence-impact__strip grid">
           {photos.map((photo, index) => <motion.figure {...reveal(index * .1)} key={photo.id} className={`influence-impact__photo influence-impact__photo--${photo.id}`}>
-            <img src={`/assets/influencers/impact/${photo.id}-${photo.width}.webp`} srcSet={`/assets/influencers/impact/${photo.id}-${photo.width / 2}.webp ${photo.width / 2}w, /assets/influencers/impact/${photo.id}-${photo.width}.webp ${photo.width}w`} sizes={index === 1 ? '(max-width: 640px) 92vw, 51vw' : '(max-width: 640px) 45vw, 25vw'} width={photo.width} height="725" loading="lazy" decoding="async" alt={photo.alt} />
+            <img src={photo.src} sizes={index === 1 ? '(max-width: 640px) 92vw, 51vw' : '(max-width: 640px) 45vw, 25vw'} width={photo.width} height="725" loading="lazy" decoding="async" alt={photo.alt} />
             <figcaption>{photo.label}</figcaption>
           </motion.figure>)}
         </div>

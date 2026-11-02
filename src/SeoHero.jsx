@@ -50,14 +50,14 @@ export default function SeoHero() {
           Data-driven SEO, PPC campaigns &amp; performance content engineered to connect your brand with real customers across Dubai &amp; the UAE.
         </p>
         <div className="seo-actions">
-          <button className="seo-primary" onClick={openEnquiry} aria-label="Get Your Free Strategy Call">Get Your Free Strategy Call <ArrowUpRight aria-hidden="true" /></button>
+          <button className="seo-primary" onClick={openEnquiry} aria-label="Get Your Strategy Call">Get Your Strategy Call <ArrowUpRight aria-hidden="true" /></button>
         </div>
       </div>
       <dialog ref={dialog} className="seo-dialog" aria-labelledby="seo-dialog-title" onClose={() => trigger.current?.focus()} onClick={event => { if (event.target === dialog.current) dialog.current.close(); }}>
         <button className="seo-close" aria-label="Close dialog" onClick={() => dialog.current.close()}><X /></button>
         <p className="seo-dialog-eyebrow">XPATZHUB · DUBAI</p>
         <h2 id="seo-dialog-title">Let’s plan your next stage of growth.</h2>
-        <p>Contact our team for your free strategy call. Tell us about your brand, your website, and what you want to achieve.</p>
+        <p>Contact our team for your strategy call. Tell us about your brand, your website, and what you want to achieve.</p>
         <a className="seo-dialog-link" href="mailto:anulmundra@indianexpatsindubai.com?subject=Strategy%20Call">Email the team <ArrowRight size={18} /></a>
         <a href="tel:+971564800026">+971 56 480 0026</a>
       </dialog>

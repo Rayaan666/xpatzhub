@@ -44,7 +44,7 @@ export default function SeoCtaSection({ onOpenStrategyModal }) {
                 className="seo-cta-button-primary"
                 onClick={(e) => e.preventDefault()}
               >
-                Get Your Free SEO Audit & Strategy Call <ArrowRight size={20} aria-hidden="true" />
+                Get Your SEO Audit & Strategy Call <ArrowRight size={20} aria-hidden="true" />
               </button>
 
               <a href="#" onClick={(e) => e.preventDefault()} className="seo-cta-button-secondary">

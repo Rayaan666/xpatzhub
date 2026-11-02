@@ -33,7 +33,7 @@ export default function GrowthJourney() {
             <li className="growth-stage" key={stage.category}>
               <article ref={el => stageRefs.current[index] = el} tabIndex={-1} className="outline-none">
                 <div className="growth-photo">
-                  <img src={`/assets/approach-${stage.category.toLowerCase()}.png`} alt={stage.alt} width="1024" height="1024" loading="lazy" />
+                  <img src={`https://res.cloudinary.com/jqymijyc/image/upload/approach-${stage.category.toLowerCase()}`} alt={stage.alt} width="1024" height="1024" loading="lazy" />
                   {index === 2 && <svg className="growth-click" viewBox="0 0 50 50" aria-hidden="true"><path d="M10 24 19 5 M25 35 43 22" /></svg>}
                   {index === 4 && <svg className="growth-up" viewBox="0 0 100 100" aria-hidden="true"><path d="M10 86 Q48 48 83 14 M60 20 84 12 78 39 M15 83 82 15" /></svg>}
                 </div>

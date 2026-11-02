@@ -23,7 +23,7 @@ export default function CommunityPower() {
         {stages.map(({name, alt}, index) => <li className={`community-power__stage community-power__stage--${name.toLowerCase()}`} key={name}>
           <figure>
             <figcaption>{name}</figcaption>
-            <div className="community-power__print"><img src={`/assets/community-power/${name.toLowerCase()}.png`} width="1024" height="1280" alt={alt} loading="lazy" decoding="async" /></div>
+            <div className="community-power__print"><img src={`https://res.cloudinary.com/jqymijyc/image/upload/${name.toLowerCase()}`} width="1024" height="1280" alt={alt} loading="lazy" decoding="async" /></div>
           </figure>
           {index < stages.length - 1 && <svg className="community-power__arrow" viewBox="0 0 120 70" fill="none" aria-hidden="true"><path d="M5 56C35 18 77 10 109 38M97 24L110 39L92 40" /></svg>}
         </li>)}

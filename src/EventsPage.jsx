@@ -30,10 +30,9 @@ export default function EventsPage() {
       <Navbar activeId="events" />
       <main className="events-page">
         <section className="events-hero relative isolate overflow-hidden" aria-labelledby="events-title">
-          <motion.picture className="events-photo" initial={reduced ? false : { scale: 1.025 }} animate={{ scale: 1 }} transition={{ duration: reduced ? 0 : 1.5 }}>
-            <source media="(max-width: 600px)" srcSet="/assets/events/portrait-600.webp 600w, /assets/events/portrait-1024.webp 1024w" sizes="100vw" width="1024" height="1536" />
-            <img src="/assets/events/venue-1672.webp" srcSet="/assets/events/venue-1000.webp 1000w, /assets/events/venue-1672.webp 1672w" sizes="100vw" width="1672" height="941" fetchPriority="high" alt="Forest-green velvet curtains open onto a contemporary arts venue with cream ceiling sails, product displays and guests connecting around a central aisle." />
-          </motion.picture>
+          <motion.div className="events-photo" initial={reduced ? false : { scale: 1.025 }} animate={{ scale: 1 }} transition={{ duration: reduced ? 0 : 1.5 }}>
+            <img src="https://res.cloudinary.com/jqymijyc/image/upload/venue-1672" width="1672" height="941" fetchPriority="high" alt="Forest-green velvet curtains open onto a contemporary arts venue with cream ceiling sails, product displays and guests connecting around a central aisle." />
+          </motion.div>
           <div className="events-shade" aria-hidden="true" />
           <div className="events-heading">
             <motion.p className="events-eyebrow" {...reveal(0)}>EVENTS &amp; EXPERIENCES</motion.p>

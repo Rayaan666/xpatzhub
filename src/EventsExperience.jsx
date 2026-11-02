@@ -26,11 +26,11 @@ export default function EventsExperience() {
         <div className="experience-visual">
           <div className="experience-circle-wrap">
             <div className="experience-circle">
-              <motion.img src="/assets/events/workshop-1200.webp" srcSet="/assets/events/workshop-640.webp 640w, /assets/events/workshop-1200.webp 1200w" sizes="(max-width: 700px) 82vw, 42vw" width="1200" height="1200" loading="lazy" alt="Participants in linen and forest-green clothing gathered around a pottery workshop table, photographed from behind in a sunlit studio." initial={reduced ? false : { opacity: 0, scale: 1.02 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: .15 }} transition={{ duration: reduced ? 0 : .9 }} />
+              <motion.img src="https://res.cloudinary.com/jqymijyc/image/upload/workshop-source" width="1200" height="1200" loading="lazy" alt="Participants in linen and forest-green clothing gathered around a pottery workshop table, photographed from behind in a sunlit studio." initial={reduced ? false : { opacity: 0, scale: 1.02 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: .15 }} transition={{ duration: reduced ? 0 : .9 }} />
             </div>
             <svg className="experience-arc" viewBox="0 0 650 650" fill="none" aria-hidden="true"><motion.path d="M 424 10 A 330 330 0 0 1 640 234" stroke="currentColor" strokeWidth="1.4" vectorEffect="non-scaling-stroke" initial={reduced ? false : { pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: reduced ? 0 : 1.2, delay: reduced ? 0 : .25 }} /></svg>
           </div>
-          <motion.img className="experience-detail" src="/assets/events/bowl-560.webp" srcSet="/assets/events/bowl-320.webp 320w, /assets/events/bowl-560.webp 560w" sizes="(max-width: 700px) 38vw, 17vw" width="560" height="490" loading="lazy" alt="Hands holding a handmade sage-green ceramic bowl above a kraft-paper bag." {...reveal(.2)} />
+          <motion.img className="experience-detail" src="https://res.cloudinary.com/jqymijyc/image/upload/bowl-source" width="560" height="490" loading="lazy" alt="Hands holding a handmade sage-green ceramic bowl above a kraft-paper bag." {...reveal(.2)} />
           <motion.p className="experience-note" {...reveal(.25, 0)}><span>Real People.<br />Real Moments.<br />Real Impact.</span><svg viewBox="0 0 140 35" fill="none" aria-hidden="true"><path d="M 4 30 Q 65 8 136 5" stroke="currentColor" strokeWidth="1.5" /></svg></motion.p>
         </div>
         <ol className="experience-journey">

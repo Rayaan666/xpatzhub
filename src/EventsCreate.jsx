@@ -4,9 +4,9 @@ import { seoContent } from './seoContent';
 import './events-create.css';
 
 const categories = [
-  { id: 'business', label: 'CORPORATE & BUSINESS', title: 'Business.', tagline: 'Meaningful Business Connections.', services: ['Corporate Events · Conferences', 'Seminars & Webinars · Networking', 'Awards · Team Building'], link: 'Explore corporate events', subject: 'Corporate Events Enquiry', alt: 'Guests networking beside forest-green lounge seating and floor-to-ceiling windows overlooking the Dubai skyline.', width: 1200, height: 900 },
-  { id: 'brands', label: 'BRANDS & ACTIVATIONS', title: 'Brands.', tagline: 'Ideas That Make an Impact.', services: ['Product & Brand Launches · Exhibitions', 'Retail & Mall Activations · Promotions', 'Roadshows · Brand Experiences'], link: 'Explore brand activations', subject: 'Brand Activations Enquiry', alt: 'Guests exploring circular product displays beneath sculptural translucent green fabric in an architectural venue.', width: 1200, height: 1500 },
-  { id: 'celebrations', label: 'PRIVATE & SOCIAL', title: 'Celebrations.', tagline: 'Celebrations That Bring People Closer.', services: ['Weddings · Birthdays · Baby Showers', 'Engagements · Anniversaries', 'Family & Private Celebrations'], link: 'Explore private events', subject: 'Private Events Enquiry', alt: 'An intimate garden celebration with guests chatting around a candlelit table beneath trees and hanging lanterns.', width: 1200, height: 1000 },
+  { id: 'business', label: 'CORPORATE & BUSINESS', title: 'Business.', tagline: 'Meaningful Business Connections.', services: ['Corporate Events · Conferences', 'Seminars & Webinars · Networking', 'Awards · Team Building'], link: 'Explore corporate events', subject: 'Corporate Events Enquiry', image: 'https://res.cloudinary.com/jqymijyc/image/upload/create-business-source', alt: 'Guests networking beside forest-green lounge seating and floor-to-ceiling windows overlooking the Dubai skyline.', width: 1200, height: 900 },
+  { id: 'brands', label: 'BRANDS & ACTIVATIONS', title: 'Brands.', tagline: 'Ideas That Make an Impact.', services: ['Product & Brand Launches · Exhibitions', 'Retail & Mall Activations · Promotions', 'Roadshows · Brand Experiences'], link: 'Explore brand activations', subject: 'Brand Activations Enquiry', image: 'https://res.cloudinary.com/jqymijyc/image/upload/create-brands-source', alt: 'Guests exploring circular product displays beneath sculptural translucent green fabric in an architectural venue.', width: 1200, height: 1500 },
+  { id: 'celebrations', label: 'PRIVATE & SOCIAL', title: 'Celebrations.', tagline: 'Celebrations That Bring People Closer.', services: ['Weddings · Birthdays · Baby Showers', 'Engagements · Anniversaries', 'Family & Private Celebrations'], link: 'Explore private events', subject: 'Private Events Enquiry', image: 'https://res.cloudinary.com/jqymijyc/image/upload/create-celebrations-640', alt: 'An intimate garden celebration with guests chatting around a candlelit table beneath trees and hanging lanterns.', width: 1200, height: 1000 },
 ];
 
 export default function EventsCreate() {
@@ -23,7 +23,7 @@ export default function EventsCreate() {
     <div className="create-columns grid">
       {categories.map((category, index) => <motion.article className={`create-category create-${category.id}`} key={category.id} aria-labelledby={`create-${category.id}-title`} {...reveal(index * .12)}>
         <div className="create-photo">
-          <img src={`/assets/events/create-${category.id}-1200.webp`} srcSet={`/assets/events/create-${category.id}-640.webp 640w, /assets/events/create-${category.id}-1200.webp 1200w`} sizes="(max-width: 1000px) 94vw, 36vw" width={category.width} height={category.height} loading="lazy" alt={category.alt} />
+          <img src={category.image} sizes="(max-width: 1000px) 94vw, 36vw" width={category.width} height={category.height} loading="lazy" alt={category.alt} />
         </div>
         <div className="create-copy">
           <p className="create-label"><span>0{index + 1}</span>{category.label}</p>

@@ -20,10 +20,9 @@ export default function PrVisibilityServices() {
       <motion.h2 id="pvs-title" {...reveal(.08)}>More Ways to Be Seen. More Reasons to <span>Be Remembered.</span></motion.h2>
       <motion.p className="pvs-description" {...reveal(.16)}>From media coverage and interviews to outdoor visibility and strategic brand campaigns, we create opportunities<br className="pvs-wide-break" /> for your brand to show up in the right places, with the right story.</motion.p>
     </header>
-    <motion.picture className="pvs-photograph" initial={reduced ? false : { opacity: 0, scale: 1.02 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: reduced ? 0 : 1 }}>
-      <source media="(max-width: 1000px)" srcSet="/assets/pr-visibility/services-900.webp 900w, /assets/pr-visibility/services-1672.webp 1672w" sizes="130vw" />
-      <img src="/assets/pr-visibility/services-1672.webp" width="1672" height="941" loading="lazy" alt="Silver studio microphone and black headphones beside a folded newspaper and a Dubai billboard photographic print, with a dusty-rose cable looping across a dark tabletop." />
-    </motion.picture>
+    <motion.div className="pvs-photograph" initial={reduced ? false : { opacity: 0, scale: 1.02 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: reduced ? 0 : 1 }}>
+      <img src="https://res.cloudinary.com/jqymijyc/image/upload/services-1672" width="1672" height="941" loading="lazy" alt="Silver studio microphone and black headphones beside a folded newspaper and a Dubai billboard photographic print, with a dusty-rose cable looping across a dark tabletop." />
+    </motion.div>
     <div className="pvs-services grid">
       {prServices.map((service, index) => <motion.article className={`pvs-service pvs-service-${index + 1}`} key={service.title} {...reveal(index * .1)} aria-labelledby={`pvs-service-title-${index}`}>
         <div className="pvs-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}<span /></div>

@@ -23,7 +23,7 @@ export default function BeyondBeingSeen() {
       </motion.header>
       <div className="bbs-composition grid">
         <motion.figure className="bbs-photo" {...reveal(.08)}>
-          <img src="/assets/pr-visibility/interview-1440.webp" srcSet="/assets/pr-visibility/interview-720.webp 720w, /assets/pr-visibility/interview-1440.webp 1440w" sizes="(max-width: 767px) calc(100vw - 44px), 44vw" width="1440" height="900" loading="lazy" alt="Close-up of an interviewer holding a microphone toward a business professional’s gesturing hands, with camera equipment softly blurred behind them." />
+          <img src="https://res.cloudinary.com/jqymijyc/image/upload/interview-720" sizes="(max-width: 767px) calc(100vw - 44px), 44vw" width="720" height="450" loading="lazy" alt="Close-up of an interviewer holding a microphone toward a business professional’s gesturing hands, with camera equipment softly blurred behind them." />
           <figcaption>THE CONVERSATIONS THAT COUNT.</figcaption>
           <div className="bbs-note"><span>Real conversations.<br />Real opportunities.</span><svg viewBox="0 0 100 12" aria-hidden="true"><path d="M4 10 Q50 5 96 2" /></svg></div>
         </motion.figure>

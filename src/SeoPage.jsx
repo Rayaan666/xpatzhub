@@ -28,8 +28,8 @@ export default function SeoPage() {
       <Footer 
         ctaTitle="Ready to Dominate Search Rankings & Drive Growth in Dubai & the UAE?"
         ctaDescription="Partner with Dubai's premier SEO & digital marketing agency. Turn high-intent search traffic into qualified leads and revenue with data-driven search engine optimization, technical audits, and performance marketing."
-        ctaButtonText="Get Your Free SEO Audit"
-        ctaBgImage="/about/cta.png"
+        ctaButtonText="Get Your SEO Audit"
+        ctaBgImage="https://res.cloudinary.com/jqymijyc/image/upload/ctaa"
       />
     </>
   );

@@ -68,7 +68,7 @@ export default function FaqSection() {
             <motion.div className="faq-support-card" {...reveal(0.26, 15)}>
               <h4 className="faq-support-title">Need custom answers for your brand?</h4>
               <p className="faq-support-desc">
-                Book a free 15-minute consultation with our Dubai growth strategists.
+                Book a 15-minute consultation with our Dubai growth strategists.
               </p>
               <div className="faq-support-actions">
                 <a href="tel:+971564800026" className="faq-support-btn faq-btn-phone">

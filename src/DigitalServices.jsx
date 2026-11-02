@@ -27,8 +27,8 @@ export default function DigitalServices() {
   const openGeneralStrategy = () => {
     opener.current = document.activeElement;
     setSelected({
-      title: 'Free Strategy Call',
-      detail: 'Tell us about your brand, your website and what you want to achieve. Contact our team to arrange your free strategy call.'
+      title: 'Strategy Call',
+      detail: 'Tell us about your brand, your website and what you want to achieve. Contact our team to arrange your strategy call.'
     });
     dialog.current.showModal();
   };
@@ -37,7 +37,7 @@ export default function DigitalServices() {
     <div className="ds-inner">
       <header className="ds-header">
         <div className="ds-heading-area"><motion.p className="ds-eyebrow" {...reveal(0,0)}>OUR DIGITAL MARKETING SERVICES <span /></motion.p><motion.h2 id="ds-heading" {...reveal(.05)}>Everything Your Brand Needs<br />to <span>Grow Online.</span></motion.h2></div>
-        <motion.div className="ds-intro" {...reveal(.12,15)}><p>From search visibility and paid campaigns to content, websites and lead generation, XPATZHUB brings your entire digital growth strategy together under one roof.</p><button className="ds-cta" onClick={openGeneralStrategy}>Get Your Free Strategy Call <ArrowRight size={17} aria-hidden="true" /></button></motion.div>
+        <motion.div className="ds-intro" {...reveal(.12,15)}><p>From search visibility and paid campaigns to content, websites and lead generation, XPATZHUB brings your entire digital growth strategy together under one roof.</p><button className="ds-cta" onClick={openGeneralStrategy}>Get Your Strategy Call <ArrowRight size={17} aria-hidden="true" /></button></motion.div>
       </header>
       <div className="ds-grid">
         {services.map((service,index) => { const Icon = service.icon; return <motion.article key={service.title} className={`ds-card ds-card-${index+1} ${index === 0 ? 'ds-featured' : ''}`} {...reveal(index * .065)}>
@@ -50,6 +50,6 @@ export default function DigitalServices() {
       </div>
       <footer className="ds-footer"><span>XPATZHUB</span><i /><span>STRATEGY · VISIBILITY · GROWTH</span></footer>
     </div>
-    <dialog className="ds-dialog" ref={dialog} aria-labelledby="ds-dialog-heading" onClose={() => opener.current?.focus()} onClick={e => { if (e.target === dialog.current) dialog.current.close(); }}><button className="ds-dialog-close" aria-label="Close service details" onClick={() => dialog.current.close()}><X /></button><p className="ds-eyebrow">XPATZHUB</p><h2 id="ds-dialog-heading">{selected?.title || 'Let’s plan your next stage of growth.'}</h2><p>{selected?.detail || 'Tell us about your brand, your website and what you want to achieve. Contact our team to arrange your free strategy call.'}</p><a className="ds-cta" href="mailto:anulmundra@indianexpatsindubai.com?subject=Strategy%20Call%20Inquiry">Discuss your goals <ArrowRight size={18} /></a><a className="ds-phone" href="tel:+971564800026">+971 56 480 0026</a></dialog>
+    <dialog className="ds-dialog" ref={dialog} aria-labelledby="ds-dialog-heading" onClose={() => opener.current?.focus()} onClick={e => { if (e.target === dialog.current) dialog.current.close(); }}><button className="ds-dialog-close" aria-label="Close service details" onClick={() => dialog.current.close()}><X /></button><p className="ds-eyebrow">XPATZHUB</p><h2 id="ds-dialog-heading">{selected?.title || 'Let’s plan your next stage of growth.'}</h2><p>{selected?.detail || 'Tell us about your brand, your website and what you want to achieve. Contact our team to arrange your strategy call.'}</p><a className="ds-cta" href="mailto:anulmundra@indianexpatsindubai.com?subject=Strategy%20Call%20Inquiry">Discuss your goals <ArrowRight size={18} /></a><a className="ds-phone" href="tel:+971564800026">+971 56 480 0026</a></dialog>
   </section>;
 }

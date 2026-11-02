@@ -16,9 +16,9 @@ export const influencerFaqData = [
   {
     id: 'inf-faq-03',
     number: '03',
-    question: 'Do you work with micro and nano-influencers or only top creators?',
+    question: 'Do you work with top creators as well as micro and nano-influencers?',
     answer:
-      'We work across the entire spectrum. While top macro creators deliver massive awareness, micro (10K–50K) and nano (2K–10K) creators often deliver significantly higher engagement, hyper-local trust, and authentic community connections across Dubai, Abu Dhabi, and the wider UAE.'
+      'Yes, we work across the entire creator spectrum. With an active network of over 5,000+ vetted influencers across the UAE, we connect brands with everyone from high-impact nano and micro-creators starting at 10,000 followers up to celebrity and macro creators with over 5 Million followers. Whether your goal is hyper-targeted local community trust or massive nationwide brand awareness, we curate the perfect creator mix tailored to your objectives and budget.'
   },
   {
     id: 'inf-faq-04',

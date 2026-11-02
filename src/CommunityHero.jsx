@@ -5,7 +5,7 @@ import './community-hero.css';
 function Photo({ name, caption, alt, wide = false }) {
   return <figure className={`community-print community-print--${name}`}>
     <div className="community-print__frame">
-      <img src={`/assets/community/${name}.png`} width={wide ? 3072 : 1024} height={wide ? 1024 : 1536} alt={alt} fetchPriority={wide ? 'auto' : 'high'} />
+      <img src={`https://res.cloudinary.com/jqymijyc/image/upload/${name}`} width={wide ? 3072 : 1024} height={wide ? 1024 : 1536} alt={alt} fetchPriority={wide ? 'auto' : 'high'} />
       <span className="community-print__film" aria-hidden="true">43&nbsp;&nbsp; ▸&nbsp;&nbsp; KODAK PORTRA 400</span>
       <span className="community-print__number" aria-hidden="true">43&nbsp; ▴</span>
       {!wide && <span className="community-print__tape" aria-hidden="true" />}

@@ -11,7 +11,6 @@ const serviceOptions = [
   'PR & Brand Visibility',
   'Community Marketing',
   'Influencer Marketing',
-  'Real Estate Marketing',
   'Something Else',
 ];
 
@@ -21,7 +20,6 @@ const pillarsList = [
   'PR',
   'COMMUNITY',
   'INFLUENCE',
-  'REAL ESTATE',
 ];
 
 export default function GetInTouchPage() {
