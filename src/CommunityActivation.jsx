@@ -19,9 +19,17 @@ const chapters = [
 
 function Chapter({ chapter, index, reduced }) {
   const ease = [0.22, 1, 0.36, 1];
+  const isCloudinary = chapter.image === 'activate' || chapter.image === 'experience';
+  const imgSrc = isCloudinary
+    ? `https://res.cloudinary.com/jqymijyc/image/upload/${chapter.image}-960`
+    : `/assets/community-activation/${chapter.image}.webp`;
+  const imgSrcSet = isCloudinary
+    ? undefined
+    : `/assets/community-activation/${chapter.image}-960.webp 960w, /assets/community-activation/${chapter.image}.webp 1672w`;
+
   return <motion.article className={`community-activation__band community-activation__band--${chapter.image}`} aria-labelledby={`community-chapter-${chapter.image}`} initial={reduced ? false : 'hidden'} whileInView="visible" viewport={{ once: true, amount: .16 }}>
     <motion.div className="community-activation__photo" variants={{hidden:{clipPath:'inset(0 0 0 24%)'},visible:{clipPath:'inset(0 0 0 0%)'}}} transition={{duration:1.15,ease}}>
-      <motion.img src={`/assets/community-activation/${chapter.image}.webp`} srcSet={`/assets/community-activation/${chapter.image}-960.webp 960w, /assets/community-activation/${chapter.image}.webp 1672w`} sizes="(max-width: 767px) 960px, 100vw" width="1672" height="941" alt={chapter.alt} loading="lazy" decoding="async" variants={{hidden:{scale:1.04},visible:{scale:1}}} transition={{duration:1.35,ease}} />
+      <motion.img src={imgSrc} srcSet={imgSrcSet} sizes="(max-width: 767px) 960px, 100vw" width="1672" height="941" alt={chapter.alt} loading="lazy" decoding="async" variants={{hidden:{scale:1.04},visible:{scale:1}}} transition={{duration:1.35,ease}} />
     </motion.div>
     <div className="community-activation__shade" aria-hidden="true" />
     <div className="community-activation__content">

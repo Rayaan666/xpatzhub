@@ -142,16 +142,24 @@ export default function Navbar({ activeId = 'digital', onContactClick }) {
                 </button>
               </div>
 
+              {/* Minimal Section Label */}
+              <div className="mobile-nav-eyebrow">
+                <span>NAVIGATION</span>
+                <span className="mobile-nav-dot" />
+                <span>UAE GROWTH</span>
+              </div>
+
               {/* Links */}
               <div className="mobile-nav-links">
                 {navLinks.map((link, i) => {
                   const isContact = link.id === 'contact';
                   const isFunctional = link.id === 'home' || link.id === 'digital' || link.id === 'community' || link.id === 'influencer' || link.id === 'pr' || link.id === 'events' || isContact;
+                  const isActive = link.id === activeId;
                   return (
                     <motion.a
                       key={link.id}
                       href={link.href}
-                      className={`mobile-nav-link ${link.id === activeId ? 'active' : ''}`}
+                      className={`mobile-nav-link ${isActive ? 'active' : ''}`}
                       onClick={(e) => {
                         setMenu(false);
                         if (isContact && onContactClick) {
@@ -161,15 +169,20 @@ export default function Navbar({ activeId = 'digital', onContactClick }) {
                           handleNonFunctional(e);
                         }
                       }}
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.04 + i * 0.04, ease: [0.16, 1, 0.3, 1], duration: 0.3 }}
+                      transition={{ delay: 0.03 + i * 0.035, ease: [0.16, 1, 0.3, 1], duration: 0.35 }}
                     >
-                      <div className="mobile-nav-link-content">
-                        <span className="mobile-nav-link-title">{link.name}</span>
-                        {link.subtitle && <span className="mobile-nav-link-sub">{link.subtitle}</span>}
+                      <div className="mobile-nav-link-left">
+                        <span className="mobile-nav-index">0{i + 1}</span>
+                        <div className="mobile-nav-link-content">
+                          <span className="mobile-nav-link-title">{link.name}</span>
+                          {link.subtitle && <span className="mobile-nav-link-sub">{link.subtitle}</span>}
+                        </div>
                       </div>
-                      <span className="mobile-nav-link-num">0{i + 1}</span>
+                      <div className="mobile-nav-link-arrow" aria-hidden="true">
+                        <ArrowRight size={15} />
+                      </div>
                     </motion.a>
                   );
                 })}
@@ -188,9 +201,14 @@ export default function Navbar({ activeId = 'digital', onContactClick }) {
                     }
                   }}
                 >
-                  <span>Start Growing Today</span>
+                  <span>Let's Grow Your Brand</span>
                   <ArrowRight size={16} />
                 </button>
+                <div className="mobile-nav-meta">
+                  <span>Dubai & Abu Dhabi</span>
+                  <span>•</span>
+                  <span>Authentic UAE Reach</span>
+                </div>
               </div>
             </motion.nav>
           </motion.div>

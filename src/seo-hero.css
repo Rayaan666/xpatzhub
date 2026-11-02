@@ -141,7 +141,7 @@
   .seo-hero {
     height: auto;
     min-height: 0;
-    padding: 116px 20px 0;
+    padding: 104px 20px 24px;
     background: #08090a;
     container-type: inline-size;
   }
@@ -152,55 +152,60 @@
   }
 
   .seo-hero .seo-eyebrow {
-    font-size: 3cqw;
-    letter-spacing: 0.2em;
-    margin-bottom: 3cqw;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    margin-bottom: 12px;
   }
 
   .seo-hero h1 {
-    font-size: 11cqw;
-    line-height: 0.98;
+    font-size: clamp(34px, 9.5vw, 44px);
+    line-height: 1.02;
     letter-spacing: -0.04em;
   }
 
   .seo-hero h1 .seo-blue {
-    margin-top: 1cqw;
+    margin-top: 4px;
   }
 
   .seo-hero .seo-support {
     width: 100%;
-    margin-top: 4cqw;
+    margin-top: 16px;
   }
 
   .seo-hero .seo-description {
-    max-width: 100%;
-    font-size: 4.2cqw;
-    line-height: 1.45;
+    max-width: 520px;
+    font-size: 15px;
+    line-height: 1.5;
     letter-spacing: -0.01em;
-    margin-bottom: 5cqw;
+    margin: 0 auto 20px;
+    color: #cbd5e1;
   }
 
   .seo-hero .seo-primary {
-    height: 13cqw;
-    padding: 0 6cqw;
-    font-size: 3.6cqw;
-    gap: 2cqw;
+    height: 46px;
+    padding: 0 24px;
+    font-size: 14px;
+    gap: 8px;
   }
 
   .seo-hero .seo-primary svg {
-    width: 4cqw;
-    height: 4cqw;
+    width: 16px;
+    height: 16px;
   }
 
   .seo-hero .seo-studio {
     position: relative;
     inset: auto;
-    width: 100%;
-    height: 65cqw;
-    margin-top: 6cqw;
-    background: url('https://res.cloudinary.com/jqymijyc/image/upload/seo-search-studio') center bottom / cover no-repeat;
-    mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 210px;
+    margin-top: 24px;
+    background: url('https://res.cloudinary.com/jqymijyc/image/upload/seo-search-studio') center center / contain no-repeat;
+    mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
   }
 }
 
