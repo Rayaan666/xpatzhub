@@ -19,7 +19,7 @@ const pillarsList = [
   'EVENTS',
   'PR',
   'COMMUNITY',
-  'INFLUENCE',
+  'INFLUENCERS',
 ];
 
 export default function GetInTouchPage() {

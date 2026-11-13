@@ -441,9 +441,9 @@
   margin-top: 24px;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
 }
 
 .git-strip-item {
@@ -466,7 +466,7 @@
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .git-strip-val:hover {
